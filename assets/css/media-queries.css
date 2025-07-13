@@ -86,6 +86,56 @@
 }
 
 
+/* Ukuran Mobile Kecil (≤ 430px) */
+@media screen and (max-width: 430px) {
+  .hero-title {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .sub-title {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .nav-bottom {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .typing-badut {
+    position: relative;
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+  }
+
+  .darkmode-toggle {
+    scale: 0.9;
+    margin-left: 10px;
+  }
+
+  .avatar-box img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .social-icons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .profile-container {
+    padding: 15px;
+  }
+}
+
+
 /*========== 📱 Landscape Mode Mobile (max-width: 812px) ==========*/
 /* 💡 Untuk tampilan ponsel dalam posisi landscape */
 @media screen and (max-width: 812px) and (orientation: landscape) {
