@@ -1,0 +1,96 @@
+/* ==================== 📱 TABLET (max-width: 768px) ==================== */
+@media screen and (max-width: 768px) {
+  .vip-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .vip-header p {
+    font-size: 1rem;
+  }
+
+  .vip-benefits h2 {
+    font-size: 1.2rem;
+  }
+
+  .vip-benefits li {
+    font-size: 0.95rem;
+  }
+
+  .vip-upgrade h3 {
+    font-size: 1.2rem;
+  }
+
+  .vip-card h4 {
+    font-size: 1.05rem;
+  }
+
+  .vip-card p {
+    font-size: 0.9rem;
+  }
+
+  .vip-card button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .vip-footer button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
+
+/* ==================== 📱 MOBILE (max-width: 480px) ==================== */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+
+  .vip-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .vip-header p {
+    font-size: 0.95rem;
+  }
+
+  .vip-benefits h2 {
+    font-size: 1.1rem;
+  }
+
+  .vip-benefits li {
+    font-size: 0.9rem;
+  }
+
+  .vip-upgrade h3 {
+    font-size: 1.1rem;
+  }
+
+  .vip-levels {
+    grid-template-columns: 1fr;
+  }
+
+  .vip-card {
+    padding: 1rem;
+  }
+
+  .vip-card h4 {
+    font-size: 1rem;
+  }
+
+  .vip-card p {
+    font-size: 0.9rem;
+  }
+
+  .vip-card button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .vip-footer button {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+}

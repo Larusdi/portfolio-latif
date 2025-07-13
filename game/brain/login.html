@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🔐 Masuk - Brain Test Pro 2025</title>
+  <link rel="stylesheet" href="css/login.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Ikon mata -->
+</head>
+<body class="page-enter">
+
+  <!-- Header -->
+  <header class="login-header">
+    <h1>🔐 Selamat Datang</h1>
+    <p>Masuk untuk melanjutkan permainanmu!</p>
+  </header>
+
+  <!-- Form Masuk -->
+  <main class="login-container">
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <label for="username">👤 Nama Pemain</label>
+      <input type="text" id="username" placeholder="Masukkan nama kamu" required />
+
+      <label for="password">🔑 Kata Sandi</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" placeholder="********" required />
+        <button type="button" id="togglePassword" class="eye-toggle" title="Lihat Password">
+          <i class="fas fa-eye"></i>
+        </button>
+      </div>
+
+      <button type="submit">🚀 Masuk</button>
+
+      <!-- Link tambahan -->
+      <div class="login-links">
+        <a href="lupapw.html" onclick="forgotPassword()">Lupa Password?</a>
+        <a href="daftar.html">Belum punya akun? Daftar</a>
+      </div>
+
+      <!-- Garis pemisah -->
+      <div class="login-separator"><span>atau</span></div>
+
+      <!-- Dummy Sosial Media -->
+        <div class="login-socials">
+        <button type="button" onclick="socialLogin('google')" class="google-btn">
+            <img src="icon/google.png" alt="Google" /> Masuk dengan Google
+        </button>
+        <button type="button" onclick="socialLogin('facebook')" class="facebook-btn">
+            <img src="icon/fb.png" alt="Facebook" /> Masuk dengan Facebook
+        </button>
+        </div>
+    </form>
+
+    <!-- Tombol kembali -->
+    <div class="login-back">
+      <button onclick="backToGame()">← Kembali ke Halaman Utama</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="login-footer">
+    <p>&copy; 2025 Brain Test Pro</p>
+  </footer>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

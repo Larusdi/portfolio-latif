@@ -1,0 +1,177 @@
+/* ==================== 🌐 DASAR ==================== */
+body {
+  margin: 0;
+  padding: 2rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ==================== 📝 HEADER ==================== */
+.register-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeDown 0.6s ease;
+}
+
+.register-header h1 {
+  font-size: 2.1rem;
+  color: #007aff;
+  margin-bottom: 0.3rem;
+}
+
+.register-header p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ==================== 📋 FORM ==================== */
+.register-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  animation: fadeUp 0.7s ease;
+}
+
+.register-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.register-container label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.register-container input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-container input:focus {
+  border-color: #007aff;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+  outline: none;
+}
+
+/* ==================== 🚀 TOMBOL DAFTAR ==================== */
+.register-container button[type="submit"] {
+  background: #007aff;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.register-container button[type="submit"]:hover {
+  background: #005fcc;
+  transform: scale(0.97);
+}
+
+/* ==================== 🔗 LINK TAMBAHAN ==================== */
+.register-links {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.register-links a {
+  color: #007aff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.register-links a:hover {
+  color: #005fcc;
+  text-decoration: underline;
+}
+
+.register-back button:hover {
+  background: #d32f2f;
+}
+
+/* ==================== 🔻 FOOTER ==================== */
+.register-footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* ==================== 💫 ANIMASI ==================== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== 🔔 TOAST NOTIFIKASI ==================== */
+.toast-message {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #007aff;
+  color: white;
+  padding: 0.9rem 1.4rem;
+  border-radius: 2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 8px 20px rgba(0, 122, 255, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.4s ease;
+}
+
+.toast-message.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+
+/* ==================== 📱 RESPONSIVE ==================== */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+
+  .register-container {
+    padding: 1.5rem;
+  }
+
+  .register-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .register-header p,
+  .register-links a,
+  .register-footer {
+    font-size: 0.9rem;
+  }
+
+  .register-container input,
+  .register-container button {
+    font-size: 0.95rem;
+  }
+}

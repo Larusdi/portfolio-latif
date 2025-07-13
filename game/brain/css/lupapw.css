@@ -1,0 +1,246 @@
+/* ==================== 🌐 DASAR ==================== */
+body {
+  margin: 0;
+  padding: 2rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #f1f8ff, #dbeeff);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ==================== 🔐 HEADER ==================== */
+.forgot-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeDown 0.6s ease;
+}
+
+.forgot-header h1 {
+  font-size: 2.1rem;
+  color: #007aff;
+  margin-bottom: 0.3rem;
+}
+
+.forgot-header p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* ==================== 📋 FORM ==================== */
+.forgot-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  animation: fadeUp 0.7s ease;
+}
+
+.forgot-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.forgot-container label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.forgot-container input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.forgot-container input:focus {
+  border-color: #007aff;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+  outline: none;
+}
+
+/* ==================== 🔄 TOMBOL RESET ==================== */
+.forgot-container button[type="submit"] {
+  background: #007aff;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.forgot-container button[type="submit"]:hover {
+  background: #005fcc;
+  transform: scale(0.98);
+}
+
+/* ==================== 🔁 SPINNER LOADING (Opsional) ==================== */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid white;
+  border-top: 2px solid #007aff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 0.8rem;
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==================== 🔗 LINK TAMBAHAN ==================== */
+.forgot-links {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.forgot-links a {
+  color: #007aff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.forgot-links a:hover {
+  color: #005fcc;
+  text-decoration: underline;
+}
+
+/* ==================== 🔙 TOMBOL KEMBALI ==================== */
+.forgot-back {
+  text-align: center;
+  margin-top: 1.8rem;
+}
+
+.forgot-back button {
+  background: #ff3b30;
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.forgot-back button:hover {
+  background: #d32f2f;
+}
+
+/* ==================== 🔻 FOOTER ==================== */
+.forgot-footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* ==================== 💫 ANIMASI ==================== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== 🔔 TOAST NOTIFIKASI ==================== */
+.toast-message {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  background-color: #007aff;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  z-index: 9999;
+}
+
+.toast-message.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* ==================== 📱 RESPONSIVE - MOBILE (max-width: 480px) ==================== */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .forgot-header h1 {
+    font-size: 1.6rem;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+  }
+
+  .forgot-header p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .forgot-container {
+    padding: 1.3rem 1.2rem;
+    border-radius: 1rem;
+  }
+
+  .forgot-container label {
+    font-size: 0.9rem;
+  }
+
+  .forgot-container input {
+    font-size: 0.95rem;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .forgot-container button[type="submit"] {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+
+  .forgot-links a {
+    font-size: 0.85rem;
+  }
+
+  .forgot-back button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .forgot-footer {
+    font-size: 0.8rem;
+  }
+
+  .toast-message {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
+    bottom: 1.2rem;
+  }
+}

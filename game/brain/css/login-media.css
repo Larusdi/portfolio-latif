@@ -1,0 +1,82 @@
+/* ==================== 📱 TABLET (max-width: 768px) ==================== */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+
+  .login-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .login-header p {
+    font-size: 0.95rem;
+  }
+
+  .login-container {
+    padding: 1.5rem;
+  }
+
+  .login-container input {
+    font-size: 0.95rem;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .login-container button {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+
+  .login-footer {
+    font-size: 0.85rem;
+  }
+}
+
+/* ==================== 📱 MOBILE (max-width: 480px) ==================== */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+
+  .login-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .login-header p {
+    font-size: 0.9rem;
+  }
+
+  .login-container {
+    padding: 1.2rem;
+  }
+
+  .login-container input {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .login-container button {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+
+  .login-links a {
+    font-size: 0.85rem;
+  }
+
+  .login-footer {
+    font-size: 0.8rem;
+  }
+
+  .login-socials button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-socials img {
+    width: 20px;
+    margin-right: 0.5rem;
+  }
+}

@@ -1,0 +1,80 @@
+/* ==================== 📱 TABLET: max-width 768px ==================== */
+/* 💡 Penyesuaian ukuran teks dan tombol untuk tablet */
+@media screen and (max-width: 768px) {
+  .undang-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .undang-header p {
+    font-size: 0.95rem;
+  }
+
+  .link-section input {
+    font-size: 0.95rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .link-section button {
+    font-size: 0.95rem;
+    padding: 0.5rem 1.2rem;
+  }
+
+  .bonus-list h2 {
+    font-size: 1.1rem;
+  }
+
+  .bonus-list li {
+    font-size: 0.95rem;
+  }
+
+  .undang-footer button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
+
+
+/* ==================== 📱 MOBILE: max-width 480px ==================== */
+/* 💡 Layout lebih ramping, full-width tombol dan input */
+@media screen and (max-width: 480px) {
+  .undang-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .undang-header p {
+    font-size: 0.9rem;
+  }
+
+  .link-section input {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .link-section button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .bonus-list {
+    padding: 1rem;
+  }
+
+  .bonus-list h2 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .bonus-list li {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .undang-footer button {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+}

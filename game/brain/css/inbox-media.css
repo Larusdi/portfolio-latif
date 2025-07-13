@@ -1,0 +1,74 @@
+/* ==================== MEDIA QUERIES ==================== */
+/* 📱 Mobile S - Maks. 480px */
+@media screen and (max-width: 480px) {
+  .inbox-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .inbox-header p {
+    font-size: 0.9rem;
+  }
+
+  .inbox-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.8rem;
+  }
+
+  .inbox-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .inbox-content h3 {
+    font-size: 1rem;
+  }
+
+  .inbox-content p {
+    font-size: 0.85rem;
+  }
+
+  .inbox-content button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .btn-back {
+    font-size: 0.95rem;
+  }
+}
+
+/* 📱 Mobile M - Maks. 768px */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0.8rem;
+  }
+
+  .inbox-item {
+    gap: 0.8rem;
+  }
+
+  .inbox-content h3 {
+    font-size: 1rem;
+  }
+
+  .inbox-content p {
+    font-size: 0.85rem;
+  }
+
+  .inbox-content button {
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* 💻 Tablet / Laptop Kecil - Maks. 1024px */
+@media screen and (max-width: 1024px) {
+  .inbox-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .inbox-header p {
+    font-size: 0.95rem;
+  }
+}

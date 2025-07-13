@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📤 Kirim Hadiah - Brain Test Pro 2025</title>
+  <link rel="stylesheet" href="css/kirim.css" />
+</head>
+<body class="page-enter">
+
+  <!-- 🔼 Header -->
+  <header class="kirim-header">
+    <h1>📤 Kirim Hadiah</h1>
+    <p>Bagikan hadiah ke temanmu dan buat mereka tersenyum!</p>
+  </header>
+
+  <!-- 🎁 Formulir Kirim -->
+  <main class="kirim-container">
+    <form id="kirimForm" onsubmit="handleKirim(event)">
+      <div class="form-group">
+        <label for="recipient">👤 Nama Penerima</label>
+        <input type="text" id="recipient" placeholder="Masukkan nama teman" required />
+      </div>
+
+      <div class="form-group">
+        <label for="item">🎁 Pilih Hadiah</label>
+        <select id="item" required>
+          <option value="">-- Pilih Item --</option>
+          <option value="coin100">💰 100 Koin</option>
+          <option value="diamond5">💎 5 Diamond</option>
+          <option value="ticket1">🎫 Tiket Bonus</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">💬 Pesan Singkat (Opsional)</label>
+        <textarea id="message" rows="3" placeholder="Tulis pesan singkat..."></textarea>
+      </div>
+
+      <button type="submit" class="btn-kirim">🚀 Kirim Sekarang</button>
+    </form>
+  </main>
+
+  <!-- 🔙 Footer / Tombol Kembali -->
+  <footer class="kirim-footer">
+    <button onclick="backToGame()" class="btn-back">← Kembali</button>
+  </footer>
+
+  <!-- 🔔 Notifikasi -->
+  <div id="toast" class="toast-message hidden"></div>
+
+  <script src="js/kirim.js"></script>
+</body>
+</html>

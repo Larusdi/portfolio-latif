@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🔑 Lupa Password - Brain Test Pro 2025</title>
+  <link rel="stylesheet" href="css/lupapw.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body class="page-enter">
+
+  <!-- Header -->
+  <header class="forgot-header">
+    <h1>🔐 Lupa Password?</h1>
+    <p>Masukkan email atau nama pengguna untuk atur ulang kata sandi dengan mudah.</p>
+  </header>
+
+  <!-- Form -->
+  <main class="forgot-container">
+    <form id="forgotForm" onsubmit="handleForgot(event)">
+      <label for="userInput">📧 Email / Nama Pengguna</label>
+      <div class="input-group">
+        <input type="text" id="userInput" placeholder="contoh@email.com / Nama123" required />
+        <i class="fas fa-user-circle icon-input"></i>
+      </div>
+
+      <button type="submit" id="submitBtn">
+        <span id="btnText">🔄 Reset Password</span>
+        <span class="spinner hidden" id="btnSpinner"></span>
+      </button>
+
+      <div class="forgot-links">
+        <a href="login.html">← Kembali ke Login</a>
+      </div>
+    </form>
+  </main>
+
+  <!-- Toast Notifikasi -->
+  <div id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer class="forgot-footer">
+    <p>&copy; 2025 Brain Test Pro</p>
+  </footer>
+
+  <script src="js/lupapw.js"></script>
+</body>
+</html>

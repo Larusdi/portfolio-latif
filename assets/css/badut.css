@@ -1,0 +1,804 @@
+/*==================== 🤡 TOMBOL BADUT AI MELAYANG ====================*/
+/* Tombol utama AI Assistant yang muncul di kiri bawah layar */
+.ai-assistant-toggle {
+    position: fixed;
+    left: 40px;
+    bottom: 200px;
+    z-index: 9999;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+
+    /* ✨ Animasi masuk lembut saat muncul */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    pointer-events: none;
+}
+
+/* ✅ Saat tombol ditampilkan (misalnya saat load selesai) */
+.ai-assistant-toggle.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/*==================== GAYA GAMBAR BADUT AI ====================*/
+/* Gambar avatar AI dengan efek glow saat hover */
+.ai-assistant-toggle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    pointer-events: none;
+}
+
+/* ✨ Efek glow saat hover di mode terang */
+.ai-assistant-toggle:hover img {
+    transform: scale(1.08);
+    filter:
+        drop-shadow(0 0 6px white)
+        drop-shadow(0 0 12px gold)
+        drop-shadow(0 0 22px gold);
+}
+
+/* 🌙 Efek glow tetap menyala di mode gelap */
+body.dark-theme .ai-assistant-toggle img {
+    filter:
+        drop-shadow(0 0 10px #fff)
+        drop-shadow(0 0 25px #FFD700)
+        drop-shadow(0 0 40px rgba(255, 223, 0, 0.6));
+}
+
+
+/*==================== 👀 MATA BADUT AI DI ATAS GAMBAR ====================*/
+/* Dua mata kecil muncul di atas gambar bulat Badut AI */
+.ai-assistant-toggle .eye {
+  position: absolute;
+  top: 42px;               /* Posisi vertikal dari atas gambar */
+  left: 50%;               /* Posisi horizontal tengah */
+  transform: translateX(-50%);
+  width: 64px;             /* Lebar kontainer mata */
+  height: 30px;
+  pointer-events: none;    /* Tidak mengganggu klik ke bawahnya */
+  z-index: 2;              /* Di atas gambar badut */
+}
+
+/* 🎭 Bola mata kiri dan kanan dibuat dengan pseudo-element */
+.eye::before,
+.eye::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 10px;
+  background: black;
+  border-radius: 50%;      /* Membuat bentuk bola */
+  animation: blink 4s infinite ease-in-out;
+}
+
+/* 👁️ Mata kiri */
+.eye::before {
+  left: 14px;   /* Jarak dari sisi kiri kontainer */
+  top: 8px;
+}
+
+/* 👁️ Mata kanan */
+.eye::after {
+  right: 14px;  /* Jarak dari sisi kanan kontainer */
+  top: 8px;
+}
+
+/* ✨ Animasi Berkedip (Blink) */
+@keyframes blink {
+  0%, 92%, 100% {
+    transform: scaleY(1);
+  }
+  96% {
+    transform: scaleY(0.1); /* Kedipan: mata menutup */
+  }
+}
+
+/*==================== 🤪 ANIMASI SHAKE (Gerakan Lucu) ====================*/
+/* Digunakan untuk efek animasi saat avatar AI mengguncang lucu */
+@keyframes funnyShake {
+    0%   { transform: translate(0, 0); }
+    20%  { transform: translate(-2px, 1px); }
+    40%  { transform: translate(2px, -1px); }
+    60%  { transform: translate(-1px, 2px); }
+    80%  { transform: translate(1px, -2px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* 🔁 Kelas bantu untuk memicu animasi shake */
+.animate-shake {
+    animation: funnyShake 0.6s infinite ease-in-out;
+    -webkit-animation: funnyShake 0.6s infinite ease-in-out;
+}
+
+
+
+/* ==================== 🔔 TOOLTIP & NOTIFIKASI BADUT AI ==================== */
+/*===  Tooltip saat hover tombol BADUT AI + Indikator Notifikasi Chat Baru ===*/
+
+/* 🎈 Tooltip kecil di atas tombol AI */
+.ai-tooltip {
+    position: absolute;
+    bottom: 110%; /* Letak tooltip di atas elemen induk */
+    left: 60%; /* Posisi horizontal */
+    transform: translateX(-50%) scale(0.95); /* Posisi awal + efek zoom ringan */
+    background: linear-gradient(135deg, #ffffff, #f9f9f9); /* Latar elegan */
+    color: #222; /* Warna teks gelap */
+    padding: 8px 14px;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Segoe UI', sans-serif;
+    white-space: nowrap;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    text-shadow: 0 1px 0 #fff;
+    z-index: 9999;
+
+    /* Efek animasi muncul & bouncing */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    animation: bounceTooltip 2.5s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+/* 🔽 Panah kecil di bawah tooltip */
+.ai-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #ffffff; /* Warna mengikuti background */
+    filter: drop-shadow(0 -1px 1px rgba(0, 0, 0, 0.05));
+}
+
+/* ✨ Tooltip muncul saat hover tombol AI */
+.ai-assistant-toggle:hover .ai-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.03); /* Efek zoom halus saat muncul */
+}
+
+/* ✅ Tooltip aktif secara manual (bisa digunakan JS untuk show) */
+.ai-tooltip.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) scale(1.03);
+}
+
+/* 🔁 Kelas bantu untuk memicu bounce manual */
+.bounce {
+    animation: bounceTooltip 0.4s ease;
+}
+
+/* 💫 Animasi bounce halus (tooltip mengayun lembut) */
+@keyframes bounceTooltip {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.06);
+    }
+}
+
+/* 💨 Animasi fade naik (digunakan di elemen lain jika perlu) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+/* ==================== 🔴 NOTIFIKASI PESAN BARU ==================== */
+/* 🔔 Indikator bulat kecil di pojok avatar Badut AI */
+.chat-indicator {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: linear-gradient(135deg, #ff6a00, #ffb347); /* Gradasi oranye */
+    color: #1a1a1a; /* Warna teks */
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 999px; /* Bentuk bulat penuh */
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.15),
+        0 0 0 2px rgba(255, 255, 255, 0.4) inset; /* Efek border dalam */
+    backdrop-filter: blur(4px); /* Blur latar */
+    z-index: 10;
+
+    /* Efek animasi berdenyut lembut */
+    animation: pulse 1.4s infinite ease-in-out;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* 📥 Kontainer notifikasi (bisa muncul bubble lain, bukan hanya titik) */
+#chatNotif {
+    display: none;
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+    will-change: transform, opacity;
+
+    /* Transisi masuk lembut */
+    transition:
+        opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ✅ Saat notifikasi aktif */
+#chatNotif.show {
+    display: flex;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+
+
+/* ==================== 💬 CHATBOX BADUT AI ==================== */
+/* Komponen utama chat AI (kotak obrolan di kiri bawah) */
+#chatBox {
+  position: fixed;
+  bottom: 250px;
+  left: 20px;
+  width: 360px;
+  max-height: 330px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 9999;
+
+  /* Saat tersembunyi */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(30px);
+  transition: all 0.4s ease;
+}
+
+/* ✅ Muncul lembut saat aktif */
+#chatBox.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* ❌ Tutup dengan animasi lembut */
+#chatBox.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+
+
+/* ==================== 📌 HEADER (NAVBAR CHAT) ==================== */
+/* Bagian atas chatbox: judul + tombol aksi */
+.chat-header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(135deg, #ff4e4e, #ffcc00, #4e9eff);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  z-index: 10;
+  border-bottom: 1px solid rgba(12, 10, 10, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  color: #030303;
+}
+
+.chat-header > span {
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.3px;
+}
+
+
+/* ==================== ⚙️ TOMBOL AKSI HEADER ==================== */
+.chat-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-actions button {
+  font-weight: normal;
+  font-size: 18px;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: none; /* opsional: biasanya pakai `pointer` */
+  margin-left: 10px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.chat-actions button:hover {
+  transform: scale(1.2);
+  color: #000;
+}
+
+.chat-actions button:active {
+  transform: scale(0.9);
+}
+
+
+/* ==================== 📜 AREA PESAN ==================== */
+/* Area scroll pesan AI dan user */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+  scroll-behavior: smooth;
+}
+
+/* 🎛️ Scrollbar custom */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+
+/* ==================== 🧍 PESAN DARI USER ==================== */
+.chat-message.user {
+  align-self: flex-end;
+  background: #e8f0fe;
+  color: #202124;
+  border-radius: 16px 16px 0 16px;
+  padding: 10px 14px;
+  max-width: 80%;
+  word-break: break-word;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* ==================== 🤖 PESAN DARI AI ==================== */
+.chat-message.ai {
+  align-self: flex-start;
+  background: #f7f7f8;
+  color: #111;
+  border-radius: 16px 16px 16px 0;
+  padding: 10px 14px;
+  max-width: 80%;
+  word-break: break-word;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ==================== 🎯 PILIHAN BANTUAN BADUT AI ==================== */
+/*===  Tombol opsi vertikal yang muncul sebagai saran cepat dari Badut AI ===*/
+
+/* 📦 Kontainer tombol vertikal */
+.assistant-options.vertical {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 🧩 Gaya dasar tombol pilihan */
+.option-btn {
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  border: none;
+  background-color: #f0f2f5;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+/* 🔁 Efek hover tombol */
+.option-btn:hover {
+  background-color: #d8e0e7;
+}
+
+/* 🎬 Animasi muncul satu per satu */
+.assistant-options.vertical .option-btn {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInBtn 0.4s ease forwards;
+}
+
+/* 📐 Tombol dalam balon chat agar tetap penuh dan rata kiri */
+.chat-message .bubble .option-btn {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+  text-align: left;
+}
+
+/* ⏱️ Delay animasi tombol agar muncul bertahap */
+.assistant-options.vertical .option-btn:nth-child(1) { animation-delay: 0.1s; }
+.assistant-options.vertical .option-btn:nth-child(2) { animation-delay: 0.2s; }
+.assistant-options.vertical .option-btn:nth-child(3) { animation-delay: 0.3s; }
+.assistant-options.vertical .option-btn:nth-child(4) { animation-delay: 0.4s; }
+.assistant-options.vertical .option-btn:nth-child(5) { animation-delay: 0.5s; }
+.assistant-options.vertical .option-btn:nth-child(6) { animation-delay: 0.6s; }
+.assistant-options.vertical .option-btn:nth-child(7) { animation-delay: 0.7s; }
+.assistant-options.vertical .option-btn:nth-child(8) { animation-delay: 0.8s; }
+.assistant-options.vertical .option-btn:nth-child(9) { animation-delay: 0.9s; }
+.assistant-options.vertical .option-btn:nth-child(10) { animation-delay: 1s; }
+
+/* 🎞️ Keyframe animasi fade in dari bawah */
+@keyframes fadeInBtn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ==================== 🟣 INDIKATOR TYPING ==================== */
+/* Bubble loading ketika AI sedang mengetik */
+.bubble.typing {
+  background: linear-gradient(135deg, #f2f2f2, #ffffff);
+  padding: 10px 16px;
+  border-radius: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  animation: fadeSlideIn 0.35s ease-in-out;
+  transform-origin: left bottom;
+}
+
+/* Dot animasi mengetik */
+.bubble.typing .dot {
+  width: 5px;
+  height: 5px;
+  background-color: #888;
+  border-radius: 50%;
+  animation: dotFadeScale 1.4s infinite ease-in-out;
+  transform-origin: center;
+}
+
+
+/* 🔁 Keyframe bounce (dot mengetik) */
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Titik-titik kecil animasi */
+.typing-indicator span {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: #aaa;
+  border-radius: 50%;
+  animation: dotBlink 1s infinite alternate;
+}
+
+/* Delay tiap titik agar bergantian berkedip */
+.bubble.typing .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.bubble.typing .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+
+/* 🔁 Keyframe untuk animasi blink */
+@keyframes dotBlink {
+  0%   { opacity: 0.2; transform: scale(0.9); }
+  100% { opacity: 1;   transform: scale(1.2); }
+}
+
+/* ==================== 🔁 ANIMASI DOT FADE SCALE (iOS-style) ==================== */
+@keyframes dotFadeScale {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(0.9);
+  }
+}
+
+
+/* ==================== 🔁 ANIMASI FADE IN ==================== */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+
+/* ==================== 💡 INPUT & TOMBOL CHATBOX BADUT AI ==================== */
+/* 🎯 Area input chat (berisi: textarea + tombol emoji, mic, kirim) */
+.chat-input-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  border-top: 1px solid #eee;
+  background: #fff;
+  gap: 10px;
+  position: relative;
+  flex-wrap: nowrap;
+}
+
+/* 💬 Textarea tempat mengetik pesan */
+.chat-input-area textarea {
+  flex: 1;
+  font-size: 14px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #f3f3f3;
+  resize: none;
+  overflow-y: auto;
+  min-height: 38px;
+  max-height: 100px;
+  font-family: inherit;
+  line-height: 1.4;
+  color: #111;
+  outline: none;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 600px; /* ✅ Batasi hanya di layar besar */
+}
+
+/* 🎙️ Mikrofon, 😊 Emoji, 📨 Kirim — tombol samping input */
+.chat-icon-btn,
+.send-button {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #444;
+  transition: transform 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* ✨ Hover efek tombol */
+.chat-icon-btn:hover,
+.send-button:hover {
+  transform: scale(1.3);
+  color: #000;
+}
+
+/* 👇 Efek saat tombol ditekan */
+.chat-icon-btn:active,
+.send-button:active {
+  transform: scale(0.9);
+}
+
+
+
+
+/* ==================== 🧰 PANEL FITUR LAIN (TOMBOL +) ==================== */
+/* Panel vertikal berisi tombol ekstra (misalnya: Info, Bantuan, dsb) */
+.extra-panel-vertical {
+  position: absolute;
+  bottom: 55px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  min-width: 140px; /* ✅ Supaya teks tidak kepotong */
+}
+
+/* ✅ Tampilkan panel jika aktif */
+.extra-panel-vertical.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Tombol dalam panel ekstra */
+.extra-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover efek tombol ekstra */
+.extra-btn:hover {
+  background: #f3f3f3;
+  transform: scale(1.02);
+}
+
+/* Ikon dalam tombol ekstra */
+.extra-btn img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: grayscale(0.2);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.extra-btn:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+/* Teks dalam tombol ekstra */
+.extra-btn span {
+  font-size: 13px;
+  color: #333;
+  white-space: nowrap;
+  flex-grow: 1;
+}
+
+/* ==================== 😊 EMOJI PICKER BADUT AI ==================== */
+/* Kontainer pembungkus emoji */
+.emoji-container {
+  position: relative;
+}
+
+/* Gaya emoji-picker modern */
+emoji-picker.emoji-picker {
+  position: absolute;
+  bottom: 56px;
+  left: 0;
+  width: 320px;
+  max-height: 360px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  z-index: 9999;
+  display: none;
+  animation: fadeInEmoji 0.3s ease;
+}
+
+/* ✅ Tampilkan saat class 'show' aktif */
+emoji-picker.show {
+  display: block;
+}
+
+/* ✨ Animasi masuk lembut */
+@keyframes fadeInEmoji {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+
+/* ==================== 📱 RESPONSIVE ==================== */
+/* Ukuran avatar/tombol AI dikecilkan di perangkat kecil */
+@media screen and (max-width: 500px) {
+  .ai-assistant-toggle img {
+    width: 70px;
+    height: 70px;
+  }
+
+  #chatBox {
+    width: 94vw;
+    left: 3vw;
+    bottom: 100px;
+    max-height: 80vh;
+  }
+
+  .chat-messages {
+    padding: 14px;
+  }
+
+  .chat-input-area {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .chat-header > span {
+    font-size: 15px;
+  }
+
+  .chat-actions button {
+    font-size: 16px;
+  }
+
+  .chat-icon-btn,
+  .send-button {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+  .chat-input-area textarea {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+}
+
+
+
+/* ==================== 🖥️ MODE FULLSCREEN CHATBOX ==================== */
+/* Aktif saat body memiliki class 'fullscreen-mode' */
+body.fullscreen-mode #chatBox {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  height: 85vh;
+  max-width: 1000px;
+  max-height: 700px;
+  border-radius: 14px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+  resize: none;
+  z-index: 99999;
+}
+
+/* Penyesuaian padding & scroll area pesan */
+body.fullscreen-mode .chat-messages {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Penyesuaian area input saat fullscreen */
+body.fullscreen-mode .chat-input-area {
+  padding: 18px;
+  border-top: 1px solid #ddd;
+}

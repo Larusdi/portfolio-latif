@@ -1,0 +1,146 @@
+/* ==================== 🌐 DASAR HALAMAN ==================== */
+body {
+  margin: 0;
+  padding: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #f4f7fa);
+  color: #333;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== 🔗 HEADER ==================== */
+.undang-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.undang-header h1 {
+  font-size: 2rem;
+  color: #007aff;
+  margin-bottom: 0.3rem;
+}
+
+.undang-header p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* ==================== 📎 LINK SECTION ==================== */
+.link-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.link-section input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid #007aff;
+  border-radius: 1rem;
+  font-size: 1rem;
+  background: #f0f8ff;
+  color: #333;
+  text-align: center;
+}
+
+.link-section button {
+  background: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.link-section button:hover {
+  background: #005fcc;
+}
+
+/* ==================== 🎁 BONUS SECTION ==================== */
+.bonus-list {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.bonus-list h2 {
+  font-size: 1.2rem;
+  color: #ff9500;
+  margin-bottom: 1rem;
+}
+
+.bonus-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.bonus-list li {
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.bonus-list li::before {
+  content: "🎯";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* ==================== 🔙 FOOTER ==================== */
+.undang-footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.undang-footer button {
+  background: #ff2d55;
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.undang-footer button:hover {
+  background: #e01e4f;
+}
+
+.toast-message {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: #007aff;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 1.5rem;
+  font-size: 0.95rem;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.toast-message.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}

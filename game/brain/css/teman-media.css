@@ -1,0 +1,77 @@
+/* ==================== 📱 TABLET (max-width: 768px) ==================== */
+@media screen and (max-width: 768px) {
+  .teman-list {
+    gap: 1rem;
+  }
+
+  .teman-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    text-align: left;
+  }
+
+  .teman-item img {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 0.8rem;
+  }
+
+  .teman-actions {
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .teman-actions button {
+    flex: 1 1 auto;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .teman-footer {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .teman-footer button {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* ==================== 📱 MOBILE (max-width: 480px) ==================== */
+@media screen and (max-width: 480px) {
+  .teman-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .teman-header p {
+    font-size: 0.95rem;
+  }
+
+  .teman-info h3 {
+    font-size: 1rem;
+  }
+
+  .teman-info p {
+    font-size: 0.85rem;
+  }
+
+  .teman-item img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .teman-actions button {
+    font-size: 0.85rem;
+    padding: 0.45rem 0.9rem;
+  }
+
+  .teman-footer button {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+}

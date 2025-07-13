@@ -1,0 +1,170 @@
+/* ==================== 🌐 DASAR ==================== */
+body {
+  margin: 0;
+  padding: 2rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #f0f8ff, #e1f0ff);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ==================== 🔼 HEADER ==================== */
+.kirim-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeDown 0.6s ease;
+}
+
+.kirim-header h1 {
+  font-size: 2.1rem;
+  color: #007aff;
+  margin-bottom: 0.3rem;
+}
+
+.kirim-header p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ==================== 📝 FORM ==================== */
+.kirim-container {
+  max-width: 420px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  animation: fadeUp 0.7s ease;
+}
+
+.kirim-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+input, select, textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #007aff;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+  outline: none;
+}
+
+/* ==================== 🚀 TOMBOL KIRIM ==================== */
+.btn-kirim {
+  background: #007aff;
+  color: #fff;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-kirim:hover {
+  background: #005fcc;
+  transform: scale(0.97);
+}
+
+/* ==================== 🔙 TOMBOL KEMBALI ==================== */
+.kirim-footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.btn-back {
+  background: #ff3b30;
+  color: #fff;
+  padding: 0.7rem 1.6rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-back:hover {
+  background: #d32f2f;
+}
+
+/* ==================== 🔔 TOAST ==================== */
+.toast-message {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1.2rem;
+  font-size: 0.95rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, bottom 0.4s ease;
+  z-index: 9999;
+}
+
+.toast-message.show {
+  opacity: 1;
+  bottom: 3.2rem;
+}
+
+/* ==================== 💫 ANIMASI ==================== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== 📱 RESPONSIVE ==================== */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+
+  .kirim-container {
+    padding: 1.5rem;
+  }
+
+  .kirim-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .kirim-header p {
+    font-size: 0.9rem;
+  }
+
+  .btn-kirim, .btn-back {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+}

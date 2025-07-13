@@ -1,0 +1,73 @@
+/* ==================== 📱 TABLET: max-width 768px ==================== */
+/* 💡 Penyesuaian ukuran dan padding untuk tablet */
+@media screen and (max-width: 768px) {
+  .hadiah-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .hadiah-header p {
+    font-size: 0.95rem;
+  }
+
+  .hadiah-item h3 {
+    font-size: 1rem;
+  }
+
+  .hadiah-item img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .hadiah-item button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .hadiah-footer button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
+
+
+/* ==================== 📱 MOBILE: max-width 480px ==================== */
+/* 💡 Layout 1 kolom dan ukuran minimal untuk smartphone */
+@media screen and (max-width: 480px) {
+  .hadiah-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .hadiah-header p {
+    font-size: 0.9rem;
+  }
+
+  .hadiah-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hadiah-item {
+    padding: 1rem;
+  }
+
+  .hadiah-item h3 {
+    font-size: 0.95rem;
+  }
+
+  .hadiah-item img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .hadiah-item button {
+    font-size: 0.9rem;
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .hadiah-footer button {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+}

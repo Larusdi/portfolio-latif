@@ -1,0 +1,227 @@
+/* ==================== 🌐 DASAR ==================== */
+/* 💡 Atur latar belakang & layout halaman */
+body {
+  margin: 0;
+  padding: 2rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #e3f2fd);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ==================== 🔐 HEADER ==================== */
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-header h1 {
+  font-size: 2rem;
+  color: #007aff;
+  margin-bottom: 0.5rem;
+}
+
+.login-header p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
+/* ==================== 📋 FORM MASUK ==================== */
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  animation: fadeSlideIn 0.5s ease;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Label & input */
+.login-container label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.login-container input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.9rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.login-container input:focus {
+  border-color: #007aff;
+  outline: none;
+}
+
+/* ==================== 👁️ PASSWORD TOGGLE ==================== */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 3rem;
+  box-sizing: border-box;
+}
+
+.eye-toggle {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 1.1rem;
+  padding: 0;
+}
+
+/* ==================== 🚀 TOMBOL MASUK ==================== */
+.login-container button[type="submit"] {
+  background: #007aff;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-container button[type="submit"]:hover {
+  background: #005fcc;
+}
+
+/* ==================== 🔗 LINK TAMBAHAN ==================== */
+.login-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+.login-links a {
+  color: #007aff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+/* ==================== ➖ GARIS PEMISAH ==================== */
+.login-separator {
+  text-align: center;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.login-separator span {
+  background: #fff;
+  padding: 0 1rem;
+  color: #888;
+  font-size: 0.85rem;
+  position: relative;
+  z-index: 1;
+}
+
+.login-separator::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: #ccc;
+  z-index: 0;
+}
+
+/* ==================== 🌐 SOSMED LOGIN (PNG) ==================== */
+.login-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.login-socials button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-socials button:hover {
+  background: #eaeaea;
+}
+
+.login-socials img {
+  width: 24px;
+  height: 24px;
+}
+
+/* ==================== 🔙 TOMBOL KEMBALI ==================== */
+.login-back {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.login-back button {
+  background: #ff3b30;
+  color: white;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-back button:hover {
+  background: #d32f2f;
+}
+
+/* ==================== 🔻 FOOTER ==================== */
+.login-footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* ==================== 🎬 ANIMASI MASUK ==================== */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

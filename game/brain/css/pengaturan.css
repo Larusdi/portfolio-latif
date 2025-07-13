@@ -1,0 +1,263 @@
+/* ==================== 🌐 DASAR ==================== */
+body {
+  margin: 0;
+  padding: 2rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #f9fcff, #e6f0ff);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background 0.4s ease;
+}
+
+/* ==================== 🔧 HEADER ==================== */
+.settings-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeInDown 0.6s ease;
+}
+
+.settings-header h1 {
+  font-size: 2rem;
+  color: #007aff;
+}
+
+.settings-header p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ==================== ⚙️ KONTAINER PENGATURAN ==================== */
+.settings-container {
+  max-width: 460px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeInUp 0.7s ease;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.8rem 1rem;
+  border-radius: 1rem;
+  background: #f4f7fa;
+  transition: background 0.3s;
+}
+
+.setting-item:hover {
+  background: #eaf2fc;
+}
+
+.setting-item label {
+  color: #333;
+}
+
+/* ==================== 🟢 TOGGLE SWITCH STYLE ==================== */
+input[type="checkbox"] {
+  appearance: none;
+  width: 44px;
+  height: 24px;
+  background-color: #ccc;
+  border-radius: 20px;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+input[type="checkbox"]:checked {
+  background-color: #34c759;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: translateX(20px);
+}
+
+/* ==================== 🔙 FOOTER ==================== */
+.settings-footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.settings-footer button {
+  background: #ff3b30;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.6rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.settings-footer button:hover {
+  background: #c62828;
+}
+
+/* ==================== 💫 ANIMASI ==================== */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== 📱 RESPONSIVE ==================== */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+
+  .settings-container {
+    padding: 1.5rem;
+  }
+
+  .settings-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .settings-header p {
+    font-size: 0.95rem;
+  }
+
+  .setting-item {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.9rem;
+  }
+
+  .settings-footer button {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+/* ==================== 🌙 DARK MODE ==================== */
+body.dark-mode {
+  background: linear-gradient(to bottom, #121212, #1e1e1e);
+  color: #f5f5f5;
+}
+
+body.dark-mode .settings-container {
+  background: #1c1c1c;
+  box-shadow: 0 6px 24px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .setting-item label {
+  color: #f0f0f0;
+}
+
+body.dark-mode .settings-footer button {
+  background: #333;
+  color: #fff;
+}
+
+body.dark-mode .settings-footer button:hover {
+  background: #444;
+}
+
+/* ==================== 🎚️ TOGGLE GAYA iOS ==================== */
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  background: #f9f9f9;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  transition: background 0.3s ease;
+}
+
+body.dark-mode .setting-item {
+  background: #2a2a2a;
+}
+
+.setting-item label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* === Custom Checkbox as Switch === */
+.setting-item input[type="checkbox"] {
+  appearance: none;
+  width: 48px;
+  height: 26px;
+  background: #ccc;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.setting-item input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 3px;
+  left: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.setting-item input[type="checkbox"]:checked {
+  background: #007aff;
+}
+
+.setting-item input[type="checkbox"]:checked::before {
+  transform: translateX(22px);
+}
+
+/* ==================== 📱 RESPONSIVE ==================== */
+@media screen and (max-width: 480px) {
+  .settings-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .settings-header p {
+    font-size: 0.95rem;
+  }
+
+  .setting-item {
+    padding: 0.9rem 1rem;
+  }
+
+  .setting-item label {
+    font-size: 0.95rem;
+  }
+
+  .settings-footer button {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.4rem;
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>⚙️ Pengaturan - Brain Test Pro 2025</title>
+  <link rel="stylesheet" href="css/pengaturan.css" />
+</head>
+<body class="page-enter">
+
+  <!-- Header -->
+  <header class="settings-header">
+    <h1>⚙️ Pengaturan</h1>
+    <p>Atur preferensi permainanmu di sini</p>
+  </header>
+
+  <!-- Konten Pengaturan -->
+  <main class="settings-container">
+    <div class="setting-card">
+      <label class="setting-label">
+        🔊 Suara
+        <input type="checkbox" id="soundToggle" class="switch-toggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="setting-card">
+      <label class="setting-label">
+        🎵 Musik Latar
+        <input type="checkbox" id="musicToggle" class="switch-toggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="setting-card">
+      <label class="setting-label">
+        🌙 Mode Gelap
+        <input type="checkbox" id="darkModeToggle" class="switch-toggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="setting-card">
+      <label class="setting-label">
+        🔔 Notifikasi
+        <input type="checkbox" id="notifToggle" class="switch-toggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </main>
+
+  <!-- Footer / Tombol kembali -->
+  <footer class="settings-footer">
+    <button onclick="backToGame()">← Kembali</button>
+  </footer>
+
+  <script src="js/pengaturan.js"></script>
+</body>
+</html>
