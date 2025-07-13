@@ -104,7 +104,8 @@
   .nav-bottom {
     flex-direction: column;
     gap: 10px;
-    padding: 10px 0;
+    padding: 12px 8;
+    max-width: 100%;
   }
 
   .typing-badut {
