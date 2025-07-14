@@ -1,27 +1,5 @@
 /*==================== 📱 MEDIA QUERIES RESPONSIF ====================*/
 
-
-/*========== 📱 Perangkat Ekstra Kecil (max-width: 280px) ==========*/
-/* 💡 Cocok untuk device super kecil seperti Galaxy Fold, Apple Watch, dsb */
-@media screen and (max-width: 280px) {
-  body {
-    font-size: 12px;
-  }
-
-  .home__title {
-    font-size: 1.25rem;
-  }
-
-  .nav__menu {
-    padding: 1.5rem 0.25rem 3rem;
-  }
-
-  .services__container {
-    grid-template-columns: 1fr;
-  }
-}
-
-
 /*========== 📱 Perangkat Sangat Kecil (max-width: 350px) ==========*/
 /* 💡 Digunakan untuk layar sangat kecil seperti ponsel mini */
 @media screen and (max-width: 350px) {
@@ -86,53 +64,170 @@
 }
 
 
-/* Ukuran Mobile Kecil (≤ 430px) */
-@media screen and (max-width: 430px) {
-  .hero-title {
-    font-size: 1.4rem;
-    line-height: 1.6rem;
-    text-align: center;
-    margin-top: 10px;
-  }
-
-  .sub-title {
-    font-size: 1rem;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .nav-bottom {
+/* 🌐 Layout responsif mobile (≤ 480px termasuk 360px) */
+@media screen and (max-width: 480px) {
+  header {
+    display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 12px 8;
-    max-width: 100%;
-  }
-
-  .typing-badut {
-    position: relative;
-    font-size: 0.9rem;
-    line-height: 1.4rem;
-  }
-
-  .darkmode-toggle {
-    scale: 0.9;
-    margin-left: 10px;
-  }
-
-  .avatar-box img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .social-icons {
-    flex-direction: row;
+    align-items: center; /* 🧭 Pusatkan isi header */
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: 0.5rem;
+    padding: 1rem;
+    position: relative;
+    z-index: 999;
   }
 
-  .profile-container {
-    padding: 15px;
+  .logo {
+    text-align: center;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%; /* ⬇️ Muncul di bawah header */
+    left: 0;
+    right: 0;
+    background: var(--body-color);
+    z-index: 998;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .nav__menu {
+    padding: 2rem 0.25rem 4rem;
+  }
+
+  nav.active {
+    display: block;
+  }
+
+  .menu-toggle {
+    position: relative;
+    z-index: 1001;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    align-self: center; /* 🎯 Pastikan di tengah */
+  }
+
+  .dark-mode-toggle {
+    position: relative;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  .dark-mode-toggle input {
+    transform: scale(1.2);
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
+
+/*==================== 🔔 TOAST NOTIFIKASI PREMIUM (iOS Glow) ====================*/
+.theme-toast {
+  position: fixed;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  padding: 0.85rem 1.5rem;
+  font-size: 0.9rem;
+  color: #fff;
+  background: rgba(30, 41, 59, 0.85); /* Slate semi transparan */
+  border-radius: 1.5rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.2),
+    0 0 10px rgba(59, 130, 246, 0.4); /* Efek biru glow */
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+
+  /* 🔧 Tambahan agar layout rapi */
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 90%;
+  width: auto;
+  min-width: 260px;
+  box-sizing: border-box;
+}
+
+/* Saat muncul */
+.theme-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Icon Toast */
+.toast-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* Pesan Toast */
+.toast-message {
+  font-size: 15px;
+  flex: 1;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* Tombol Close */
+.toast-close {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: #ccc;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.toast-close:hover {
+  transform: scale(1.2);
+}
+
+/* 🔄 Animasi masuk */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 40px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* 📱 Responsif untuk 480px ke bawah */
+@media screen and (max-width: 480px) {
+  .theme-toast {
+    bottom: 1.5rem;
+    padding: 0.65rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    gap: 0.6rem;
+    max-width: 95%;
+    min-width: 240px;
+  }
+
+  .toast-icon {
+    font-size: 16px;
+  }
+
+  .toast-message {
+    font-size: 14px;
+  }
+
+  .toast-close {
+    font-size: 14px;
   }
 }
 
@@ -378,5 +473,200 @@
 
   .contact__inputs {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==================== 📱 Responsif untuk Mobile Devices ==================== */
+@media screen and (max-width: 768px) {
+  .ai-assistant-toggle .eye {
+    top: 45px;               /* Sedikit lebih atas agar pas dengan ukuran kecil */
+    width: 52px;             /* Lebar mata dikurangi */
+    height: 24px;
+  }
+
+  .eye::before,
+  .eye::after {
+    width: 10px;              /* Bola mata lebih kecil */
+    height: 9px;
+  }
+
+  .eye::before {
+    left: 10px;              /* Jarak dari kiri dikurangi */
+    top: 6px;
+  }
+
+  .eye::after {
+    right: 10px;             /* Jarak dari kanan dikurangi */
+    top: 6px;
+  }
+}
+
+/* 🌐 Tablet & HP besar (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  emoji-picker.emoji-picker {
+    width: 230px;
+    max-height: 300px;
+    left: 10px;
+    right: auto;         /* Geser ke kanan agar tidak mentok */
+    bottom: 70px;
+  }
+}
+
+/* 📱 HP standar (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  emoji-picker.emoji-picker {
+    width: 230px;
+    max-height: 300px;
+    right: 10px;
+    bottom: 60px;
+  }
+}
+
+/* 📱 HP kecil banget (max-width: 360px) */
+@media screen and (max-width: 360px) {
+  emoji-picker.emoji-picker {
+    width: 230px;
+    max-height: 300px;
+    right: 10px;
+    bottom: 58px;
+  }
+}
+
+
+/* ==================== 📱 Responsive: Ukuran HP Kecil ==================== */
+@media screen and (max-width: 480px) {
+  .ai-assistant-toggle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    transition: transform 0.4s ease, filter 0.4s ease;
+  }
+}
+
+/* ==================== 📱 Responsive: Tablet atau HP Lebih Besar ==================== */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .ai-assistant-toggle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+}
+
+
+
+/* ==================== MODE FULLSCREEN DESKTOP ==================== */
+#chatBox.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 99999;
+  border-radius: 0 !important;
+}
+
+/* ==================== CHATBOX FULLSCREEN ==================== */
+#chatBox {
+  transition: all 0.5s ease-in-out; /* 🎬 Animasi halus saat resize */
+}
+
+/* Saat mode fullscreen */
+#chatBox.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 99999;
+  border-radius: 0 !important;
+  transition: all 0.5s ease-in-out; /* 🎬 Smooth saat masuk fullscreen */
+}
+
+
+/* ==================== RESPONSIF MOBILE ==================== */
+@media screen and (max-width: 768px) {
+  /* 🔁 Ukuran chatBox mengecil dengan animasi saat di mobile */
+  #chatBox {
+    position: fixed;
+    width: 95% !important;
+    height: 85vh !important;
+    bottom: 100px !important;
+    right: 2.5% !important;
+    left: auto !important;
+    top: auto !important;
+    border-radius: 16px !important;
+    z-index: 9999;
+    transition: all 0.5s ease-in-out;
+  }
+
+  /* 🚫 Jika masih ada class fullscreen, tetap tampil kecil */
+  #chatBox.fullscreen {
+    position: fixed;
+    width: 95% !important;
+    height: 85vh !important;
+    bottom: 100px !important;
+    right: 2.5% !important;
+    left: auto !important;
+    top: auto !important;
+    border-radius: 16px !important;
+    z-index: 9999;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .popup-ad {
+    left: 8%;
+    bottom: auto;
+    top: 35%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 320px;
+    border-radius: 1rem;
+    padding: 0;
+  }
+
+  .popup-ad-content {
+    padding: 1.2rem;
+    margin-top: -10px; /* ⬆️ Geser ke atas sedikit */
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .popup-ad-content .button,
+  #payment-modal #btnToPayment {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    display: block;
+    margin: 0.6rem auto 0;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .popup-ad {
+    width: 95%;
+    max-width: 300px;
+    transform: translate(-50%, -50%);
+}
+
+.popup-ad-content {
+    padding: 1rem;
+    margin-top: -12px; /* ⬆️ Geser lebih atas sedikit untuk HP kecil */
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .popup-ad-content .button {
+    font-size: 0.85rem;
+    padding: 0.5rem 1.1rem;
+    display: block;
+    margin: 0.6rem auto 0;
   }
 }
