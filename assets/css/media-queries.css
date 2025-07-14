@@ -11,7 +11,7 @@
   }
 
   .nav__menu {
-    padding: 2rem 0.25rem 4rem;
+    padding: 1rem 0.25rem 1rem;
   }
 
   .nav__list {
@@ -94,7 +94,7 @@
   }
 
   .nav__menu {
-    padding: 2rem 0.25rem 4rem;
+    padding: 1rem 0.25rem 1rem;
   }
 
   nav.active {
@@ -551,68 +551,6 @@
     height: 100%;
     object-fit: contain;
     border-radius: 50%;
-  }
-}
-
-
-
-/* ==================== MODE FULLSCREEN DESKTOP ==================== */
-#chatBox.fullscreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw !important;
-  height: 100vh !important;
-  z-index: 99999;
-  border-radius: 0 !important;
-}
-
-/* ==================== CHATBOX FULLSCREEN ==================== */
-#chatBox {
-  transition: all 0.5s ease-in-out; /* 🎬 Animasi halus saat resize */
-}
-
-/* Saat mode fullscreen */
-#chatBox.fullscreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw !important;
-  height: 100vh !important;
-  z-index: 99999;
-  border-radius: 0 !important;
-  transition: all 0.5s ease-in-out; /* 🎬 Smooth saat masuk fullscreen */
-}
-
-
-/* ==================== RESPONSIF MOBILE ==================== */
-@media screen and (max-width: 768px) {
-  /* 🔁 Ukuran chatBox mengecil dengan animasi saat di mobile */
-  #chatBox {
-    position: fixed;
-    width: 95% !important;
-    height: 85vh !important;
-    bottom: 100px !important;
-    right: 2.5% !important;
-    left: auto !important;
-    top: auto !important;
-    border-radius: 16px !important;
-    z-index: 9999;
-    transition: all 0.5s ease-in-out;
-  }
-
-  /* 🚫 Jika masih ada class fullscreen, tetap tampil kecil */
-  #chatBox.fullscreen {
-    position: fixed;
-    width: 95% !important;
-    height: 85vh !important;
-    bottom: 100px !important;
-    right: 2.5% !important;
-    left: auto !important;
-    top: auto !important;
-    border-radius: 16px !important;
-    z-index: 9999;
-    transition: all 0.5s ease-in-out;
   }
 }
 
