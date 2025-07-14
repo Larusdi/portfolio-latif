@@ -535,6 +535,17 @@
 
 /* ==================== 📱 Responsive: Ukuran HP Kecil ==================== */
 @media screen and (max-width: 480px) {
+  .ai-assistant-toggle {
+  position: fixed;
+  top: 50%; /* Posisi vertikal tengah */
+  left: 20px; /* Jarak dari tepi kiri */
+  transform: translateY(-50%); /* Agar titik tengah elemen tepat di tengah layar */
+  width: 100px;
+  height: 100px;
+  z-index: 9999;
+  transition: all 0.4s ease;
+}
+
   .ai-assistant-toggle img {
     width: 100%;
     height: 100%;
@@ -546,6 +557,17 @@
 
 /* ==================== 📱 Responsive: Tablet atau HP Lebih Besar ==================== */
 @media screen and (min-width: 481px) and (max-width: 768px) {
+    .ai-assistant-toggle {
+  position: fixed;
+  top: 50%; /* Posisi vertikal tengah */
+  left: 20px; /* Jarak dari tepi kiri */
+  transform: translateY(-50%); /* Agar titik tengah elemen tepat di tengah layar */
+  width: 100px;
+  height: 100px;
+  z-index: 9999;
+  transition: all 0.4s ease;
+}
+
   .ai-assistant-toggle img {
     width: 100%;
     height: 100%;
