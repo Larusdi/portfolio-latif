@@ -125,34 +125,38 @@
 /*==================== 🔔 TOAST NOTIFIKASI PREMIUM (iOS Glow) ====================*/
 .theme-toast {
   position: fixed;
-  bottom: calc(env(safe-area-inset-bottom, 1.5rem) + 3.5rem); /* 🧯 Tambah jarak dari scroll-up */
+  bottom: env(safe-area-inset-bottom, 1.5rem); /* Tetap aman di semua device */
   left: 50%;
-  transform: translateX(-50%) scale(0.95);
+  transform: translateX(-50%) scale(0.95); /* Smooth muncul, tanpa geser keluar layar */
   opacity: 0;
   pointer-events: none;
   z-index: 9999;
-  padding: 0.6rem 1.2rem; /* 🔽 Lebih kecil */
-  font-size: 0.85rem;
+  padding: 0.85rem 1.5rem;
+  font-size: 0.9rem;
   color: #fff;
-  background: rgba(30, 41, 59, 0.9);
-  border-radius: 1.25rem;
+  background: rgba(30, 41, 59, 0.85);
+  border-radius: 1.5rem;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 0 8px rgba(59, 130, 246, 0.35);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.2),
+    0 0 10px rgba(59, 130, 246, 0.4);
   transition: opacity 0.4s ease, transform 0.4s ease;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  max-width: 85%;
-  min-width: 200px;
+  gap: 0.75rem;
+  max-width: 90%;
+  width: auto;
+  min-width: 260px;
   box-sizing: border-box;
 }
+
+/* Saat toast ditampilkan */
 .theme-toast.show {
   opacity: 1;
-  transform: translateX(-50%) scale(1);
+  transform: translateX(-50%) scale(1); /* Muncul halus, tetap di bawah layar */
   pointer-events: auto;
 }
-
 
 /* Icon Toast */
 .toast-icon {
