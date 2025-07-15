@@ -10,10 +10,6 @@
     padding-right: 1rem;
   }
 
-  .nav__menu {
-    padding: 1rem 0.25rem 1rem;
-  }
-
   .nav__list {
     column-gap: 0;
   }
@@ -91,10 +87,6 @@
     z-index: 998;
     text-align: center;
     padding: 1rem 0;
-  }
-
-  .nav__menu {
-    padding: 1rem 0.25rem 1rem;
   }
 
   nav.active {
@@ -243,10 +235,6 @@
     flex-direction: row;
     align-items: center;
   }
-
-  .nav__menu {
-    padding: 1rem;
-  }
 }
 
 
@@ -316,10 +304,6 @@
   .nav__list {
     display: flex;
     column-gap: 2rem;
-  }
-
-  .nav__menu {
-    margin-left: auto;
   }
 
   .change-theme {
