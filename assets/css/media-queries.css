@@ -154,7 +154,7 @@
 /* Saat toast ditampilkan */
 .theme-toast.show {
   opacity: 1;
-  transform: translateX(-55%) scale(1); /* Muncul halus, tetap di bawah layar */
+  transform: translateX(-50%) scale(1); /* Muncul halus, tetap di bawah layar */
   pointer-events: auto;
 }
 
