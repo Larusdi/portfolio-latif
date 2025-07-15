@@ -125,10 +125,12 @@
 /*==================== 🔔 TOAST NOTIFIKASI PREMIUM (iOS Glow) ====================*/
 .theme-toast {
   position: fixed;
-  bottom: env(safe-area-inset-bottom, 1.5rem); /* ✅ Aman di iPhone notch */
+  bottom: env(safe-area-inset-bottom, 1.5rem); /* Tetap aman di semua device */
   left: 50%;
-  transform: translateX(-50%) translateY(30px); /* ✅ Tetap agak tersembunyi */
-  will-change: transform, opacity;
+  transform: translateX(-50%) scale(0.95); /* Smooth muncul, tanpa geser keluar layar */
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
   padding: 0.85rem 1.5rem;
   font-size: 0.9rem;
   color: #fff;
@@ -139,23 +141,20 @@
   box-shadow:
     0 8px 30px rgba(0, 0, 0, 0.2),
     0 0 10px rgba(59, 130, 246, 0.4);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 9999;
   transition: opacity 0.4s ease, transform 0.4s ease;
   display: flex;
   align-items: center;
   gap: 0.75rem;
   max-width: 90%;
-  min-width: 260px;
   width: auto;
+  min-width: 260px;
   box-sizing: border-box;
 }
 
-/* ✅ Saat muncul */
+/* Saat toast ditampilkan */
 .theme-toast.show {
   opacity: 1;
-  transform: translateX(-50%) translateY(0px); /* ✅ Tetap muncul di posisi bawah */
+  transform: translateX(-50%) scale(1); /* Muncul halus, tetap di bawah layar */
   pointer-events: auto;
 }
 
