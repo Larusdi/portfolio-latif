@@ -1,8 +1,3 @@
-/*===============================================================
-🧠 LATIF RUSDI | Portfolio Main JavaScript
-📂 Fitur Interaktif Premium · Navigasi · Animasi · Dark Mode · UI
-===============================================================*/
-
 /*==================== 🔘 MENU NAVIGASI ====================*/
 // Tampilkan/Sembunyikan menu saat ikon toggle diklik
 const navMenu = document.getElementById("nav-menu"),
@@ -200,9 +195,9 @@ function handleThemeToggle() {
   localStorage.setItem("selected-theme", isDark ? "dark" : "light");
 
   showThemeToast(
-    isDark
-      ? '<span style="font-size:1.2em;">🌙</span> Mode Gelap Diaktifkan'
-      : '<span style="font-size:1.2em;">☀️</span> Mode Terang Diaktifkan'
+  isDark
+    ? '<span class="toast-icon">🌙</span><span class="toast-message">Mode Gelap Diaktifkan</span>'
+    : '<span class="toast-icon">☀️</span><span class="toast-message">Mode Terang Diaktifkan</span>'
   );
 }
 
