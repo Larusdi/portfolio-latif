@@ -3,16 +3,25 @@
 🧠 Fungsi: Preloader, Badut ai, Chatbot Badut, Iklan Popup., Kursor.
 =================================================================== */
 
-/*==================== ⏳ PRELOADER & BADUT AI ====================*/
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   const aiButton = document.getElementById("toggleChat");
   const chatNotif = document.getElementById("chatNotif");
   const chatBox = document.getElementById("chatBox");
+  const audio = document.getElementById("preloader-audio");
 
   // 🔒 Kunci scroll selama preloader tampil
   document.documentElement.classList.add("loading");
   document.body.classList.add("loading");
+
+  // 🔊 Putar audio saat preloader mulai
+  if (audio) {
+    audio.volume = 0.9;
+    audio.currentTime = 0;
+    audio.play().catch(e => {
+      console.warn("Audio gagal diputar:", e);
+    });
+  }
 
   // ⏱️ Delay 3 detik lalu fade-out preloader
   setTimeout(() => {
@@ -23,6 +32,12 @@ window.addEventListener("load", () => {
       preloader.style.pointerEvents = "none";
 
       setTimeout(() => {
+        // 🛑 Hentikan audio setelah preloader selesai
+        if (audio) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+
         preloader.remove(); // Hapus elemen preloader
         document.documentElement.classList.remove("loading");
         document.body.classList.remove("loading");
@@ -33,25 +48,22 @@ window.addEventListener("load", () => {
             aiButton.style.display = "flex";
             setTimeout(() => aiButton.classList.add("show"), 50);
 
-            // 🔁 Jalankan animasi berkala jika fungsi ada
             if (typeof animateBadutAI === "function") {
               setInterval(animateBadutAI, 5000);
             }
 
-            // 🔔 Tampilkan notifikasi setelah 10 detik dari AI muncul
             setTimeout(() => {
               if (chatNotif && chatBox && !chatBox.classList.contains("show")) {
                 chatNotif.style.display = "flex";
                 chatNotif.classList.add("show");
               }
-            }, 10000); // 10 detik setelah AI tombol muncul
+            }, 10000);
           }
-        }, 5000); // AI tombol muncul setelah 5 detik
+        }, 5000);
       }, 800);
     }, 500);
   }, 3000);
 });
-
 
 
 /*==================== 🤡 TOGGLE CHATBOX & NOTIF BADUT AI ====================*/
