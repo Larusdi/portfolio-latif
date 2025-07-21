@@ -238,3 +238,36 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 reveals.forEach((el) => observer.observe(el));
+
+/*==================== BLOGGER ====================*/
+let swiperBlog = new Swiper(".blog__container", {
+  loop: true,
+  grabCursor: true,
+  spaceBetween: 30,
+  centeredSlides: true,
+  speed: 600,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 1,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
+});
