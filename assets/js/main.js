@@ -164,10 +164,23 @@ const savedTheme = localStorage.getItem("selected-theme");
 function showThemeToast(message) {
   const toast = document.getElementById("theme-toast");
   if (!toast) return;
-  toast.innerHTML = message;
+
+  // Reset animasi jika sedang aktif
+  toast.classList.remove("show");
+  void toast.offsetWidth; // force reflow
+
+  // Set isi pesan
+  toast.innerHTML = `<span class="toast-message">${message}</span>`;
+
+  // Tampilkan toast dengan animasi
   toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 3000);
+
+  // Hilangkan toast setelah 4 detik
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 4000);
 }
+
 
 // 🌈 Transisi halus
 function addThemeTransition() {
@@ -238,6 +251,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 reveals.forEach((el) => observer.observe(el));
+
 
 /*==================== BLOGGER ====================*/
 let swiperBlog = new Swiper(".blog__container", {
