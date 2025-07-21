@@ -285,3 +285,18 @@ let swiperBlog = new Swiper(".blog__container", {
     },
   },
 });
+
+// 🔊 Sound klik menu
+document.addEventListener("DOMContentLoaded", () => {
+  const menuSound = document.getElementById("menu-click-sound");
+
+  // 🔁 Tambahkan ke semua link navigasi utama
+  document.querySelectorAll(".nav__link").forEach(link => {
+    link.addEventListener("click", () => {
+      if (menuSound) {
+        menuSound.currentTime = 0;
+        menuSound.play().catch(() => {/* autoplay bisa ditolak di awal */});
+      }
+    });
+  });
+});
