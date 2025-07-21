@@ -300,3 +300,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// 🔊 Sound klik Tema Gelap
+document.addEventListener("DOMContentLoaded", () => {
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeSound = document.getElementById("theme-sound");
+
+  if (themeToggle && themeSound) {
+    themeToggle.addEventListener("change", () => {
+      themeSound.currentTime = 0;
+      themeSound.play().catch(() => {/* autoplay mungkin diblokir sebelum interaksi */});
+    });
+  }
+});
