@@ -286,12 +286,134 @@ let swiperBlog = new Swiper(".blog__container", {
   },
 });
 
-// 🔊 Sound klik menu
+
+// 🎵 Daftar lagu lengkap (judul dan artis)
+const songs = [
+  {
+    file: "assets/music/music1.mp3",
+    title: "Bila Rasaku Ini Rasamu",
+    artist: "Kerispatih"
+  },
+  {
+    file: "assets/music/music2.mp3",
+    title: "Kaulah Segalanya",
+    artist: "Sammy Simorangkir"
+  },
+  {
+    file: "assets/music/music3.mp3",
+    title: "Mengenangmu",
+    artist: "Kerispatih"
+  },
+  {
+    file: "assets/music/music4.mp3",
+    title: "Kesedihanku",
+    artist: "Sammy Simorangkir"
+  },
+  {
+    file: "assets/music/music4.mp3",
+    title: "Tak Mampu Pergi",
+    artist: "Sammy Simorangkir"
+  }
+];
+
+let currentSong = 0;
+let isFirstPlay = true;
+
+const audioPlayer = document.getElementById("audioPlayer");
+const musicToggle = document.getElementById("music-toggle");
+const musicPlayerUI = document.getElementById("musicPlayer");
+const playPauseBtn = document.getElementById("playPause");
+const prevBtn = document.getElementById("prevSong");
+const nextBtn = document.getElementById("nextSong");
+const musicIcon = document.getElementById("music-icon");
+const musicTitle = document.getElementById("musicTitle");
+
+// 🔄 Load lagu dan tampilkan info
+function loadSong(index) {
+  if (!songs[index]) return;
+  const { file, title, artist } = songs[index];
+  audioPlayer.src = file;
+  musicTitle.innerHTML = `<marquee scrollamount="4" behavior="scroll">${title} - ${artist}</marquee>`;
+  audioPlayer.load();
+  audioPlayer.play()
+    .then(() => {
+      playPauseBtn.textContent = "⏸️";
+      updateIcon(true);
+    })
+    .catch(err => {
+      console.error("Gagal play:", err);
+      playPauseBtn.textContent = "▶️";
+      updateIcon(false);
+    });
+}
+
+// 🎧 Update ikon musik (putar/pause)
+function updateIcon(isPlaying) {
+  if (isPlaying) {
+    musicIcon.classList.remove("fa-play");
+    musicIcon.classList.add("fa-pause", "rotate-music");
+  } else {
+    musicIcon.classList.remove("fa-pause", "rotate-music");
+    musicIcon.classList.add("fa-play");
+  }
+}
+
+// 🎵 Toggle UI pemutar (tanpa pause)
+musicToggle.addEventListener("click", () => {
+  const visible = musicPlayerUI.style.display === "block";
+  musicPlayerUI.style.display = visible ? "none" : "block";
+
+  if (!visible && isFirstPlay) {
+    loadSong(currentSong);
+    isFirstPlay = false;
+  }
+});
+
+// ⏯️ Play/Pause tombol
+playPauseBtn.addEventListener("click", () => {
+  if (audioPlayer.paused) {
+    audioPlayer.play()
+      .then(() => {
+        playPauseBtn.textContent = "⏸️";
+        updateIcon(true);
+      }).catch(err => {
+        console.error("Play error:", err);
+      });
+  } else {
+    audioPlayer.pause();
+    playPauseBtn.textContent = "▶️";
+    updateIcon(false);
+  }
+});
+
+// ⏮️ Sebelumnya
+prevBtn.addEventListener("click", () => {
+  currentSong = (currentSong - 1 + songs.length) % songs.length;
+  loadSong(currentSong);
+});
+
+// ⏭️ Selanjutnya
+nextBtn.addEventListener("click", () => {
+  currentSong = (currentSong + 1) % songs.length;
+  loadSong(currentSong);
+});
+
+// 🔁 Lanjut otomatis
+audioPlayer.addEventListener("ended", () => {
+  nextBtn.click();
+});
+
+
+// 🔊 Sound klik menu (termasuk header, footer, dan popup)
 document.addEventListener("DOMContentLoaded", () => {
   const menuSound = document.getElementById("menu-click-sound");
 
-  // 🔁 Tambahkan ke semua link navigasi utama
-  document.querySelectorAll(".nav__link").forEach(link => {
+  // ✅ Tambahkan ke semua link navigasi utama & footer yang menuju section
+  const navLinks = document.querySelectorAll(
+    ".nav__link, footer a[href^='#'], .footer__nav a"
+  );
+
+  navLinks.forEach(link => {
     link.addEventListener("click", () => {
       if (menuSound) {
         menuSound.currentTime = 0;
@@ -299,7 +421,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // ✅ Tambahkan sound saat klik tombol popup (class .popup__button)
+  const popupButtons = document.querySelectorAll(".popup-ad");
+  popupButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (menuSound) {
+        menuSound.currentTime = 0;
+        menuSound.play().catch(() => {});
+      }
+    });
+  });
 });
+
 
 // 🔊 Sound klik Tema Gelap
 document.addEventListener("DOMContentLoaded", () => {
@@ -313,3 +447,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+// 🔊 Sound klik scroll_up
+const scrollSound = document.getElementById("scroll-sound");
+const scrollButton = document.getElementById("scroll-up");
+
+if (scrollButton && scrollSound) {
+  scrollButton.addEventListener("click", () => {
+    scrollSound.currentTime = 0;
+    scrollSound.play().catch((e) => console.warn("Scroll sound error:", e));
+  });
+}
+
+// 🔊 Sound klik scroll_Down
+const scrollDownSound = document.getElementById("scrollDown-sound");
+const scrollDownButton = document.querySelector(".home__scroll-button");
+
+if (scrollDownButton && scrollDownSound) {
+  scrollDownButton.addEventListener("click", () => {
+    scrollDownSound.currentTime = 0;
+    scrollDownSound.play().catch((e) => console.warn("Scroll down sound error:", e));
+  });
+}
