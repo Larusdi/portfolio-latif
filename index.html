@@ -244,12 +244,23 @@
                             <span class="home__scroll-name">Scroll down</span>
                             <img src="assets/icon/down-arrow.png" alt="Arrow" class="home__scroll-arrow" />
                         </a>
+                        <!-- 🎵 Suara Scroll Down -->
+                        <audio id="scrollDown-sound" src="assets/audio/down.mp3" preload="auto"></audio>
                     </div>
-
-
                 </div>
             </section>
-
+            
+            <!-- 🎧 Music Player UI -->
+            <div class="music-player" id="musicPlayer">
+                <div class="music-title" id="musicTitle">Loading...</div>
+                <audio id="audioPlayer" preload="auto"></audio>
+                <div class="music-controls">
+                    <button id="prevSong">⏮️</button>
+                    <button id="playPause">▶️</button>
+                    <button id="nextSong">⏭️</button>
+                </div>
+            </div>
+            
             <!--================== ABOUT ======================-->
             <!-- Bagian tentang diri saya -->
             <section class="about section" id="about">
@@ -892,8 +903,9 @@
             <a href="#" class="scroll-up" id="scroll-up">
                 <img src="assets/icon/up-arrow.png" alt="Scroll Up" class="scrollup__icon" />
             </a>
+            <!-- 🎵 Suara Scroll -->
+            <audio id="scroll-sound" src="assets/audio/up.mp3" preload="auto"></audio>
         </div>
-
 
 
         <!--==================== POPUP IKLAN ====================-->
