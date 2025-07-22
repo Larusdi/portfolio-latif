@@ -5,15 +5,13 @@ Modern, interactive, and AI-powered personal website with game features, music p
 ![Last Commit](https://img.shields.io/github/last-commit/Larusdi/portfolio-latif?style=for-the-badge&color=brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)
 
----
+-------
 
 ## 🎯 Deskripsi
 
 Selamat datang di portofolio pribadi **Latif Rusdi** — website modern 2025 dengan desain interaktif, **AI Assistant lucu**, fitur **mini game**, **music player**, dan **dark mode otomatis**. Dibangun sepenuhnya dengan HTML, CSS, dan JavaScript tanpa framework!
 
----
-
-## 🌟 Fitur Unggulan
+-------
 
 ## 🌟 Fitur Unggulan
 
@@ -38,7 +36,7 @@ Selamat datang di portofolio pribadi **Latif Rusdi** — website modern 2025 den
 - `Typed.js`, `Swiper.js`, `AOS.js`
 - `LocalStorage`, `GitHub Pages`
 
----
+-------
 
 ## 🔎 Struktur Direktori
 
@@ -58,13 +56,13 @@ portfolio-latif/
 └── README.md         → dokumentasi ini
 \`\`\`
 
----
+-------
 
 ## 🎥 Tampilan Website
 
 ![Website Preview](preview.png)
 
----
+-------
 
 ## 🧪 Cara Menjalankan (Offline)
 
@@ -76,13 +74,13 @@ cd portfolio-latif
 
 📌 Tidak perlu XAMPP / server lokal. 100% static!
 
----
+-------
 
 ## 🌍 Demo Langsung
 
 👉 [Klik untuk melihat versi live!](https://larusdi.github.io/portfolio-latif/)
 
----
+-------
 
 ## 📬 Kontak & Sosial Media
 
@@ -91,20 +89,20 @@ cd portfolio-latif
 - 🐙 GitHub: [@Larusdi](https://github.com/Larusdi)  
 - 📸 Instagram: [@29_larusdi](https://www.instagram.com/29_larusdi)
 
----
+-------
 
 ## 📄 Lisensi
 
 Lisensi: [MIT License](LICENSE)  
 Silakan gunakan, modifikasi, dan kembangkan proyek ini dengan tetap memberikan atribusi kepada pembuat asli 🙏
 
----
+-------
 
 ## ⭐ Dukungan
 
 Jika kamu suka dengan project ini, jangan lupa kasih bintang ⭐ di GitHub!  
 Butuh bantuan atau ingin kolaborasi? Kirim pesan saja! Terima kasih ❤️
 
----
+-------
 
 [🔼 Kembali ke Atas](#top)
