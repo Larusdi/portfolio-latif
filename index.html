@@ -234,9 +234,10 @@
                             <p class="home__description">
                                 Pengalaman tingkat tinggi dalam desain web dan pengetahuan pengembangan, menghasilkan karya yang berkualitas.
                             </p>
-                            <a href="#contact" class="button button--flex"> Contact Me 
+                            <a href="#contact" id="hero-contact" class="button button--flex">Contact Me 
                                 <img src="assets/icon/phone.png" alt="phone" class="button__icon-img" />
                             </a>
+                            <audio id="hero-contact-sound" src="assets/audio/hub.mp3" preload="auto"></audio>
                         </div>
                     </div>
 
@@ -682,26 +683,31 @@
 
 
             <!--================ PROJECT IN MIND ==============-->
-            <!-- Bagian ajakan untuk kerja sama proyek -->
             <section class="project section">
                 <!-- Latar belakang proyek -->
                 <div data-aos="fade-in" class="project__bg">
                     <div class="project__container container grid">
-    
+
                         <!-- Teks ajakan -->
                         <div class="project__data">
                             <h2 class="project__title">Anda memiliki proyek baru ?</h2>
                             <p class="project__description">Hubungi saya sekarang untuk proyek baru Anda.</p>
-                            <a href="#contact" class="button button--flex button--white"> Hubungi saya
+
+                            <!-- ✅ Tombol dengan ID untuk deteksi klik -->
+                            <a href="#contact" id="project-button" class="button button--flex button--white">
+                                Hubungi saya
                                 <img src="assets/icon/layanan.png" alt="Hubungi Saya" class="button__icon-img" />
                             </a>
                         </div>
+
                         <!-- Gambar ilustrasi proyek -->
                         <img src="assets/img/project.png" alt="Ilustrasi Proyek" class="project__img" />
-
                     </div>
                 </div>
             </section>
+
+            <!-- ✅ Tambahkan audio element -->
+            <audio id="project-sound" src="assets/audio/hub.mp3" preload="auto"></audio>
 
 
             <!--================ TESTIMONIAL ==================-->
