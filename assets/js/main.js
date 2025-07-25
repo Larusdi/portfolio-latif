@@ -491,3 +491,32 @@ if (scrollDownButton && scrollDownSound) {
     scrollDownSound.play().catch((e) => console.warn("Scroll down sound error:", e));
   });
 }
+
+// 🔊 Suara klik pada tombol "Hubungi saya" & "Contact Me"
+document.addEventListener("DOMContentLoaded", () => {
+  const projectBtn = document.getElementById("project-button");
+  const projectSound = document.getElementById("project-sound");
+
+  const heroContactBtn = document.getElementById("hero-contact");
+  const heroContactSound = document.getElementById("hero-contact-sound");
+
+  // ▶️ Project Button
+  if (projectBtn && projectSound) {
+    projectBtn.addEventListener("click", () => {
+      projectSound.currentTime = 0;
+      projectSound.play().catch(() => {
+        // autoplay mungkin ditolak sebelum interaksi
+      });
+    });
+  }
+
+  // ▶️ Hero Contact Button
+  if (heroContactBtn && heroContactSound) {
+    heroContactBtn.addEventListener("click", () => {
+      heroContactSound.currentTime = 0;
+      heroContactSound.play().catch(() => {
+        // autoplay mungkin ditolak sebelum interaksi
+      });
+    });
+  }
+});
