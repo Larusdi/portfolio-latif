@@ -103,6 +103,27 @@ let swiperTestimonial = new Swiper(".testimonial__container", {
 });
 
 
+// ✅ Testimonial Swiper
+let testimonialSwiper = new Swiper('.testimonial__container', {
+  spaceBetween: 24,
+  loop: true,
+  grabCursor: true,
+  autoplay: {
+    delay: 5000, // ganti delay sesuai kebutuhan (dalam ms)
+    disableOnInteraction: false, // tetap autoplay meskipun user geser manual
+  },
+  pagination: {
+    el: '.swiper-pagination-testimonial',
+    clickable: true,
+  },
+  breakpoints: {
+    568: {
+      slidesPerView: 2,
+    },
+  },
+});
+
+
 /*==================== 📍 SCROLL MENU AKTIF ====================*/
 // Menyorot menu aktif saat scroll halaman
 const sections = document.querySelectorAll("section[id]");
