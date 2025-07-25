@@ -1579,14 +1579,63 @@ body.dark-theme .button:hover {
   margin-bottom: var(--mb-2-5);            /* Spasi bawah untuk jarak antar elemen */
 }
 
+
+.testimonial__card {
+  background: var(--container-color);
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.testimonial__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 3px var(--first-color);
+}
+
+.testimonial__name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.testimonial__client {
+  font-size: 0.8rem;
+  color: var(--text-color-light);
+}
+
+.testimonial__stars {
+  font-size: 0.9rem;
+  color: gold;
+}
+
+.testimonial__desc {
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  color: var(--text-color);
+}
+
+
 /*==================== SWIPER PAGINATION ====================*/
 
 /* ⚫ Posisi bullet pagination testimonial */
 .swiper-container .swiper-pagination-testimonial {
   bottom: 0;                                /* Letakkan di bawah */
 }
-
-
 
 
 
