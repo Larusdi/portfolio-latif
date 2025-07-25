@@ -109,8 +109,8 @@ let testimonialSwiper = new Swiper('.testimonial__container', {
   loop: true,
   grabCursor: true,
   autoplay: {
-    delay: 5000, // ganti delay sesuai kebutuhan (dalam ms)
-    disableOnInteraction: false, // tetap autoplay meskipun user geser manual
+    delay: 5000,
+    disableOnInteraction: false,
   },
   pagination: {
     el: '.swiper-pagination-testimonial',
