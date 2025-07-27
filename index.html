@@ -249,7 +249,7 @@
                             <img src="assets/icon/down-arrow.png" alt="Arrow" class="home__scroll-arrow" />
                         </a>
                         <!-- 🎵 Suara Scroll Down -->
-                        <audio id="scrollDown-sound" src="assets/audio/1.mp3" preload="auto"></audio>
+                        <audio id="scrollDown-sound" src="assets/audio/down.mp3" preload="auto"></audio>
                     </div>
                 </div>
             </section>
@@ -684,24 +684,23 @@
 
             <!--================ PROJECT IN MIND ==============-->
             <section class="project section">
-                <!-- Latar belakang proyek -->
-                <div data-aos="fade-in" class="project__bg">
+                <div class="project__bg-glass" data-aos="zoom-in">
                     <div class="project__container container grid">
+                    
+                    <!-- 📝 Konten Teks -->
+                    <div class="project__data">
+                        <h2 class="project__title">🚀 Siap untuk Proyek Baru?</h2>
+                        <p class="project__description">
+                            Mari kita wujudkan ide Anda menjadi kenyataan digital!
+                        </p>
+                        <a href="#contact" id="project-button" class="button button--flex button--white project__cta">
+                            Hubungi saya
+                            <img src="assets/icon/layanan.png" alt="Hubungi Saya" class="button__icon-img" />
+                        </a>
+                    </div>
 
-                        <!-- Teks ajakan -->
-                        <div class="project__data">
-                            <h2 class="project__title">Anda memiliki proyek baru ?</h2>
-                            <p class="project__description">Hubungi saya sekarang untuk proyek baru Anda.</p>
-
-                            <!-- ✅ Tombol dengan ID untuk deteksi klik -->
-                            <a href="#contact" id="project-button" class="button button--flex button--white">
-                                Hubungi saya
-                                <img src="assets/icon/layanan.png" alt="Hubungi Saya" class="button__icon-img" />
-                            </a>
-                        </div>
-
-                        <!-- Gambar ilustrasi proyek -->
-                        <img src="assets/img/project.png" alt="Ilustrasi Proyek" class="project__img" />
+                    <!-- 🖼️ Gambar Proyek -->
+                    <img src="assets/img/project.png" alt="Ilustrasi Proyek" class="project__img" />
                     </div>
                 </div>
             </section>
@@ -788,35 +787,84 @@
             <!-- Bagian formulir dan informasi kontak -->
             <section class="contact section" id="contact">
                 <h2 class="section__title">Contact Me</h2>
-                <span class="section__subtitle">Hubungi kami</span>
+                <span class="section__subtitle">Hubungi saya kapan saja</span>
 
-                <div data-aos="fade-in" class="contact__container container grid">
-                    
-                    <!-- Informasi kontak langsung -->
-                    <div>
-                        <!-- Kontak via Email -->
+                <div data-aos="fade-up" class="contact__container container grid">
+
+                    <!-- 📱 Informasi Kontak Langsung -->
+                    <div class="contact__info-glass">
+
+                        <!-- ✉️ Email -->
                         <div class="contact__information">
-                            <i class="uil uil-envelope contact__icon"></i>
+                            <i class="fas fa-envelope contact__icon"></i>
                             <div>
                                 <h3 class="contact__title">Email</h3>
-                                <span class="contact__subtitle">latifrusdi15@gmail.com</span>
+                                <a href="mailto:latifrusdi15@gmail.com" class="contact__subtitle link-hover">
+                                    latifrusdi15@gmail.com
+                                </a>
                             </div>
                         </div>
 
-                        <!-- Kontak via GitHub -->
+                        <!-- 🐙 GitHub -->
                         <div class="contact__information">
-                            <i class="uil uil-github-alt contact__icon"></i>
+                            <i class="fab fa-github contact__icon"></i>
                             <div>
-                                <h3 class="contact__title">Github</h3>
-                                <span class="contact__subtitle">https://github.com/Larusdi</span>
+                                <h3 class="contact__title">GitHub</h3>
+                                <a href="https://github.com/Larusdi" target="_blank" class="contact__subtitle link-hover">
+                                    github.com/Larusdi
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- ❌ X (Twitter) -->
+                        <div class="contact__information">
+                            <i class="fab fa-x-twitter contact__icon"></i>
+                            <div>
+                                <h3 class="contact__title">X</h3>
+                                <a href="https://x.com/29_Larusdi" target="_blank" class="contact__subtitle link-hover">
+                                    x.com/29_Larusdi
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 🎵 TikTok -->
+                        <div class="contact__information">
+                            <i class="fab fa-tiktok contact__icon"></i>
+                            <div>
+                                <h3 class="contact__title">TikTok</h3>
+                                <a href="https://www.tiktok.com/@29_latif" target="_blank" class="contact__subtitle link-hover">
+                                    @29_latif
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 📸 Instagram -->
+                        <div class="contact__information">
+                            <i class="fab fa-instagram contact__icon"></i>
+                            <div>
+                                <h3 class="contact__title">Instagram</h3>
+                                <a href="https://www.instagram.com/29_larusdi" target="_blank" class="contact__subtitle link-hover">
+                                    @29_larusdi
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 🔗 LinkedIn -->
+                        <div class="contact__information">
+                            <i class="fab fa-linkedin-in contact__icon"></i>
+                            <div>
+                                <h3 class="contact__title">LinkedIn</h3>
+                                <a href="https://www.linkedin.com/in/latifrusdi" target="_blank" class="contact__subtitle link-hover">
+                                    linkedin.com/in/latifrusdi
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Formulir pengiriman pesan -->
-                    <form action="https://formsubmit.co/3291f4338dc27f344cdc564a1df42f85" method="POST" class="contact__form grid">
+                    <!-- 📝 Formulir Kirim Pesan -->
+                    <form action="https://formsubmit.co/3291f4338dc27f344cdc564a1df42f85" method="POST" class="contact__form grid contact__form-glass">
 
-                        <!-- Input Nama dan Email -->
+                        <!-- 👤 Nama & Email -->
                         <div class="contact__inputs grid">
                             <div class="contact__content">
                                 <input type="text" name="Nama" class="contact__input" required placeholder=" " />
@@ -828,21 +876,22 @@
                             </div>
                         </div>
 
-                        <!-- Input Project -->
+                        <!-- 💼 Project -->
                         <div class="contact__content">
                             <input type="text" name="Project" class="contact__input" required placeholder=" " />
-                            <label class="floating-label">Project</label>
+                            <label class="floating-label">Judul Project</label>
                         </div>
 
-                        <!-- Input Pesan -->
+                        <!-- 💬 Pesan -->
                         <div class="contact__content">
-                            <textarea name="message" rows="6" class="contact__input" required placeholder=" "></textarea>
+                            <textarea name="message" rows="5" class="contact__input" required placeholder=" "></textarea>
                             <label class="floating-label">Pesan</label>
                         </div>
 
-                        <!-- Tombol Kirim -->
+                        <!-- 🚀 Tombol Kirim -->
                         <div>
-                            <button type="submit" class="button button--flex"> Kirim Pesan
+                            <button type="submit" class="button button--flex">
+                                Kirim Pesan
                                 <img src="assets/icon/pesan.png" alt="Kirim" class="button__icon-img" />
                             </button>
                         </div>
