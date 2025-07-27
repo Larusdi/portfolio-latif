@@ -485,18 +485,16 @@ html[data-theme="dark"] .music-lyrics {
 @media (max-width: 768px) {
   .music-download {
     top: 8rem;
-    right: 12rem;
+    right: 14.8rem;
     font-size: 0.95rem;
-    z-index: 20;
   }
 }
 
 @media (max-width: 480px) {
   .music-download {
     top: 15rem;
-    right: 12rem;
+    right: 14.5rem;
     font-size: 1rem;
-    z-index: 20;
   }
 }
 
@@ -504,18 +502,16 @@ html[data-theme="dark"] .music-lyrics {
 @media (max-width: 768px) {
 .music-like {
     top: 14.8rem;
-    left: 12rem;
+    left: 14.5rem;
     font-size: 1rem;
-    z-index: 20;
   }
 }
 
 @media (max-width: 480px) {
   .music-like {
     top: 14.8rem;
-    left: 12rem;
+    left: 14.5rem;
     font-size: 1rem;
-    z-index: 20;
   }
 }
 
@@ -525,7 +521,6 @@ html[data-theme="dark"] .music-lyrics {
     top: 2.5rem;
     right: 1rem;
     font-size: 1rem;
-    z-index: 20;
   }
 }
 
@@ -534,6 +529,5 @@ html[data-theme="dark"] .music-lyrics {
     top: 2.5rem;
     right: 1rem;
     font-size: 1rem;
-    z-index: 20;
   }
 }
