@@ -258,26 +258,61 @@
             
             <!-- 🎧 Music Player UI -->
             <div class="music-player" id="musicPlayer">
+                <!-- 🎵 Judul Lagu -->
                 <div class="music-title" id="musicTitle">Loading...</div>
                 <audio id="audioPlayer" preload="auto" src="lagu.mp3"></audio>
 
+                <!-- 🎚️ Kontrol Musik -->
                 <div class="music-controls">
-                    <button id="prevSong">⏮️</button>
-                    <button id="playPause">▶️</button>
-                    <button id="nextSong">⏭️</button>
+                    <button id="prevSong"><i class="fas fa-backward-step"></i></button>
+                    <button id="playPause"><i class="fas fa-play" id="music-icon"></i></button>
+                    <button id="nextSong"><i class="fas fa-forward-step"></i></button>
                 </div>
 
-                <!-- 🎤 Lyrics Section -->
+                <!-- 🔁 Shuffle & Repeat -->
+                <div class="music-options">
+                    <button id="shuffleBtn" title="Shuffle"><i class="fas fa-random"></i></button>
+                    <button id="repeatBtn" title="Repeat"><i class="fas fa-redo"></i></button>
+                </div>
+
+                <!-- ❤️ Like & Visualizer -->
+                <div class="music-extra">
+                    <div class="music-like">
+                        <button id="likeBtn" title="Suka Lagu Ini"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="music-visualizer">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+
+                <!-- 🎤 Lirik Lagu -->
                 <div class="music-lyrics" id="musicLyrics">
                     <p id="lyricsDisplay">Lirik akan muncul di sini...</p>
                 </div>
 
-                <!-- 🕒 Progress Bar + Time -->
+                <!-- ⏳ Progress -->
                 <div class="music-progress">
                     <span id="currentTime">0:00</span>
                     <input type="range" id="progressBar" value="0" min="0" step="0.01">
                     <span id="duration">0:00</span>
                 </div>
+
+                <!-- 🔉 Volume -->
+                <div class="music-volume">
+                    <button id="volumeDown" title="Volume Down">−</button>
+                    <div class="volume-indicator" id="volumeLevel">100%</div>
+                    <button id="volumeUp" title="Volume Up">+</button>
+                </div>
+
+                <!-- ⬇️ Download Lagu -->
+                <a id="downloadBtn" class="music-download" title="Download Lagu Ini" download>
+                    <i class="fas fa-download"></i>
+                </a>
+
+                <!-- 🔍 Pencarian Global -->
+                <button class="music-search" id="searchBtn" title="Cari Lagu">
+                    <i class="fas fa-search"></i>
+                </button>
             </div>
             
             <!--================== ABOUT ======================-->
