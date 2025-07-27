@@ -1103,7 +1103,6 @@ body.dark-theme .button:hover {
 }
 
 
-
 /*==================== 🧑 ABOUT  ====================*/
 /* 👤 Tentang Saya (Bagian Profil) */
 
@@ -1113,7 +1112,6 @@ body.dark-theme .button:hover {
   gap: 2.5rem;
   padding-top: 2rem;
 }
-
 
 /*==================== 🔆 PROFIL GAMBAR ====================*/
 /* Gambar profil dengan efek glow dan hover */
@@ -1159,8 +1157,29 @@ body.dark-theme .button:hover {
 .about__description {
   text-align: justify;
   margin-bottom: var(--mb-2-5);
-  line-height: 1.8;
-  font-size: 0.95rem;
+  line-height: 1.85;
+  font-size: 1rem;
+  color: var(--text-color);
+  animation: fadeInDesc 1.2s ease both;
+  transition: color 0.3s ease;
+}
+
+/* Efek animasi masuk */
+@keyframes fadeInDesc {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Warna teks menyala lembut di dark mode */
+html[data-theme="dark"] .about__description {
+  color: #dcdcdc;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.05);
 }
 
 
@@ -1170,28 +1189,120 @@ body.dark-theme .button:hover {
   justify-content: space-around;
   gap: 1rem;
   margin-bottom: var(--mb-2);
+  animation: fadeInStats 1s ease-in-out both;
 }
 
+/* Efek masuk lembut */
+@keyframes fadeInStats {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Judul angka */
 .about__info-title {
   font-size: 1.6rem;
   font-weight: 600;
+  color: var(--first-color);
+  text-shadow: 0 0 4px rgba(255, 193, 7, 0.4);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
+/* Sinkron dark mode */
+html[data-theme="dark"] .about__info-title {
+  color: #ffc107;
+  text-shadow: 0 0 6px rgba(255, 193, 7, 0.5);
+}
+
+/* Hover efek glow */
+.about__info-title:hover {
+  color: var(--first-color);
+  text-shadow: 0 0 8px var(--first-color), 0 0 12px var(--first-color);
+}
+
+/* Label bawah angka */
 .about__info-name {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--title-color);
+  color: var(--text-color-light);
   line-height: 1.3;
+  transition: color 0.3s ease;
 }
 
+/* Sinkron dark mode (lebih cerah di gelap) */
+html[data-theme="dark"] .about__info-name {
+  color: #ccc;
+}
+
+/* Efek hover kecil */
+.about__info-name:hover {
+  color: var(--first-color);
+}
 
 /*==================== 🔘 TOMBOL CTA ====================*/
 .about__buttons {
   margin-top: var(--mb-2);
   display: flex;
   justify-content: center;
+  animation: fadeUp 1s ease-in-out both;
 }
 
+/* Tombol utama */
+.about__buttons .button {
+  background: linear-gradient(135deg, var(--first-color), #ff8c00);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Hover menyala */
+.about__buttons .button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.6);
+  background: linear-gradient(135deg, #ff8c00, var(--first-color));
+}
+
+/* Ikon dalam tombol */
+.button__icon-img {
+  width: 20px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 4px white);
+}
+
+.button:hover .button__icon-img {
+  transform: rotate(-15deg) scale(1.05);
+}
+
+/* ==================== Animasi masuk ==================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark mode penyesuaian */
+html[data-theme="dark"] .about__buttons .button {
+  background: linear-gradient(135deg, #ffa500, #ff5722);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(255, 87, 34, 0.35);
+}
 
 
 /*==================== 🎯 SKILLS ====================*/
