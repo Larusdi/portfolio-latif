@@ -112,6 +112,24 @@ const lyricsDisplay = document.getElementById("lyricsDisplay");
 
 let parsedLyrics = [];
 
+// Ambil elemen audio & visualizer
+const visualizerBars = document.querySelectorAll('.music-visualizer span');
+
+// Fungsi untuk aktifkan atau hentikan animasi visualizer
+function toggleVisualizer(isPlaying) {
+  visualizerBars.forEach(bar => {
+    bar.style.animationPlayState = isPlaying ? 'running' : 'paused';
+  });
+}
+
+// Dengarkan event play dan pause
+audioPlayer.addEventListener('play', () => toggleVisualizer(true));
+audioPlayer.addEventListener('pause', () => toggleVisualizer(false));
+
+// Opsional: saat audio selesai, juga hentikan visualizer
+audioPlayer.addEventListener('ended', () => toggleVisualizer(false));
+
+
 // ⛔ Sembunyikan player saat awal
 if (musicPlayerUI) musicPlayerUI.style.display = "none";
 
@@ -176,6 +194,45 @@ progressBar.addEventListener("input", () => {
   audioPlayer.currentTime = progressBar.value;
 });
 
+// volume user
+const volumeUpBtn = document.getElementById("volumeUp");
+const volumeDownBtn = document.getElementById("volumeDown");
+const volumeLevel = document.getElementById("volumeLevel");
+
+// 🎚️ Update UI Volume (icon + persentase)
+function updateVolumeUI(volume) {
+  const percent = Math.round(volume * 100);
+  volumeLevel.textContent = `${percent}%`;
+
+  // Opsional: Ubah warna glow berdasarkan level
+  if (percent === 0) {
+    volumeLevel.style.color = "#999";
+  } else if (percent <= 50) {
+    volumeLevel.style.color = "#00c0ff";
+  } else {
+    volumeLevel.style.color = "#00f0ff";
+  }
+}
+
+// ➕ Volume Naik
+volumeUpBtn.addEventListener("click", () => {
+  let newVolume = Math.min(audioPlayer.volume + 0.1, 1);
+  audioPlayer.volume = newVolume;
+  updateVolumeUI(newVolume);
+});
+
+// ➖ Volume Turun
+volumeDownBtn.addEventListener("click", () => {
+  let newVolume = Math.max(audioPlayer.volume - 0.1, 0);
+  audioPlayer.volume = newVolume;
+  updateVolumeUI(newVolume);
+});
+
+// Set volume awal
+audioPlayer.addEventListener("loadedmetadata", () => {
+  updateVolumeUI(audioPlayer.volume);
+});
+
 // 📦 Load lagu + lirik
 function loadSong(index) {
   if (!songs[index]) return;
@@ -211,19 +268,6 @@ function updateIcon(isPlaying) {
   }
 }
 
-// 🖱️ Toggle tampilan player (hanya muncul saat diklik)
-if (musicToggle) {
-  musicToggle.addEventListener("click", () => {
-    const visible = musicPlayerUI.style.display === "block";
-    musicPlayerUI.style.display = visible ? "none" : "block";
-
-    if (!visible && isFirstPlay) {
-      loadSong(currentSong);
-      isFirstPlay = false;
-    }
-  });
-}
-
 // ▶️ Play/Pause
 if (playPauseBtn) {
   playPauseBtn.addEventListener("click", () => {
@@ -242,6 +286,20 @@ if (playPauseBtn) {
     }
   });
 }
+
+// 🖱️ Toggle tampilan player (hanya muncul saat diklik)
+if (musicToggle) {
+  musicToggle.addEventListener("click", () => {
+    const visible = musicPlayerUI.style.display === "block";
+    musicPlayerUI.style.display = visible ? "none" : "block";
+
+    if (!visible && isFirstPlay) {
+      loadSong(currentSong);
+      isFirstPlay = false;
+    }
+  });
+}
+
 
 // ⏮️ Lagu sebelumnya
 if (prevBtn) {
@@ -267,4 +325,122 @@ audioPlayer.addEventListener("ended", () => {
 // 🔁 Update lirik saat lagu berjalan
 audioPlayer.addEventListener("timeupdate", () => {
   updateLyrics(audioPlayer.currentTime);
+});
+
+const likeBtn = document.getElementById('likeBtn');
+const heartIcon = likeBtn.querySelector('i');
+
+// Cek status dari localStorage
+let isLiked = localStorage.getItem('likedSong') === 'true';
+if (isLiked) {
+  heartIcon.classList.remove('far');
+  heartIcon.classList.add('fas');
+  likeBtn.classList.add('liked');
+}
+
+// Fungsi efek kobaran api
+function showExplosion() {
+  const explosion = document.createElement('div');
+  explosion.className = 'like-explode';
+  explosion.innerText = 'Disukai 💖';
+  likeBtn.parentElement.appendChild(explosion);
+
+  setTimeout(() => {
+    explosion.remove();
+  }, 1000);
+}
+
+// Klik tombol ❤️
+likeBtn.addEventListener('click', () => {
+  isLiked = !isLiked;
+
+  if (isLiked) {
+    heartIcon.classList.remove('far');
+    heartIcon.classList.add('fas');
+    likeBtn.classList.add('liked');
+    showExplosion();
+    localStorage.setItem('likedSong', 'true');
+  } else {
+    heartIcon.classList.remove('fas');
+    heartIcon.classList.add('far');
+    likeBtn.classList.remove('liked');
+    localStorage.setItem('likedSong', 'false');
+  }
+});
+
+
+// 🎵 Repeat & Shuffle Variables
+let repeatMode = "off"; // off, all, one
+let isShuffle = false;
+
+// 🔁 Repeat Button Logic
+const repeatBtn = document.getElementById("repeatBtn");
+const shuffleBtn = document.getElementById("shuffleBtn");
+const repeatIcon = repeatBtn?.querySelector("i");
+
+// ⏯ Repeat Mode Cycle
+if (repeatBtn) {
+  repeatBtn.addEventListener("click", () => {
+    if (repeatMode === "off") {
+      repeatMode = "all";
+      repeatIcon.className = "fas fa-redo";
+      repeatBtn.classList.add("active");
+      repeatBtn.title = "Ulangi Semua";
+    } else if (repeatMode === "all") {
+      repeatMode = "one";
+      repeatIcon.className = "fas fa-redo-alt";
+      repeatBtn.title = "Ulangi Satu Lagu";
+    } else {
+      repeatMode = "off";
+      repeatIcon.className = "fas fa-redo";
+      repeatBtn.classList.remove("active");
+      repeatBtn.title = "Repeat Mati";
+    }
+  });
+}
+
+// 🔀 Shuffle Button Toggle
+if (shuffleBtn) {
+  shuffleBtn.addEventListener("click", () => {
+    isShuffle = !isShuffle;
+    shuffleBtn.classList.toggle("active", isShuffle);
+    shuffleBtn.title = isShuffle ? "Acak Lagu Aktif" : "Acak Lagu Mati";
+  });
+}
+
+// 📦 Saat lagu selesai diputar
+audioPlayer.addEventListener("ended", () => {
+  if (repeatMode === "one") {
+    audioPlayer.currentTime = 0;
+    audioPlayer.play();
+  } else if (repeatMode === "all") {
+    // Ganti dengan logika ke lagu berikutnya
+    playNextTrack();
+  } else {
+    // Tidak ada repeat
+    console.log("Lagu selesai tanpa repeat");
+  }
+});
+
+// 🌀 Fungsi acak playlist jika diperlukan
+function shufflePlaylist(array) {
+  // Fisher-Yates shuffle algorithm
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// ⬇️ Download lagu saat tombol ditekan
+const audio = document.getElementById("audioPlayer");
+const downloadBtn = document.getElementById("downloadBtn");
+
+downloadBtn.addEventListener("click", () => {
+  downloadBtn.href = audio.src; // pastikan ini src file asli
+});
+
+// 🔍 Cari Lagu (bisa nanti pakai modal atau popup pencarian)
+document.getElementById("searchBtn").addEventListener("click", () => {
+  alert("Fitur pencarian lagu global akan datang! 🔍");
 });
