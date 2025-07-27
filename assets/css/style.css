@@ -1103,6 +1103,7 @@ body.dark-theme .button:hover {
 }
 
 
+
 /*==================== 🧑 ABOUT  ====================*/
 /* 👤 Tentang Saya (Bagian Profil) */
 
@@ -1303,6 +1304,7 @@ html[data-theme="dark"] .about__buttons .button {
   color: #fff;
   box-shadow: 0 4px 16px rgba(255, 87, 34, 0.35);
 }
+
 
 
 /*==================== 🎯 SKILLS ====================*/
