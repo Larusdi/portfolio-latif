@@ -1541,30 +1541,84 @@ body.dark-theme .button:hover {
 /*======================================== 💡 PROJECT IN MIND ========================================*/
 .project {
   text-align: center;
+  padding: 2rem 1rem;
 }
 
-/* Latar belakang khusus bagian project */
+/* 🎨 Latar belakang mewah + efek kaca */
 .project__bg {
-  background-color: var(--first-color-second);
-  padding-top: 3rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.12));
+  backdrop-filter: blur(20px);
+  border-radius: 2rem;
+  padding: 3rem 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.4s ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Judul & deskripsi project */
+/* 🌙 Versi gelap */
+html[data-theme="dark"] .project__bg {
+  background: linear-gradient(135deg, rgba(28, 28, 28, 0.6), rgba(0, 0, 0, 0.35));
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.05);
+}
+
+/* 📝 Judul proyek */
 .project__title {
   font-size: var(--h2-font-size);
-  color: #fff;
-  margin-bottom: var(--mb-0-75);
+  color: #ffd700;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
 }
 
+/* 📋 Deskripsi proyek */
 .project__description {
-  margin-bottom: var(--mb-1-5);
-  color: #fff;
+  color: #eee;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 auto 2rem auto;
+  max-width: 480px;
+  padding: 0 1rem;
 }
 
-/* Gambar ilustrasi project */
+/* 🖼️ Gambar ilustrasi melayang */
 .project__img {
-  width: 232px;
+  width: 240px;
   justify-self: center;
+  animation: floatImage 6s ease-in-out infinite;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.2));
+}
+
+/* 🌊 Efek melayang gambar */
+@keyframes floatImage {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ✨ Tombol aksi */
+.project__cta {
+  background-color: transparent;
+  border: 2px solid #ffd700;
+  color: #ffd700;
+  padding: 0.75rem 1.6rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease-in-out;
+}
+
+.project__cta:hover {
+  background-color: #ffd700;
+  color: #000;
+  box-shadow: 0 0 15px #ffd700, 0 0 30px #ffd70080;
+  transform: translateY(-2px);
 }
 
 
@@ -1726,7 +1780,302 @@ body.dark-theme .button:hover {
   padding: 0.25rem 0.5rem 0.5rem 0; /* Ruang dalam */
 }
 
+/*==================================== 💬 CONTACT MODERN ====================================*/
 
+.contact__info-glass,
+.contact__form-glass {
+  background: rgba(255, 255, 255, 0.08);           /* Transparansi lembut */
+  backdrop-filter: blur(14px) saturate(1.3);       /* Blur & saturasi */
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.12);      /* Border putih lembut */
+  transition: all 0.4s ease-in-out;
+  will-change: background, box-shadow;
+}
+
+/* 🌙 Dark Mode – Kaca gelap lembut */
+html[data-theme="dark"] .contact__info-glass,
+html[data-theme="dark"] .contact__form-glass {
+  background: rgba(20, 20, 20, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.05);
+}
+
+/* ✨ Hover Ringan */
+.contact__info-glass:hover,
+.contact__form-glass:hover {
+  transform: scale(1.01);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+html[data-theme="dark"] .contact__info-glass:hover,
+html[data-theme="dark"] .contact__form-glass:hover {
+  box-shadow: 0 10px 32px rgba(255, 255, 255, 0.06);
+}
+
+/* ===================== 🔗 LINK HOVER ===================== */
+
+.link-hover {
+  color: var(--first-color);
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  font-weight: 500;
+}
+
+.link-hover:hover {
+  color: #ffd700;
+  text-shadow: 0 0 6px #ffd70080, 0 0 10px #ffd70040;
+  letter-spacing: 0.3px;
+}
+
+/* ===================== 🎨 IKON SOSIAL MEDIA ===================== */
+
+/* 💫 Animasi transisi dasar semua ikon */
+.contact__icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, filter 0.3s ease, color 0.3s ease;
+  will-change: transform, filter, color;
+}
+
+/* 📧 Email - Warna khas Gmail (Google style) */
+.contact__information i.fa-envelope {
+  color: #888; /* Fallback abu */
+  background: linear-gradient(135deg,
+    #4285F4 0%,    /* Biru */
+    #34A853 25%,   /* Hijau */
+    #FBBC05 50%,   /* Kuning */
+    #EA4335 75%    /* Merah */
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-weight: bold;
+  transition: transform 0.35s ease, filter 0.35s ease, color 0.35s ease;
+  will-change: transform, filter, color;
+}
+
+/* 🌙 Mode Gelap: Tambah kontras ringan */
+html[data-theme="dark"] .contact__information i.fa-envelope {
+  filter: brightness(1.2);
+}
+
+/* ✨ Hover: Cahaya warna lembut */
+.contact__information i.fa-envelope:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 6px rgba(66, 133, 244, 0.2))   /* Biru */
+          drop-shadow(0 0 6px rgba(234, 67, 53, 0.2))    /* Merah */
+          drop-shadow(0 0 6px rgba(251, 188, 5, 0.15));  /* Kuning */
+}
+
+/* 🐙 GitHub - Abu Mewah dengan Transisi Halus */
+.contact__information i.fa-github {
+  color: #cfcfcf;
+  font-size: 1.6rem;
+  transition: transform 0.35s ease, filter 0.35s ease, color 0.35s ease;
+  will-change: transform, filter, color;
+}
+
+/* 🌙 Mode Gelap - Putih Soft */
+html[data-theme="dark"] .contact__information i.fa-github {
+  color: #f0f0f0;
+}
+
+/* ✨ Hover: Glow Elegan & Efek Depth */
+.contact__information i.fa-github:hover {
+  transform: scale(1.18);
+  filter:
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.12))
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.08))
+    saturate(1.1);
+}
+
+/* ❌ X (Twitter) - Hitam modern dengan efek halus */
+.contact__information i.fa-x-twitter {
+  color: #1a1a1a; /* Sedikit lebih soft dari #121212 */
+  font-weight: 600;
+  transition: 
+    transform 0.4s ease, 
+    filter 0.4s ease, 
+    color 0.4s ease;
+  will-change: transform, filter, color;
+}
+
+/* 🌙 Mode Gelap: X menjadi abu terang */
+html[data-theme="dark"] .contact__information i.fa-x-twitter {
+  color: #f0f0f0;
+}
+
+/* ✨ Hover - Glow elegan & dinamis */
+.contact__information i.fa-x-twitter:hover {
+  transform: scale(1.15);
+  filter: 
+    drop-shadow(0 0 4px rgba(0, 0, 0, 0.2)) 
+    drop-shadow(0 0 8px rgba(0, 0, 0, 0.35));
+}
+
+/* 🎵 TikTok - Warna Resmi 2025 */
+.contact__information i.fa-tiktok {
+  color: #00f2ea; /* Cyan neon */
+  text-shadow:
+    1px 1px 0 #000,                        /* Outline hitam ringan */
+    0 0 4px rgba(255, 0, 80, 0.25),        /* Glow pink */
+    0 0 6px rgba(0, 242, 234, 0.2);        /* Glow cyan */
+  transition: transform 0.35s ease, filter 0.35s ease, color 0.35s ease;
+  will-change: transform, filter;
+}
+
+/* 🌙 Dark Mode: Lebih terang sedikit */
+html[data-theme="dark"] .contact__information i.fa-tiktok {
+  color: #00f2ea;
+  filter: brightness(1.25);
+}
+
+/* ✨ Hover: Efek gradasi neon hidup */
+.contact__information i.fa-tiktok:hover {
+  transform: scale(1.15);
+  filter:
+    drop-shadow(0 0 6px rgba(255, 0, 80, 0.35))   /* pink */
+    drop-shadow(0 0 8px rgba(0, 242, 234, 0.35)); /* cyan */
+}
+
+/* 📸 Instagram Gradasi Resmi Premium */
+.contact__information i.fa-instagram {
+  /* Fallback warna */
+  color: #e1306c;
+
+  /* Gradasi resmi Instagram */
+  background: radial-gradient(circle at 30% 107%, 
+    #fdf497 0%, 
+    #fd5949 45%, 
+    #d6249f 60%, 
+    #285AEB 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+  transition: transform 0.35s ease, filter 0.35s ease;
+  will-change: transform, filter;
+}
+
+/* 🌙 Mode Gelap: Cerahkan dengan soft glow */
+html[data-theme="dark"] .contact__information i.fa-instagram {
+  filter: brightness(1.2) contrast(1.05);
+}
+
+/* ✨ Hover: Efek gradasi bercahaya elegan */
+.contact__information i.fa-instagram:hover {
+  transform: scale(1.18);
+  filter: 
+    drop-shadow(0 0 4px rgba(253, 245, 151, 0.15))  /* Kuning lembut */
+    drop-shadow(0 0 6px rgba(253, 89, 73, 0.2))     /* Merah IG */
+    drop-shadow(0 0 8px rgba(40, 90, 235, 0.2));    /* Biru IG */
+}
+
+/* 🔗 LinkedIn - Biru Profesional */
+.contact__information i.fa-linkedin-in {
+  color: #0077b5; /* Biru khas LinkedIn */
+  font-size: 1.6rem;
+  transition: transform 0.35s ease, filter 0.35s ease, color 0.35s ease;
+  will-change: transform, filter, color;
+}
+
+/* 🌙 Mode Gelap: Biru neon agar tetap kontras */
+html[data-theme="dark"] .contact__information i.fa-linkedin-in {
+  color: #33aaff;
+}
+
+/* ✨ Hover: Efek glow halus LinkedIn */
+.contact__information i.fa-linkedin-in:hover {
+  transform: scale(1.15);
+  filter: 
+    drop-shadow(0 0 4px rgba(0, 119, 181, 0.2)) 
+    drop-shadow(0 0 6px rgba(0, 119, 181, 0.3));
+}
+
+/* ===================== 🔁 ANIMASI IKON SOSIAL YANG HIDUP ===================== */
+
+/* 📧 Gmail shimmer hidup */
+.contact__information i.fa-envelope {
+  animation: gmailShimmer 4s ease-in-out infinite alternate;
+}
+
+/* 🐙 GitHub pulse halus */
+.contact__information i.fa-github {
+  animation: githubPulse 4.5s ease-in-out infinite alternate;
+}
+
+/* ❌ X (Twitter) berdenyut lembut */
+.contact__information i.fa-x-twitter {
+  animation: twitterPulse 3.8s ease-in-out infinite alternate;
+}
+
+/* 🎵 TikTok dengan neon menyala lembut */
+.contact__information i.fa-tiktok {
+  animation: tiktokGlow 3.6s ease-in-out infinite alternate;
+}
+
+/* 📸 Instagram dengan denyutan berwarna */
+.contact__information i.fa-instagram {
+  animation: instaPulse 3.2s ease-in-out infinite alternate;
+}
+
+/* 🔗 LinkedIn berkilau profesional */
+.contact__information i.fa-linkedin-in {
+  animation: linkedinGlow 3.6s ease-in-out infinite alternate;
+}
+
+/* ===================== 🎞️ KEYFRAMES ANIMASI ===================== */
+
+@keyframes gmailShimmer {
+  0%, 100% { transform: translateY(0); filter: brightness(1); }
+  50%      { transform: translateY(-1px); filter: brightness(1.2); }
+}
+
+@keyframes githubPulse {
+  0%   { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255,255,255,0.1)); }
+  50%  { transform: scale(1.05); filter: drop-shadow(0 0 8px rgba(255,255,255,0.2)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 4px rgba(255,255,255,0.12)); }
+}
+
+@keyframes twitterPulse {
+  0%   { transform: rotate(0deg); filter: drop-shadow(0 0 2px rgba(0,0,0,0.1)); }
+  50%  { transform: rotate(-2deg); filter: drop-shadow(0 0 6px rgba(0,0,0,0.3)); }
+  100% { transform: rotate(0deg); filter: drop-shadow(0 0 3px rgba(0,0,0,0.15)); }
+}
+
+@keyframes tiktokGlow {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px rgba(255, 0, 80, 0.15))
+            drop-shadow(0 0 6px rgba(0, 242, 234, 0.2));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 9px rgba(255, 0, 80, 0.3))
+            drop-shadow(0 0 12px rgba(0, 242, 234, 0.3));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px rgba(255, 0, 80, 0.25))
+            drop-shadow(0 0 10px rgba(0, 242, 234, 0.25));
+  }
+}
+
+@keyframes instaPulse {
+  0%, 100% { transform: scale(1); filter: brightness(1.1); }
+  50%      { transform: scale(1.08); filter: brightness(1.3); }
+}
+
+@keyframes linkedinGlow {
+  0%   { transform: translateY(0); filter: drop-shadow(0 0 2px rgba(0,119,181,0.15)); }
+  50%  { transform: translateY(-1px); filter: drop-shadow(0 0 6px rgba(0,119,181,0.35)); }
+  100% { transform: translateY(0); filter: drop-shadow(0 0 3px rgba(0,119,181,0.2)); }
+}
 
 /*==================== 🪄 FLOATING LABEL INPUT ====================*/
 /* Digunakan untuk membuat label input melayang (floating) saat input diisi atau difokuskan */
@@ -2341,4 +2690,10 @@ html[data-bs-theme="dark"] .blog__card-ios {
     font-size: 16px;
     padding: 0.2rem;
   }
+}
+
+
+html,
+body {
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
 }
