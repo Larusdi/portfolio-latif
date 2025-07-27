@@ -257,11 +257,24 @@
             <!-- 🎧 Music Player UI -->
             <div class="music-player" id="musicPlayer">
                 <div class="music-title" id="musicTitle">Loading...</div>
-                <audio id="audioPlayer" preload="auto"></audio>
+                <audio id="audioPlayer" preload="auto" src="lagu.mp3"></audio>
+
                 <div class="music-controls">
                     <button id="prevSong">⏮️</button>
                     <button id="playPause">▶️</button>
                     <button id="nextSong">⏭️</button>
+                </div>
+
+                <!-- 🎤 Lyrics Section -->
+                <div class="music-lyrics" id="musicLyrics">
+                    <p id="lyricsDisplay">Lirik akan muncul di sini...</p>
+                </div>
+
+                <!-- 🕒 Progress Bar + Time -->
+                <div class="music-progress">
+                    <span id="currentTime">0:00</span>
+                    <input type="range" id="progressBar" value="0" min="0" step="0.01">
+                    <span id="duration">0:00</span>
                 </div>
             </div>
             
