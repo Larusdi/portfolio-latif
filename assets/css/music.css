@@ -1,0 +1,206 @@
+/*==================== 🎧 Music Player Premium ====================*/
+
+/* ==================== 💻 Desktop ==================== */
+.music-player {
+  position: fixed;
+  bottom: 25rem;
+  left: 1rem;
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+  max-width: 360px;
+  color: #fff;
+  font-family: "SF Pro Text", sans-serif;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 🎵 Judul Lagu */
+.music-title {
+  white-space: nowrap;
+  font-size: 0.85rem;
+  color: #f0f0f0;
+  text-align: center;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+/* 🎚️ Kontrol Musik */
+.music-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.music-controls button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0.3rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.music-controls button:hover {
+  color: #00f0ff;
+  transform: scale(1.15);
+}
+
+/* 🔄 Ikon Musik Berputar */
+.rotate-music {
+  animation: spinMusic 2s linear infinite;
+}
+
+@keyframes spinMusic {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 🎤 Lirik Karaoke */
+.music-lyrics {
+  max-height: 140px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding-right: 0.5rem;
+  text-align: center;
+}
+
+.music-lyrics div {
+  opacity: 0.6;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  padding: 2px 0;
+  transition: all 0.3s ease;
+  color: #ccc;
+}
+
+.music-lyrics .active {
+  color: #00f0ff;
+  font-weight: 600;
+  opacity: 1;
+  transform: scale(1.05);
+  text-shadow: 0 0 4px rgba(0, 240, 255, 0.4);
+}
+
+/* ==================== 🎧 Progress Bar Musik ==================== */
+.music-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  font-size: 0.7rem;
+  color: #aaa;
+  font-weight: 500;
+  user-select: none;
+  margin-top: 0.4rem;
+}
+
+/* 🎚️ Track Bar */
+.music-progress input[type="range"] {
+  flex: 1;
+  height: 6px;
+  background: linear-gradient(90deg, #00f0ff 0%, #00c3ff 50%, #0077ff 100%);
+  border-radius: 999px;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s ease;
+  box-shadow: inset 0 0 4px rgba(0, 240, 255, 0.2);
+}
+
+/* 🌟 Efek interaktif saat hover */
+.music-progress input[type="range"]:hover {
+  background: linear-gradient(90deg, #00f0ff, #ff6ec4, #5f72ff);
+}
+
+/* 🔘 Tombol bulat (Thumb) */
+.music-progress input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0, 240, 255, 0.6), 0 0 10px rgba(0, 240, 255, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.music-progress input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* 🌙 Dark mode adaptif */
+html[data-theme="dark"] .music-progress input[type="range"] {
+  background: linear-gradient(90deg, #00f0ff, #00bfff);
+}
+
+html[data-theme="dark"] .music-progress input[type="range"]::-webkit-slider-thumb {
+  background: #fff;
+  box-shadow: 0 0 6px #00f0ff, 0 0 10px #00aaff;
+}
+
+
+
+/* ==================== 📱 Mobile ==================== */
+@media screen and (max-width: 600px) {
+  .music-player {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 92vw;
+    width: auto;
+    padding: 0.6rem 0.9rem;
+    border-radius: 1rem;
+    background: rgba(18, 18, 18, 0.9);
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+  }
+
+  .music-title {
+    font-size: 0.8rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  .music-controls {
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+
+  .music-controls button {
+    font-size: 16px;
+    padding: 0.2rem 0.3rem;
+  }
+
+  .music-lyrics {
+    font-size: 0.7rem;
+    line-height: 1.3;
+    max-height: 3rem;
+    padding: 0 0.5rem;
+    text-align: center;
+  }
+
+  .music-lyrics p span.active {
+    color: #00f0ff;
+    font-weight: 600;
+    text-shadow: 0 0 3px rgba(0, 240, 255, 0.2);
+  }
+}
