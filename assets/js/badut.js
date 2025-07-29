@@ -1032,3 +1032,22 @@ function animateBadutAI() {
     badutAI.classList.remove("animate-shake");
   }, 600);
 }
+
+
+// ==================== 🤡 TOMBOL BADUT HILANG DAN MUNCUL ====================
+
+window.onload = () => {
+  const toggleButton = document.getElementById("toggle-badut");
+  const badutBox = document.getElementById("toggleChat");
+
+  // Jalankan toggle saat sudah bisa interaksi
+  toggleButton.addEventListener("click", () => {
+    if (badutBox.classList.contains("hidden")) {
+      badutBox.classList.remove("hidden");
+      badutBox.classList.add("visible");
+    } else {
+      badutBox.classList.remove("visible");
+      badutBox.classList.add("hidden");
+    }
+  });
+};
