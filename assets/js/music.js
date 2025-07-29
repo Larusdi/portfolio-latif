@@ -6,35 +6,35 @@ const songs = [
   artist: "Kerispatih",
   lyrics: `
   [00:31.00] 🎵 Bila Rasaku Ini Rasamu - Kerispatih
-  [00:32.00] Aku memang terlanjur mencintaimu
-  [00:39.00] Dan tak pernah kusesali itu
-  [00:46.00] Seluruh jiwa telah kuserahkan
-  [00:53.00] Menggenggam janji setiaku
+  [00:32.55] Aku memang terlanjur mencintaimu
+  [00:39.55] Dan tak pernah kusesali itu
+  [00:46.58] Seluruh jiwa telah kuserahkan
+  [00:53.58] Menggenggam janji setiaku
 
   [01:01.00] Kumohon jangan jadikan semua ini
-  [01:08.00] Alasan kau menyakitiku
+  [01:07.58] Alasan kau menyakitiku
   [01:15.00] Meskipun cintamu tak hanya untukku
-  [01:22.00] Tapi cobalah sejenak mengerti
+  [01:22.00] Tapi cobalah sejenak mengerti...
 
   [01:32.00] Bila rasaku ini rasamu
   [01:42.00] ....
-  [01:45.00] Sanggupkah engkau menahan sakitnya
-  [01:53.00] Terkhianati cinta yang kau jaga?
-  [02:00.00] Coba bayangkan kembali
+  [01:44.59] Sanggupkah engkau menahan sakitnya
+  [01:53.59] Terkhianati cinta yang kau jaga?
+  [02:00.59] Coba bayangkan kembali
 
-  [02:11.00] Betapa hancurnya hati ini, kasih
+  [02:11.59] Betapa hancurnya hati ini, kasih
   [02:22.00] Semua telah terjadi
   [02:29.00] .....
-  [03:09.00] Hu-oh-uh-oh-wo
-  [03:11.00] Wo-uh-wo
-  [03:14.00] Uh-oh, uh-uh-uh-oh
+  [03:08.59] Hu-oh-uh-oh-wo
+  [03:12.50] Wo-uh-wo
+  [03:13.59] Uh-oh, uh-uh-uh-oh
 
-  [03:19.00] Bila rasaku ini rasamu (rasamu, oh)
+  [03:18.58] Bila rasaku ini rasamu (rasamu, oh)
   [03:32.00] Sanggupkah engkau menahan sakitnya
-  [03:40.00] Terkhianati cinta yang kau jaga?
+  [03:40.40] Terkhianati cinta yang kau jaga?
   [03:47.00] Coba bayangkan kembali
 
-  [03:58.00] Betapa hancurnya hati ini, kasih
+  [03:58.59] Betapa hancurnya hati ini, kasih
   [04:09.00] Semua telah terjadi
   [04:16.00] .....
   [04:20.00] Aku memang terlanjur mencintaimu
@@ -53,12 +53,13 @@ const songs = [
 
   [01:25.00] Kaulah segalanya untukku
   [01:32.00] Kaulah curahan hati ini
-  [01:40.00] Tak mungkin ku melupakanmu
-  [01:46.00] Tiada lagi yang kuharap, hanya kau seorang
+  [01:39.50] Tak mungkin ku melupakanmu
+  [01:45.58] Tiada lagi yang kuharap, hanya kau seorang
 
-  [01:55.00] Ha-ha-ha-aa hai-ya-ye he
-  [01:58.00] Kau takkan percaya, kau kan selalu di hati
-  [02:12.00] Haruskah kumenangis tuk mengatakan yang sesungguhnya
+  [01:55.00] .....
+  [01:57.59] Kau takkan percaya, kau slalu di hati
+  [02:09.58] (kau selalu di hati)
+  [02:12.59] Haruskah kumenangis, tuk mengatakan yang sesungguhnya
 
   [02:27.00] Kaulah segalanya untukku
   [02:34.00] Kaulah curahan hati ini
@@ -66,8 +67,8 @@ const songs = [
   [02:47.00] Tiada lagi yang kuharap, hanya kau seorang
   [02:55.00] .....
 
-  [03:21.00] ho-wo-wo-ho-oo
-  [03:30.00] ho-wo-wo-ho-oo....
+  [03:20.50] ho-wo-wo-ho-oo
+  [03:31.00] ho-wo-wo-ho-oo....
   [03:39.00] Kaulah segalanya untukku (segalanya untukku)
   [03:47.00] Kaulah curahan hati ini
   [03:54.00] Tak mungkin ku melupakanmu
@@ -80,20 +81,134 @@ const songs = [
   [04:29.00] Tiada lagi yang kuharap
   [04:33.00] Tiada lagi yang kuharap...
   [04:38.00] Hanya kau seorang
-  [04:43.00] .....
+  [04:43.59] .....
   [04:49.00]`
   },
   {
-    file: "assets/music/music3.mp3",
-    title: "Mengenangmu",
-    artist: "Kerispatih",
-    lyrics: `
-    [00:00.00] 🎵 Mengenangmu - Kerispatih
-    [00:06.00] Kutuliskan kenangan
-    [00:10.00] Tentang cara ku menemukan dirimu
-    [00:15.00] Tentang apa yang membuatku mudah
-    `
-  }
+  file: "assets/music/music3.mp3",
+  title: "Mengenangmu",
+  artist: "Kerispatih",
+  lyrics: `
+  [00:00.00] 🎵 Mengenangmu - Kerispatih
+  [00:25.50] Tak kan pernah habis air mataku
+  [00:31.00] Bila ku ingat tentang dirimu...
+  [00:40.00] Mungkin hanya kau yang tahu
+  [00:44.00] Mengapa sampai saat ini ku masih sendiri
+  [00:52.00] .....
+
+  [00:55.00] Adakah di sana kau rindu padaku
+  [01:00.00] Meski kita kini ada di dunia berbeda
+  [01:10.00] Bila masih mungkin waktu kuputar
+  [01:15.50] Kan kutunggu dirimu
+
+  [01:21.00] Biarlah ku simpan sampai nanti aku kan ada di sana
+  [01:32.50] Tenanglah dirimu dalam kedamaian
+  [01:35.50] Ingatlah cintaku
+  [01:39.50] Kau tak terlihat lagi, namun cintamu abadi
+
+  [01:51.00] Adakah di sana kau rindu padaku
+  [01:56.00] Meski kita kini ada di dunia berbeda
+  [02:05.55] Bila masih mungkin waktu kuputar
+  [02:11.00] Kan kutunggu dirimu
+
+  [02:16.57] Biarlah ku simpan sampai nanti aku kan ada di sana
+  [02:27.58] Tenanglah dirimu dalam kedamaian
+  [02:31.00] Ingatlah cintaku
+  [02:35.00] Kau tak terlihat lagi, namun cintamu abadi
+  [02:43.57] .....
+
+  [03:19.40] Biarlah ku simpan sampai nanti aku kan ada di sana
+  [03:30.55] Tenanglah dirimu dalam kedamaian
+  [03:34.55] Ingatlah cintaku
+  [03:38.00] Kau tak terlihat lagi, namun cintamu abadi
+  [03:47.00] .....
+
+  [04:04.00] Lihatlah cintaku
+  [04:07.55] Kau tak terlihat lagi, namun cintamu abadi
+  [04:20.00] .....
+  [04:21.00]`
+  },
+  {
+  file: "assets/music/music4.mp3",
+  title: "Kesedihanku",
+  artist: "Sammy Simorangkir",
+  lyrics: `
+  [00:00.00] 🎵 Kesedihanku - Sammy Simorangkir
+  [00:25.50] Sepinya hari yang ku lewati
+  [00:32.50] Tanpa ada dirimu menemani
+  [00:39.59] Sunyi ku rasa dalam hidupku
+  [00:46.58] Tak mampu aku tuk melangkah
+
+  [00:54.00] Masih ku ingat indah senyummu
+  [01:01.40] Yang selalu membuatku mengenangmu
+  [01:08.00] Terbawa aku dalam sedihku
+  [01:14.59] Tak sadar kini kau tak di sini
+
+  [01:22.40] Engkau masih yang terindah
+  [01:29.50] Indah di dalam hatiku
+  [01:36.58] Mengapa kisah kita berakhir
+  [01:43.58] Yang seperti ini...
+
+  [01:58.00] Masih ku ingat indah senyummu
+  [02:05.00] Yang selalu membuatku mengenangmu
+  [02:12.00] Terbawa aku dalam sedihku
+  [02:19.40] Tak sadar kini kau tak di sini
+
+  [02:26.30] Engkau masih yang terindah
+  [02:33.58] Indah di dalam hatiku
+  [02:40.59] Mengapa kisah kita berakhir
+  [02:47.59] Yang seperti ini...
+  [02:55.58] .....
+  [03:11.58] (Yang seperti ini)
+  [03:18.58] .....
+
+  [03:23.30] Engkau masih yang terindah
+  [03:30.58] Indah di dalam hatiku
+  [03:37.59] Mengapa kisah kita berakhir
+  [03:44.58] Yang seperti ini...
+
+  [03:51.59] Hampa kini yang ku rasa...
+  [03:59.00] Menangis pun ku tak mampu
+  [04:05.59] Hanya sisa kenangan terindah...
+  [04:18.55] Dan kesedihanku...
+  [04:19.00]`
+  },
+  {
+  file: "assets/music/music5.mp3",
+  title: "Tak Mampu Pergi",
+  artist: "Sammy Simorangkir",
+  lyrics: `
+[00:00.00] 🎵 Tak Mampu Pergi - Sammy Simorangkir
+[00:17.50] Ku tutup pintu cintaku
+[00:23.59] Yang sekian lama terbuka untukmu
+[00:35.51] Lelah hati ini
+[00:46.50] Apakah selama ini cinta yang ada hanyalah semu
+
+[01:00.59] Betapa sakitnya hatiku
+[01:09.98] Dan dirimu memilih dirinya
+[01:17.59] Hingga tak hiraukan cinta kita
+[01:29.94] Ketika dia yang kau cinta mencintai yang lain
+
+[01:37.21] Betapa dalamnya terluka hatiku
+[01:43.55] Dan bagaimanakah ku harus meyakinkan diriku (diriku)
+[01:51.00] Saat ku dengar suaramu
+[01:55.46] Ku tak mampu pergi...
+[02:07.00] ..... 
+[02:09.59] Ku tak mampu pergi... (ku tak mampu ku tak mampu ku tak mampu pergi
+[02:20.59] .....
+
+[02:28.56] Lelah rasanya hati untuk ku bertahan (bertahan)
+[02:35.54] Namun aku sungguh-sungguh tak mampu oh wo
+
+[02:48.59] Dia yang kau cinta mencintai yang lain
+[02:54.58] Betapa dalamnya terluka hatiku
+[03:02.62] Dan bagaimanakah ku harus meyakinkan diriku
+
+[03:08.59] Saat ku dengar suaramu hatiku bergetar (bergetar)
+[03:16.50] Saat ku tatap matamu ku tak mampu pergi
+[03:32.00] .....
+[03:33.00]`
+}
 ];
 
 let currentSong = 0;
@@ -399,12 +514,26 @@ if (repeatBtn) {
   });
 }
 
-// 🔀 Shuffle Button Toggle
+
+// 🌀 Simpan playlist asli untuk restore saat shuffle dimatikan
+let originalSongs = [...songs];
+
+// 🔀 Shuffle Button Toggle (aktifkan logika shuffle)
 if (shuffleBtn) {
   shuffleBtn.addEventListener("click", () => {
     isShuffle = !isShuffle;
     shuffleBtn.classList.toggle("active", isShuffle);
     shuffleBtn.title = isShuffle ? "Acak Lagu Aktif" : "Acak Lagu Mati";
+
+    if (isShuffle) {
+      songs = shufflePlaylist([...songs]); // Acak playlist baru
+      currentSong = 0;
+    } else {
+      songs = [...originalSongs]; // Kembalikan ke urutan awal
+      currentSong = 0;
+    }
+
+    loadSong(currentSong); // Muat ulang lagu pertama dari playlist aktif
   });
 }
 
@@ -414,17 +543,21 @@ audioPlayer.addEventListener("ended", () => {
     audioPlayer.currentTime = 0;
     audioPlayer.play();
   } else if (repeatMode === "all") {
-    // Ganti dengan logika ke lagu berikutnya
     playNextTrack();
   } else {
-    // Tidak ada repeat
     console.log("Lagu selesai tanpa repeat");
   }
 });
 
+// ▶️ Fungsi ke lagu berikutnya
+function playNextTrack() {
+  currentSong = (currentSong + 1) % songs.length;
+  loadSong(currentSong);
+}
+
 // 🌀 Fungsi acak playlist jika diperlukan
 function shufflePlaylist(array) {
-  // Fisher-Yates shuffle algorithm
+  // Algoritma Fisher-Yates Shuffle
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -432,15 +565,55 @@ function shufflePlaylist(array) {
   return array;
 }
 
-// ⬇️ Download lagu saat tombol ditekan
-const audio = document.getElementById("audioPlayer");
-const downloadBtn = document.getElementById("downloadBtn");
 
-downloadBtn.addEventListener("click", () => {
-  downloadBtn.href = audio.src; // pastikan ini src file asli
+// ⬇️ Elemen untuk pencarian lagu
+const searchPopup = document.getElementById("searchPopup");     // Popup pencarian lagu
+const searchInput = document.getElementById("searchInput");     // Input untuk ketik kata kunci
+const searchResults = document.getElementById("searchResults"); // Daftar hasil pencarian
+
+// 🔍 Klik tombol pencarian akan munculkan popup
+document.getElementById("searchBtn").addEventListener("click", () => {
+  searchPopup.classList.remove("hidden");   // Tampilkan popup
+  searchInput.value = "";                   // Reset input
+  searchResults.innerHTML = "";             // Kosongkan hasil
+  searchInput.focus();                      // Fokus ke input
 });
 
-// 🔍 Cari Lagu (bisa nanti pakai modal atau popup pencarian)
-document.getElementById("searchBtn").addEventListener("click", () => {
-  alert("Fitur pencarian lagu global akan datang! 🔍");
+// ❌ Tutup popup jika klik di luar area konten
+searchPopup.addEventListener("click", (e) => {
+  if (e.target === searchPopup) {
+    searchPopup.classList.add("hidden");    // Sembunyikan kembali popup
+  }
+});
+
+// 📦 Fungsi pencarian berdasarkan judul atau artis
+searchInput.addEventListener("input", () => {
+  const keyword = searchInput.value.toLowerCase(); // Ambil kata kunci & ubah ke huruf kecil
+  searchResults.innerHTML = "";                   // Kosongkan hasil sebelumnya
+
+  // 🔁 Periksa setiap lagu dalam daftar
+  songs.forEach((song, index) => {
+    const match = song.title.toLowerCase().includes(keyword) || 
+                  song.artist.toLowerCase().includes(keyword);
+
+    if (match) {
+      // 🔘 Buat elemen hasil jika cocok
+      const li = document.createElement("li");
+      li.textContent = `${song.title} - ${song.artist}`;
+
+      // 🎧 Klik pada hasil pencarian akan memutar lagu
+      li.addEventListener("click", () => {
+        currentSong = index;
+        loadSong(currentSong);
+        searchPopup.classList.add("hidden"); // Sembunyikan popup setelah dipilih
+      });
+
+      searchResults.appendChild(li); // Tampilkan hasil
+    }
+  });
+
+  // ❌ Jika tidak ada yang cocok
+  if (!searchResults.hasChildNodes()) {
+    searchResults.innerHTML = "<li>Tidak ditemukan 🎵</li>";
+  }
 });
