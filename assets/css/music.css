@@ -388,6 +388,7 @@ html[data-theme="dark"] .music-lyrics {
 
 
 /* ==================== ⬇️ Download Lagu ==================== */
+/* ==================== ⬇️ Download Lagu (Desktop) ==================== */
 .music-download {
   position: absolute;
   top: 21.2rem;
@@ -481,37 +482,41 @@ html[data-theme="dark"] .music-lyrics {
   }
 }
 
-/* 📱 Responsive Mobile & Tablet / icon download */
+/* 📱 Responsive Tablet / icon download & icon love */
 @media (max-width: 768px) {
   .music-download {
-    top: 8rem;
-    right: 14.8rem;
-    font-size: 0.95rem;
+    top: 9rem;
+    right: 2.5rem;
+    font-size: 1.05rem;
   }
 }
 
+@media (max-width: 768px) {
+  .music-like {
+    top: 9.2rem;
+    left: 2.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* 📱 Responsive Mobile / icon download & icon love */
 @media (max-width: 480px) {
   .music-download {
-    top: 15rem;
-    right: 14.5rem;
-    font-size: 1rem;
-  }
-}
-
-/* 📱 Responsive Mobile & Tablet / icon love */
-@media (max-width: 768px) {
-.music-like {
-    top: 14.8rem;
-    left: 14.5rem;
-    font-size: 1rem;
+    top: 14.5rem;
+    right: 1.6rem;
+    font-size: 1.05rem;
+    position: absolute;
+    z-index: 99;
   }
 }
 
 @media (max-width: 480px) {
   .music-like {
-    top: 14.8rem;
-    left: 14.5rem;
-    font-size: 1rem;
+    top: 14.5rem;
+    left: 1.5rem;
+    font-size: 1.05rem;
+    position: absolute;
+    z-index: 99;
   }
 }
 
