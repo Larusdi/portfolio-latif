@@ -2715,6 +2715,49 @@ html[data-bs-theme="dark"] .blog__card-ios {
   }
 }
 
+/*==================== DATA DIRI ====================*/
+.highlight-name {
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  transition: all 0.4s ease-in-out;
+  cursor: default;
+}
+
+.highlight-name:hover {
+  background: linear-gradient(135deg, #ee1313, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*🖋️ Subtitle bergaya */
+.stylish-text {
+  color: var(--first-color);
+  font-weight: 600;
+  text-shadow: 0 0 4px var(--first-color-light);
+}
+
+/*🔥 Tombol glowing */
+.button--glow {
+  background: linear-gradient(135deg, var(--first-color), #ff8c00);
+  color: #fff;
+  padding: 0.8rem 1.7rem;
+  border-radius: 2rem;
+  box-shadow: 0 0 12px rgba(255, 140, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.button--glow:hover {
+  box-shadow: 0 0 18px rgba(255, 140, 0, 0.7), 0 0 36px rgba(255, 215, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
 html,
 body {
   transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
