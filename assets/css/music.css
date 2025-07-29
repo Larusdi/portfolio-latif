@@ -78,6 +78,16 @@
   font-size: 1rem;
 }
 
+/* 🔄 Animasi ikon berputar */
+.rotate-music {
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 /* ==================== 🔁 Shuffle & Repeat ==================== */
 .music-options {
   display: flex;
