@@ -226,18 +226,23 @@
                         </div>
 
                         <!--========== Data Diri ==========-->
-                        <div class="home__data">
+                        <div class="home__data" data-aos="fade-up">
                             <h1 class="home_title">
-                                Hi! <span class="wave">👋</span>, Saya Latif
+                                <span class="wave animate__animated animate__tada">👋</span> Hi, Saya <span class="highlight-name">Latif</span>
                             </h1>
+
                             <h3 class="home__subtitle">
-                                and I'm <span class="auto-input"></span>
+                                and I’m <span class="auto-input stylish-text"></span>
                             </h3>
+
                             <p class="home__description">
-                                Pengalaman tingkat tinggi dalam desain web dan pengetahuan pengembangan, menghasilkan karya yang berkualitas.
+                                <Berpengalaman class="emoji"> Berpengalaman dalam <strong>desain UI modern</strong> & <strong>pengembangan web</strong>.<br />
+                                Fokus pada kualitas, estetika, dan pengalaman pengguna premium.
                             </p>
-                            <a href="#contact" id="hero-contact" class="button button--flex">Contact Me 
-                                <img src="assets/icon/phone.png" alt="phone" class="button__icon-img" />
+
+                            <a href="#contact" id="hero-contact" class="button button--flex button--glow">
+                                Contact Me 
+                                <img src="assets/icon/phone.png" alt="Phone" class="button__icon-img" />
                             </a>
                             <audio id="hero-contact-sound" src="assets/audio/hub.mp3" preload="auto"></audio>
                         </div>
@@ -1146,20 +1151,20 @@
         <!-- Untuk animasi teks "auto-input" seperti mengetik -->
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
         <script>
-            // Inisialisasi efek ketik otomatis pada elemen dengan class .auto-input
             var typed = new Typed(".auto-input", {
-                strings: [
-                "an Office Worker",
-                "a Marketing",
-                "a Driver",
-                "a technician",
-                "an OS developer",
-                "an Web Developer",
-                "an UI/UX Designer",
+                strings:[
+                "a Web Developer",
+                "a Tech Innovator",
+                "a UI/UX Designer",
+                "an App Creator",
+                "a Full-Stack Engineer",
+                "a Digital Visionary"
                 ],
-                typeSpeed: 100,     // Kecepatan mengetik
-                backSpeed: 100,     // Kecepatan menghapus
-                loop: true          // Mengulang terus-menerus
+                typeSpeed: 90,
+                backSpeed: 70,
+                startDelay: 300,
+                backDelay: 1000,
+                loop: true
             });
         </script>
 
