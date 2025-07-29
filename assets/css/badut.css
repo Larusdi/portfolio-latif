@@ -726,6 +726,59 @@ emoji-picker.show {
 }
 
 
+/*==================== 👻 BADUT AI ====================*/
+.icon-badut-img {
+  width: 22px;
+  height: 22px;
+  filter: drop-shadow(0 0 2px gold);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.home__social-icon:hover .icon-badut-img {
+  transform: scale(1.2) rotate(10deg);
+  filter: drop-shadow(0 0 4px #ffd700);
+}
+
+.badut-ai {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: var(--body-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  animation: fadeInUp 0.4s ease;
+  z-index: 9999;
+}
+
+/*==================== SEMBUNYI DAN MUNCUL ====================*/
+
+.ai-assistant-toggle.hidden {
+  animation: badutFadeOut 0.4s ease forwards;
+  pointer-events: none;
+}
+
+.ai-assistant-toggle.visible {
+  animation: badutFadeIn 0.5s ease forwards;
+  pointer-events: auto;
+}
+
+/* 🔥 Glow + lompatan masuk */
+@keyframes badutFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  60% {
+    transform: scale(1.05) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 
 /* ==================== 📱 RESPONSIVE ==================== */
 /* Ukuran avatar/tombol AI dikecilkan di perangkat kecil */
