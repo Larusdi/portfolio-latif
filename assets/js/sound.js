@@ -93,3 +93,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// 🔊 Suara klik saat ikon Badut AI ditekan
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleButton = document.getElementById("toggle-badut");
+  const toggleSound = document.getElementById("badut-toggle-sound");
+
+  toggleButton.addEventListener("click", () => {
+    if (toggleSound) {
+      toggleSound.currentTime = 0; // Reset suara ke awal
+      toggleSound.play();          // Mainkan suara
+    }
+  });
+});
