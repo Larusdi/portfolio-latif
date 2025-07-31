@@ -1162,7 +1162,7 @@ body.dark-theme .button:hover {
   font-size: 1rem;
   color: var(--text-color);
   animation: fadeInDesc 1.2s ease both;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 /* Efek animasi masuk */
@@ -1177,10 +1177,31 @@ body.dark-theme .button:hover {
   }
 }
 
-/* Warna teks menyala lembut di dark mode */
+/* 🌙 Warna teks lembut di dark mode */
 html[data-theme="dark"] .about__description {
-  color: #dcdcdc;
-  text-shadow: 0 0 2px rgba(255, 255, 255, 0.05);
+  color: #e0e0e0;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.05);
+}
+
+/* ✨ Hover: deskripsi menyala lembut */
+.about__description:hover {
+  color: var(--gold);
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.3);
+}
+
+/* 💎 Strong text: teks penting menyala */
+.about__description strong {
+  color: #ffc107;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 3px rgba(255, 193, 7, 0.3);
+}
+
+/* 🔥 Hover pada strong */
+.about__description strong:hover {
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 223, 0, 0.5);
+  cursor: default;
 }
 
 
@@ -1510,66 +1531,96 @@ html[data-theme="dark"] .about__buttons .button {
 
 /*==================== 🪟 MODAL SERVICES ====================*/
 
-/* Overlay latar belakang */
+/* 🪟 Overlay latar belakang */
 .services__modal {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 1rem;
+  padding: 1.5rem;
   z-index: var(--z-modal);
   opacity: 0;
   visibility: hidden;
-  transition: 0.3s;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-/* Konten modal */
+/* 📦 Konten modal */
 .services__modal-content {
   position: relative;
-  background-color: var(--container-color);
-  padding: 1.5rem;
-  border-radius: 0.5rem;
+  background: var(--container-color);
+  padding: 2rem 1.8rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 480px;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.4s ease;
 }
 
-/* List layanan dalam modal */
-.services__modal-services {
-  row-gap: 1rem;
-}
-
-/* Item layanan */
-.service__modal-service {
-  display: flex;
-}
-
-/* Judul modal */
-.services__modal-title {
-  font-size: var(--h3-font-size);
-  font-weight: var(--font-medium);
-  margin-bottom: var(--mb-1-5);
-}
-
-/* Tombol close modal */
-.services__modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.5rem;
-  color: var(--first-color);
-  cursor: none;
-}
-
-/* Ikon checklist di modal */
-.services__modal-icon {
-  color: var(--first-color);
-  margin-right: var(--mb-0-25);
-}
-
-/* Aktifkan modal */
+/* Aktifkan modal dengan animasi */
 .active-modal {
   opacity: 1;
   visibility: visible;
+}
+.active-modal .services__modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* 📝 Judul modal */
+.services__modal-title {
+  font-size: var(--h3-font-size);
+  font-weight: 600;
+  color: var(--title-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* ❌ Tombol close modal */
+.services__modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  font-size: 1.4rem;
+  color: var(--first-color);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.services__modal-close:hover {
+  transform: rotate(90deg);
+}
+
+/* 📋 Daftar isi modal */
+.services__modal-services {
+  display: grid;
+  row-gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+/* 🔘 Ikon checklist */
+.services__modal-icon {
+  color: var(--first-color);
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+}
+
+/* 🧾 Baris layanan */
+.service__modal-service {
+  display: flex;
+  align-items: flex-start;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* 🌙 Mode gelap */
+html[data-theme="dark"] .services__modal-content {
+  background: rgba(20, 20, 20, 0.8);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
 }
 
 
