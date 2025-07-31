@@ -619,3 +619,29 @@ html[data-bs-theme="light"] .theme-toast {
     text-align: center;
   }
 }
+
+
+/* ==================== SERVICES ==================== */
+/* 📱 Mobile: 1 kolom layanan */
+@media screen and (max-width: 480px) {
+  .services__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 0 1rem;
+  }
+
+  .services__content {
+    padding: 2rem 1.25rem;
+  }
+}
+
+/* 📱 Tablet: 2 kolom layanan */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .services__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0 2rem;
+  }
+}
