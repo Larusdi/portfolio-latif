@@ -1,776 +1,810 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <!-- Metadata dasar untuk karakter dan tampilan responsif -->
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="I'm Latif, and this is my personal portfolio website.">
-        <meta name="keywords" content="Latif, Latif Rusdi, Portfolio, Developer, Designer">
+<head>
+    <!-- Metadata dasar untuk karakter dan tampilan responsif -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="I'm Latif, and this is my personal portfolio website.">
+    <meta name="keywords" content="Latif, Latif Rusdi, Portfolio, Developer, Designer">
 
-        <!-- ==================== CSS & LIBRARY EKSTERNAL ==================== -->
+    <!-- ==================== CSS & LIBRARY EKSTERNAL ==================== -->
 
-        <!-- UNICONS: Ikon UI modern seperti moon, sun, menu, dll -->
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <!-- UNICONS: Ikon UI modern seperti moon, sun, menu, dll -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
 
-        <!-- Font Awesome: Ikon sosial media & ikon umum -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Font Awesome: Ikon sosial media & ikon umum -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-        <!-- Swiper.js: Library slider untuk portfolio/testimoni -->
-        <link rel="stylesheet" href="https://unpkg.com/swiper@6.5.8/swiper-bundle.min.css" />
+    <!-- Swiper.js: Library slider untuk portfolio/testimoni -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@6.5.8/swiper-bundle.min.css" />
 
-        <!-- AOS (Animate On Scroll): Animasi masuk saat scroll -->
-        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- AOS (Animate On Scroll): Animasi masuk saat scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-        <!-- Google Fonts: Font elegan untuk judul dan nama -->
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+    <!-- Google Fonts: Font elegan untuk judul dan nama -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
 
-        <!-- Phosphor Icons: Ikon tambahan modern -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.min.css" />
+    <!-- Phosphor Icons: Ikon tambahan modern -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.min.css" />
 
-        <!-- CSS Utama Website -->
-        <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- CSS Utama Website -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/badut.css">
+    <link rel="stylesheet" href="assets/css/popup.css">
+    <link rel="stylesheet" href="assets/css/music.css" />
 
-        <!-- CSS khusus Badut AI -->
-        <link rel="stylesheet" href="assets/css/badut.css">
+    <!-- Emoji Picker Web Component (WA-style) -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
 
-        <!-- 🔗 Link ke file CSS khusus popup -->
-        <link rel="stylesheet" href="assets/css/popup.css">
+    <title>LATIF | PORTFOLIO</title>
 
-        <!-- 📱 CSS Responsif (Media Queries) -->
-        <link rel="stylesheet" href="assets/css/media-queries.css" />
-
-        <!-- MUSIC -->
-        <link rel="stylesheet" href="assets/css/music.css" />
-
-        <!-- Emoji Picker Web Component (WA-style) -->
-        <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
+    <!-- favicon format .ico -->
+    <link rel="icon" type="image/x-icon" href="assets/img/latif_edited.png">
+</head>
 
 
-        <!-- Judul pada tab browser -->
-        <title>LATIF | PORTFOLIO</title>
-    </head>
+<body>
 
+    <!-- ==================== CURSOR ===================== -->
 
-    <body>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
 
-        <!-- ==================== CURSOR ===================== -->
+    <!-- ==================== PRELOADER ===================== -->
+    <div id="preloader">
+        <audio id="preloader-audio" src="assets/audio/loader.mp3" preload="auto"></audio>
+        <img src="assets/img/latif_edited.png" alt="Logo" class="preloader-logo" />
+        <p class="preloader-subtitle">Latif Rusdi</p>
+    </div>
 
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+    <!-- ===================== HEADER ======================= -->
+    <header class="header" id="header">
+        <nav class="nav container">
 
-        <!-- ==================== PRELOADER ===================== -->
-        <div id="preloader">
-            <audio id="preloader-audio" src="assets/audio/loader.mp3" preload="auto"></audio>
-            <img src="assets/img/latif_edited.png" alt="Logo" class="preloader-logo" />
-            <p class="preloader-subtitle">Latif Rusdi</p>
-        </div>
+            <!-- Logo Navigasi -->
+            <a href="#" class="nav__logo">
+                Latif Rusdi <span class="verified-badge"></span>
+            </a>
 
-               <!-- ===================== HEADER ======================= -->
-        <header class="header" id="header">
-            <nav class="nav container">
-                
-                <!-- Logo Navigasi -->
-                <a href="#" class="nav__logo">
-                    Latif Rusdi <span class="verified-badge"></span>
-                </a>
-
-                <!-- Menu Navigasi Utama -->
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list grid">
-                        <li class="nav__items">
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list grid">
+                    <li class="nav__items">
                         <a href="#home" class="nav__link active-link">
                             <img src="assets/icon/home.png" alt="Home" class="nav__icon-img"> <span>Home</span>
                         </a>
-                        </li>
-                        <li class="nav__items">
-                            <a href="#about" class="nav__link">
-                                <img src="assets/icon/about.png" alt="About" class="nav__icon-img"> <span>About</span>
-                            </a>
-                        </li>
-                        <li class="nav__items">
-                            <a href="#skills" class="nav__link">
-                                <img src="assets/icon/brain.png" alt="Skills" class="nav__icon-img"> <span>Skills</span>
-                            </a>
-                        </li>
-                        <li class="nav__items">
-                            <a href="#blog" class="nav__link">
-                                <img src="assets/icon/blog.png" alt="Blog" class="nav__icon-img"> <span>Blog</span>
-                            </a>
-                        </li>
-                        <li class="nav__items">
-                            <a href="#services" class="nav__link">
-                                <img src="assets/icon/service.png" alt="Services" class="nav__icon-img"> <span>Services</span>
-                            </a>
-                        </li>
-                        <li class="nav__items">
-                            <a href="#contact" class="nav__link">
-                                <img src="assets/icon/kontak.png" alt="Contact me" class="nav__icon-img"> <span>Contact me</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                    </li>
+                    <li class="nav__items">
+                        <a href="#about" class="nav__link">
+                            <img src="assets/icon/about.png" alt="About" class="nav__icon-img"> <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav__items">
+                        <a href="#skills" class="nav__link">
+                            <img src="assets/icon/brain.png" alt="Skills" class="nav__icon-img"> <span>Skills</span>
+                        </a>
+                    </li>
+                    <li class="nav__items">
+                        <a href="#blog" class="nav__link">
+                            <img src="assets/icon/blog.png" alt="Blog" class="nav__icon-img"> <span>Blog</span>
+                        </a>
+                    </li>
+                    <li class="nav__items">
+                        <a href="#services" class="nav__link">
+                            <img src="assets/icon/service.png" alt="Services" class="nav__icon-img">
+                            <span>Services</span>
+                        </a>
+                    </li>
+                    <li class="nav__items">
+                        <a href="#contact" class="nav__link">
+                            <img src="assets/icon/kontak.png" alt="Contact me" class="nav__icon-img"> <span>Contact
+                                me</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
-                <!-- 🌗 Toggle Tema (Dark/Light) -->
-                <div class="nav__btns">
-                    <label class="theme-switch" title="Ganti Tema">
-                        <input type="checkbox" id="theme-toggle" />
-                        <span class="slider">
-                            <!-- ☀️ Matahari -->
-                            <svg class="icon left" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 4V2M12 22V20M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M2 12H4M20 12H22M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="#facc15" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="12" cy="12" r="5" stroke="#facc15" stroke-width="2"/>
-                            </svg>
-                            <!-- 🌙 Bulan -->
-                            <svg class="icon right" viewBox="0 0 24 24" fill="none">
-                                <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 0012 21a9 9 0 009-8.21z" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                    </label>
-                </div>
+            <div class="nav__btns">
+                <label class="theme-switch" title="Ganti Tema">
+                    <input type="checkbox" id="theme-toggle" />
+                    <span class="slider">
+                        <!-- ☀️ Matahari -->
+                        <svg class="icon left" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path
+                                d="M12 4V2M12 22V20M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M2 12H4M20 12H22M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"
+                                stroke="#facc15" stroke-width="2" stroke-linecap="round" />
+                            <circle cx="12" cy="12" r="5" stroke="#facc15" stroke-width="2" />
+                        </svg>
+                        <!-- 🌙 Bulan -->
+                        <svg class="icon right" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 0012 21a9 9 0 009-8.21z" stroke="#a5b4fc"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </label>
+            </div>
 
-                <!-- Toggle Menu Mobile -->
-                <div class="nav__toggle" id="nav-toggle">
-                    <img src="assets/icon/menu.png" alt="Menu" class="nav__icon-img" />
-                </div>
-            </nav>
+            <div class="nav__toggle" id="nav-toggle">
+                <img src="assets/icon/menu.png" alt="Menu" class="nav__icon-img" />
+            </div>
+        </nav>
 
-            <!-- 🔊 Sound klik menu -->
-            <audio id="menu-click-sound" src="assets/audio/klik.mp3" preload="auto"></audio>
-        </header>
+        <audio id="menu-click-sound" src="assets/audio/klik.mp3" preload="auto"></audio>
+    </header>
 
-        <!-- 🎵 Sound saat ganti tema -->
-        <audio id="theme-sound" src="assets/audio/theme.mp3" preload="auto"></audio>
-        <!-- 🔔 Toast Notifikasi -->
-        <div id="theme-toast" class="theme-toast"></div>
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <section class="home section" id="home">
+            <div data-aos="fade-left" class="home__container container grid">
+                <div class="home__content grid">
 
-        <!--==================== MAIN ====================-->
-        <main class="main">
-            <!--==================== HOME ====================-->
-            <section class="home section" id="home">
-                <div data-aos="fade-left" class="home__container container grid">
-                    <div class="home__content grid">
-                        
-                        <!--========== Media Sosial ==========-->
-                        <div class="home__social">
-                            <a href="https://www.instagram.com/29_larusdi" target="_blank" class="home__social-icon">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="https://github.com/Larusdi" target="_blank" class="home__social-icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://www.tiktok.com/@29_latif?_t=ZS-8xXxgEXfBaS&_r=1" target="_blank" class="home__social-icon">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                            <a href="https://x.com/29_Larusdi" target="_blank" class="home__social-icon">
-                                <i class="fab fa-x-twitter"></i>
-                            </a>
-                            <a href="https://t.me/Larusdi" target="_blank" class="home__social-icon">
-                                <i class="fab fa-telegram"></i>
-                            </a>
-                            <a href="https://wa.me/6282389160273" target="_blank" class="home__social-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a href="javascript:void(0)" class="home__social-icon" id="music-toggle" title="Music Player">
-                                <i class="fas fa-play" id="music-icon"></i>
-                            </a>
-                            <a href="javascript:void(0)" class="home__social-icon" id="toggle-badut" title="Badut AI">
-                                <img src="assets/icon/badut.png" alt="Badut AI" class="icon-badut-img" />
-                            </a>
-                        </div>
-                        <audio id="badut-toggle-sound" src="assets/audio/badut.mp3" preload="auto"></audio>
+                    <div class="home__social">
+                        <a href="https://www.instagram.com/29_larusdi" target="_blank" class="home__social-icon"
+                            title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com/Larusdi" target="_blank" class="home__social-icon" title="Github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@29_latif?_t=ZS-8xXxgEXfBaS&_r=1" target="_blank"
+                            class="home__social-icon" title="Tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://x.com/29_Larusdi" target="_blank" class="home__social-icon" title="X-Twitter">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://t.me/Larusdi" target="_blank" class="home__social-icon" title="Telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="https://wa.me/6282389160273" target="_blank" class="home__social-icon"
+                            title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="home__social-icon" id="music-toggle" title="Music Player">
+                            <i class="fas fa-play" id="music-icon"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="home__social-icon" id="toggle-badut" title="Badut AI">
+                            <img src="assets/icon/badut.png" alt="Badut AI" class="icon-badut-img" />
+                        </a>
+                    </div>
+                    <audio id="badut-toggle-sound" src="assets/audio/badut.mp3" preload="auto"></audio>
 
-                        <!--========== Gambar Profil dalam Blob ==========-->
-                        <div data-aos="fade-right" class="home__img">
-                            <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                
-                                <!-- Bentuk blob sebagai masking -->
-                                <mask id="mask0" mask-type="alpha">
-                                    <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
+                    <!--========== Gambar Profil dalam Blob ==========-->
+                    <div data-aos="fade-right" class="home__img">
+                        <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                            <mask id="mask0" mask-type="alpha">
+                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
                                     130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
                                     97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
                                     0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-                                </mask>
+                            </mask>
 
-                                <!-- Isi gambar di dalam bentuk blob -->
-                                <g mask="url(#mask0)">
-                                    <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
+                            <g mask="url(#mask0)">
+                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
                                     165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
                                     129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
                                     -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
 
-                                    <!-- Gambar utama -->
-                                    <image 
-                                    class="home__blob-img"
-                                    x="20" 
-                                    y="11" 
-                                    width="400" 
-                                    height="200"
+                                <!-- Gambar utama -->
+                                <image class="home__blob-img" x="20" y="11" width="400" height="200"
                                     href="assets/img/latif.png" />
-                                </g>
-                            </svg>
-                        </div>
+                            </g>
+                        </svg>
+                    </div>
 
-                        <!--========== Data Diri ==========-->
-                        <div class="home__data" data-aos="fade-up">
-                            <h1 class="home_title">
-                                <span class="wave animate__animated animate__tada">👋</span> Hi, Saya <span class="highlight-name">Latif</span>
-                            </h1>
+                    <div class="home__data" data-aos="fade-up">
+                        <h1 class="home_title">
+                            <span class="wave animate__animated animate__tada">👋</span> Hi, Saya <span
+                                class="highlight-name">Latif</span>
+                        </h1>
 
-                            <h3 class="home__subtitle">
-                                and I’m <span class="auto-input stylish-text"></span>
-                            </h3>
+                        <h3 class="home__subtitle">
+                            and I’m <span class="auto-input stylish-text"></span>
+                        </h3>
 
-                            <p class="home__description">
-                                <Berpengalaman class="emoji"> Berpengalaman dalam <strong>desain UI modern</strong> & <strong>pengembangan web</strong>.<br />
+                        <p class="home__description">
+                            <Berpengalaman class="emoji"> Berpengalaman dalam <strong>desain UI modern</strong> &
+                                <strong>pengembangan web</strong>.<br />
                                 Fokus pada kualitas, estetika, dan pengalaman pengguna premium.
-                            </p>
-
-                            <a href="#contact" id="hero-contact" class="button button--flex button--glow">
-                                Contact Me 
-                                <img src="assets/icon/phone.png" alt="Phone" class="button__icon-img" />
-                            </a>
-                            <audio id="hero-contact-sound" src="assets/audio/hub.mp3" preload="auto"></audio>
-                        </div>
-                    </div>
-
-                    <!--========== Scroll ke Bawah ==========-->
-                    <div class="home__scroll">
-                        <a href="#about" class="home__scroll-button button--flex">
-                            <img src="assets/icon/mouse.png" alt="Mouse" class="home__scroll-mouse" />
-                            <span class="home__scroll-name">Scroll down</span>
-                            <img src="assets/icon/down-arrow.png" alt="Arrow" class="home__scroll-arrow" />
-                        </a>
-                        <!-- 🎵 Suara Scroll Down -->
-                        <audio id="scrollDown-sound" src="assets/audio/down.mp3" preload="auto"></audio>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- 🎧 Music Player UI -->
-            <div class="music-player" id="musicPlayer">
-                <!-- 🎵 Judul Lagu -->
-                <div class="music-title" id="musicTitle">Loading...</div>
-                <audio id="audioPlayer" preload="auto" src="lagu.mp3"></audio>
-
-                <!-- 🎚️ Kontrol Musik -->
-                <div class="music-controls">
-                    <button id="prevSong"><i class="fas fa-backward-step"></i></button>
-                    <button id="playPause"><i class="fas fa-play" id="music-icon"></i></button>
-                    <button id="nextSong"><i class="fas fa-forward-step"></i></button>
-                </div>
-
-                <!-- 🔁 Shuffle & Repeat -->
-                <div class="music-options">
-                    <button id="shuffleBtn" title="Shuffle"><i class="fas fa-random"></i></button>
-                    <button id="repeatBtn" title="Repeat"><i class="fas fa-redo"></i></button>
-                </div>
-
-                <!-- ❤️ Like & Visualizer -->
-                <div class="music-extra">
-                    <div class="music-like">
-                        <button id="likeBtn" title="Suka Lagu Ini"><i class="far fa-heart"></i></button>
-                    </div>
-                    <div class="music-visualizer">
-                        <span></span><span></span><span></span><span></span>
-                    </div>
-                </div>
-
-                <!-- 🎤 Lirik Lagu -->
-                <div class="music-lyrics" id="musicLyrics">
-                    <p id="lyricsDisplay">Lirik akan muncul di sini...</p>
-                </div>
-
-                <!-- ⏳ Progress -->
-                <div class="music-progress">
-                    <span id="currentTime">0:00</span>
-                    <input type="range" id="progressBar" value="0" min="0" step="0.01">
-                    <span id="duration">0:00</span>
-                </div>
-
-                <!-- 🔉 Volume -->
-                <div class="music-volume">
-                    <button id="volumeDown" title="Volume Down">−</button>
-                    <div class="volume-indicator" id="volumeLevel">100%</div>
-                    <button id="volumeUp" title="Volume Up">+</button>
-                </div>
-
-                <!-- ⬇️ Download Lagu -->
-                <a id="downloadBtn" class="music-download" title="Download Lagu Ini" download>
-                    <i class="fas fa-download"></i>
-                </a>
-
-                <!-- 🔍 Pencarian Global -->
-                <button class="music-search" id="searchBtn" title="Cari Lagu">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-            
-            <!--================== ABOUT ======================-->
-            <!-- Bagian tentang diri saya -->
-            <section class="about section" id="about">
-                <h2 class="section__title" data-aos="fade-up">About Me</h2>
-                <span class="section__subtitle" data-aos="fade-up" data-aos-delay="100">Perkenalan saya</span>
-
-                <div class="about__container container grid" data-aos="fade-left" data-aos-delay="200">
-                    
-                    <!-- Gambar profil -->
-                    <img src="assets/img/about.jpg" alt="Foto About" class="about__img" data-aos="zoom-in" data-aos-delay="300" />
-
-                    <!-- Deskripsi diri dan info tambahan -->
-                    <div class="about__data" data-aos="fade-left" data-aos-delay="400">
-                        <p class="about__description" data-aos="fade-up" data-aos-delay="500">
-                            <strong>Hai, saya Latif Rusdi</strong>, berusia 25 tahun.<br />
-                            Saya menikmati waktu luang dengan mengeksplorasi dunia Matematika, Sains, dan teknologi terbaru. <br /><br />
-                            Saya adalah seorang <strong>Full-Stack Developer</strong> dan <strong>App Creator</strong> yang fokus pada pengembangan antarmuka modern dan aplikasi interaktif.<br />
-                            Saya menguasai <strong>HTML, CSS, JavaScript, Python</strong>, serta memahami pengembangan aplikasi berbasis <strong>web dan mobile</strong>.<br /><br />
-                            Saya sangat antusias terhadap proyek open source, kolaborasi kreatif, dan inovasi teknologi masa depan.
                         </p>
 
-                        <!-- Informasi singkat -->
-                        <div class="about_info" data-aos="zoom-in" data-aos-delay="600">
-                            <div>
-                                <span class="about__info-title">02+</span>
-                                <span class="about__info-name">Tahun<br />Pengalaman</span>
-                            </div>
-                            <div>
-                                <span class="about__info-title">5+</span>
-                                <span class="about__info-name">Proyek<br />Selesai</span>
-                            </div>
-                            <div>
-                                <span class="about__info-title">24/7</span>
-                                <span class="about__info-name">Dukungan<br />Online</span>
-                            </div>
-                        </div>
+                        <a href="#contact" id="hero-contact" class="button button--flex button--glow">
+                            Contact Me
+                            <img src="assets/icon/phone.png" alt="Phone" class="button__icon-img" />
+                        </a>
+                        <audio id="hero-contact-sound" src="assets/audio/hub.mp3" preload="auto"></audio>
+                    </div>
+                </div>
 
-                        <!-- Tombol download CV -->
-                        <div class="about__buttons" data-aos="fade-up" data-aos-delay="700">
-                            <a download href="assets/pdf/latif-cv.pdf" class="button button--flex">
-                                Download CV 
-                                <img src="assets/icon/download.png" alt="Download" class="button__icon-img" />
+                <!--========== Scroll ke Bawah ==========-->
+                <div class="home__scroll">
+                    <a href="#about" class="home__scroll-button button--flex">
+                        <img src="assets/icon/mouse.png" alt="Mouse" class="home__scroll-mouse" />
+                        <span class="home__scroll-name">Scroll down</span>
+                        <img src="assets/icon/down-arrow.png" alt="Arrow" class="home__scroll-arrow" />
+                    </a>
+                    <!-- 🎵 Suara Scroll Down -->
+                    <audio id="scrollDown-sound" src="assets/audio/down.mp3" preload="auto"></audio>
+                </div>
+            </div>
+        </section>
+
+        <div class="music-player" id="musicPlayer">
+            <!-- 🎵 Judul Lagu -->
+            <div class="music-title" id="musicTitle">Loading...</div>
+            <audio id="audioPlayer" preload="auto" src="lagu.mp3"></audio>
+
+            <div class="music-controls">
+                <button id="prevSong"><i class="fas fa-backward-step"></i></button>
+                <button id="playPause"><i class="fas fa-play" id="music-icon"></i></button>
+                <button id="nextSong"><i class="fas fa-forward-step"></i></button>
+            </div>
+
+            <div class="music-options">
+                <button id="shuffleBtn" title="Shuffle"><i class="fas fa-random"></i></button>
+                <button id="repeatBtn" title="Repeat"><i class="fas fa-redo"></i></button>
+            </div>
+
+            <div class="music-extra">
+                <div class="music-like">
+                    <button id="likeBtn" title="Suka Lagu Ini"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="music-visualizer">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <div class="music-lyrics" id="musicLyrics">
+                <p id="lyricsDisplay">Lirik akan muncul di sini...</p>
+            </div>
+
+            <div class="music-progress">
+                <span id="currentTime">0:00</span>
+                <input type="range" id="progressBar" value="0" min="0" step="0.01">
+                <span id="duration">0:00</span>
+            </div>
+
+            <div class="music-volume">
+                <button id="volumeDown" title="Volume Down">−</button>
+                <div class="volume-indicator" id="volumeLevel">100%</div>
+                <button id="volumeUp" title="Volume Up">+</button>
+            </div>
+
+            <a id="downloadBtn" class="music-download" title="Download Lagu Ini" download>
+                <i class="fas fa-download"></i>
+            </a>
+
+            <button class="music-search" id="searchBtn" title="Cari Lagu">
+                <i class="fas fa-search"></i>
+            </button>
+
+            <div id="searchPopup" class="search-popup hidden">
+                <div class="search-popup-content">
+                    <input type="text" id="searchInput" placeholder="Cari lagu..." />
+                    <ul id="searchResults"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!--================== ABOUT ======================-->
+        <section class="about section" id="about">
+            <h2 class="section__title" data-aos="fade-up">About Me</h2>
+            <span class="section__subtitle" data-aos="fade-up" data-aos-delay="100">Perkenalan saya</span>
+
+            <div class="about__container container grid" data-aos="fade-left" data-aos-delay="200">
+
+                <img src="assets/img/about.jpg" alt="Foto About" class="about__img" data-aos="zoom-in"
+                    data-aos-delay="300" />
+
+                <!-- Deskripsi diri dan info tambahan -->
+                <div class="about__data" data-aos="fade-left" data-aos-delay="400">
+                    <p class="about__description" data-aos="fade-up" data-aos-delay="500">
+                        <strong>Hai, saya Latif Rusdi</strong>, berusia 25 tahun.<br />
+                        Saya menikmati waktu luang dengan mengeksplorasi dunia Matematika, Sains, dan teknologi terbaru.
+                        <br /><br />
+                        Saya adalah seorang <strong>Full-Stack Developer</strong> dan <strong>App Creator</strong> yang
+                        fokus pada pengembangan antarmuka modern dan aplikasi interaktif.<br />
+                        Saya menguasai <strong>HTML, CSS, JavaScript, Laravel</strong>, serta memahami pengembangan
+                        aplikasi berbasis <strong>web dan mobile</strong>.<br /><br />
+                        Saya sangat antusias terhadap proyek open source, kolaborasi kreatif, dan inovasi teknologi masa
+                        depan.
+                    </p>
+
+                    <div class="about_info" data-aos="zoom-in" data-aos-delay="600">
+                        <div>
+                            <span class="about__info-title">02+</span>
+                            <span class="about__info-name">Tahun<br />Pengalaman</span>
+                        </div>
+                        <div>
+                            <span class="about__info-title">5+</span>
+                            <span class="about__info-name">Proyek<br />Selesai</span>
+                        </div>
+                        <div>
+                            <span class="about__info-title">24/7</span>
+                            <span class="about__info-name">Dukungan<br />Online</span>
+                        </div>
+                    </div>
+
+                    <!-- Tombol download CV -->
+                    <div class="about__buttons" data-aos="fade-up" data-aos-delay="700">
+                        <a download href="assets/pdf/CV-LATIF.pdf" class="button button--flex">
+                            Download CV
+                            <img src="assets/icon/download.png" alt="Download" class="button__icon-img" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--================== SKILLS =====================-->
+        <section class="skills section" id="skills">
+            <h2 class="section__title">Skills</h2>
+            <span class="section__subtitle">Kemampuan Saya</span>
+
+            <!-- === Frontend Developer === -->
+            <div class="skill-category" data-aos="fade-up">
+                <h3 class="skill-title">Frontend Developer</h3>
+                <div class="skills-grid">
+                    <div class="skill-item" data-aos="fade-up">
+                        <img src="assets/img/html.png" alt="HTML" />
+                        <p>HTML</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/img/css.png" alt="CSS" />
+                        <p>CSS</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets/img/js.png" alt="JavaScript" />
+                        <p>JavaScript</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+                        <img src="assets/img/react.png" alt="React" />
+                        <p>React</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
+                        <img src="assets/img/Tailwind.png" alt="Tailwind" />
+                        <p>Tailwind</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
+                        <img src="assets/img/flutter.png" alt="Flutter" />
+                        <p>Flutter</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === Backend Developer === -->
+            <div class="skill-category" data-aos="fade-up">
+                <h3 class="skill-title">Backend Developer</h3>
+                <div class="skills-grid">
+                    <div class="skill-item" data-aos="fade-up">
+                        <img src="assets/img/php.png" alt="PHP" />
+                        <p>PHP</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/img/Laravel.png" alt="Laravel" />
+                        <p>Laravel</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets/img/nodejs.png" alt="Node Js" />
+                        <p>Node Js</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+                        <img src="assets/img/python.png" alt="Python" />
+                        <p>Python</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
+                        <img src="assets/img/springboot.png" alt="Spring Boot" />
+                        <p>Spring Boot</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
+                        <img src="assets/img/java.png" alt="Java" />
+                        <p>Java</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === Designer Tools === -->
+            <div class="skill-category" data-aos="fade-up">
+                <h3 class="skill-title">Designer</h3>
+                <div class="skills-grid">
+                    <div class="skill-item" data-aos="fade-up">
+                        <img src="assets/img/blender.png" alt="Blender" />
+                        <p>Blender</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/img/ps.png" alt="Adobe Photoshop" />
+                        <p>Adobe Photoshop</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets/img/illustrator.png" alt="Adobe Illustrator" />
+                        <p>Adobe Illustrator</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+                        <img src="assets/img/Figma.png" alt="Figma" />
+                        <p>Figma</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
+                        <img src="assets/img/Canva.png" alt="Canva" />
+                        <p>Canva</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
+                        <img src="assets/img/Pixlr.png" alt="Pixlr" />
+                        <p>Pixlr</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === Working Officer === -->
+            <div class="skill-category" data-aos="fade-up">
+                <h3 class="skill-title">Working Officer</h3>
+                <div class="skills-grid">
+                    <div class="skill-item" data-aos="fade-up">
+                        <img src="assets/img/driver.png" alt="Driver" />
+                        <p>Driver</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/img/ms.png" alt="Microsoft Office" />
+                        <p>Microsoft Office</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets/img/sales.png" alt="Marketing" />
+                        <p>Marketing</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+                        <img src="assets/img/teknisi.png" alt="Teknisi Maintanance" />
+                        <p>Maintanance</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
+                        <img src="assets/img/gudang.png" alt="Ware House" />
+                        <p>Ware House</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--==================== MY BLOG ====================-->
+        <section class="blog section" id="blog">
+            <h2 class="section__title" data-aos="fade-up">My Blog</h2>
+            <span class="section__subtitle" data-aos="fade-up" data-aos-delay="100">Artikel & Tips Terbaru</span>
+
+            <!-- Container Swiper seperti Portfolio -->
+            <div class="blog__container container swiper-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper">
+
+                    <!-- BLOG 1 -->
+                    <div class="swiper-slide blog__card-ios" data-aos="zoom-in" data-aos-delay="100">
+                        <h3>🎮 Walkthrough Game</h3>
+                        <p>Panduan menyelesaikan level tersulit dengan strategi ringan dan cerdas.</p>
+                        <a href="https://yourbloggerlink.com/walkthrough" target="_blank" class="blog__btn-ios">
+                            Baca Sekarang <img src="assets/icon/blog.png" alt="Icon" class="button__icon-img" />
+                        </a>
+                    </div>
+
+                    <!-- BLOG 2 -->
+                    <div class="swiper-slide blog__card-ios" data-aos="zoom-in" data-aos-delay="200">
+                        <h3>🧠 Tips & Trik</h3>
+                        <p>Kumpulan tips ringan seputar game logic, front-end, dan AI sederhana.</p>
+                        <a href="https://yourbloggerlink.com/tips" target="_blank" class="blog__btn-ios">
+                            Lihat Tips <img src="assets/icon/blog.png" alt="Icon" class="button__icon-img" />
+                        </a>
+                    </div>
+
+                    <!-- BLOG 3 -->
+                    <div class="swiper-slide blog__card-ios" data-aos="zoom-in" data-aos-delay="300">
+                        <h3>💡 Inspirasi Coding</h3>
+                        <p>Cerita dan insight menarik dari dunia pengembangan software dan UI modern.</p>
+                        <a href="https://yourbloggerlink.com/coding" target="_blank" class="blog__btn-ios">
+                            Lihat Artikel <img src="assets/icon/blog.png" alt="Icon" class="button__icon-img" />
+                        </a>
+                    </div>
+
+                    <!-- BLOG 4 -->
+                    <div class="swiper-slide blog__card-ios" data-aos="zoom-in" data-aos-delay="400">
+                        <h3>📚 Belajar Mandiri</h3>
+                        <p>Catatan dan tips belajar otodidak buat kamu yang ingin mandiri di dunia IT.</p>
+                        <a href="https://yourbloggerlink.com/selflearn" target="_blank" class="blog__btn-ios">
+                            Baca Blog <img src="assets/icon/blog.png" alt="Icon" class="button__icon-img" />
+                        </a>
+                    </div>
+
+                    <!-- BLOG 5 -->
+                    <div class="swiper-slide blog__card-ios" data-aos="zoom-in" data-aos-delay="500">
+                        <h3>🎨 Desain UI UX</h3>
+                        <p>Inspirasi desain antarmuka modern, elegan, dan user-friendly seperti iOS Pro.</p>
+                        <a href="https://yourbloggerlink.com/uiux" target="_blank" class="blog__btn-ios">
+                            Lihat Desain <img src="assets/icon/blog.png" alt="Icon" class="button__icon-img" />
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-button-next">
+                    <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+                </div>
+                <div class="swiper-button-prev">
+                    <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+
+        <!--================= SERVICES ====================-->
+        <section class="services section" id="services">
+            <h2 class="section__title">Services</h2>
+            <span class="section__subtitle">Apa yang saya tawarkan</span>
+
+            <div data-aos="fade-up" class="services__container container grid">
+
+                <!-- === Service 1: UI/UX Designer === -->
+                <div class="services__content">
+                    <div>
+                        <i class="fas fa-sliders-h services__icon"></i>
+                        <h3 class="services__title">Ui/Ux <br> Designer</h3>
+                    </div>
+
+                    <span class="button button--flex button--small button--link services__button">
+                        lihat lebih banyak
+                        <img src="assets/icon/more.png" alt="View More" class="button__icon-img" />
+                    </span>
+
+                    <!-- Modal deskripsi layanan -->
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <h4 class="services__modal-title">Ui/Ux <br> Designer</h4>
+                            <i class="uil uil-times services__modal-close"></i>
+
+                            <ul class="services__modal-services grid">
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Mendesain antarmuka pengguna (UI) modern yang estetis dan intuitif untuk
+                                        meningkatkan user experience.</p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Mengembangkan wireframe, mockup, dan prototype interaktif menggunakan tools
+                                        profesional seperti Figma & Adobe XD.</p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Menerapkan prinsip desain visual dan aksesibilitas global dalam setiap elemen UI.
+                                    </p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Mengadaptasi desain berdasarkan riset pengguna, tren terbaru, dan hasil pengujian
+                                        usability.</p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Membangun identitas visual brand yang kuat dan konsisten melalui desain digital
+                                        yang berdampak.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === Service 2: Frontend Developer === -->
+                <div class="services__content">
+                    <div>
+                        <i class="fas fa-code services__icon"></i>
+                        <h3 class="services__title">Frontend <br> Developer</h3>
+                    </div>
+
+                    <span class="button button--flex button--small button--link services__button">
+                        lihat lebih banyak
+                        <img src="assets/icon/more.png" alt="View More" class="button__icon-img" />
+                    </span>
+
+                    <!-- Modal deskripsi layanan -->
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <h4 class="services__modal-title">Frontend <br> Developer</h4>
+                            <i class="uil uil-times services__modal-close"></i>
+
+                            <ul class="services__modal-services grid">
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Menerjemahkan desain UI/UX menjadi antarmuka web yang interaktif dan responsif.
+                                    </p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Membangun komponen front-end modern dengan performa tinggi dan efisiensi kode.
+                                    </p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Mengintegrasikan animasi dinamis untuk meningkatkan pengalaman pengguna.</p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Melakukan optimalisasi SEO teknis, kecepatan, dan aksesibilitas web lintas
+                                        perangkat.</p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Menjaga kualitas kode melalui testing otomatis dan dokumentasi yang rapi.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === Service 3: Branding Designer === -->
+                <div class="services__content">
+                    <div>
+                        <i class="fas fa-pencil-alt services__icon"></i>
+                        <h3 class="services__title">Branding <br> Designer</h3>
+                    </div>
+
+                    <span class="button button--flex button--small button--link services__button">
+                        lihat lebih banyak
+                        <img src="assets/icon/more.png" alt="View More" class="button__icon-img" />
+                    </span>
+
+                    <!-- Modal deskripsi layanan -->
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <h4 class="services__modal-title">Branding <br> Designer</h4>
+                            <i class="uil uil-times services__modal-close"></i>
+
+                            <ul class="services__modal-services grid">
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Membangun identitas visual merek yang kuat dan konsisten.</p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Mendesain materi promosi elegan untuk media digital & cetak.</p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Mengembangkan strategi branding berbasis tren & psikologi warna.</p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Kolaborasi aktif dengan klien untuk menjaga keaslian dan nilai merek.</p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Memvisualisasikan konsep kreatif melalui tools profesional seperti Adobe &
+                                        Blender.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === Service 4: AI & App Developer === -->
+                <div class="services__content">
+                    <div>
+                        <i class="fas fa-robot services__icon"></i>
+                        <h3 class="services__title">AI & App <br> Developer</h3>
+                    </div>
+
+                    <span class="button button--flex button--small button--link services__button">
+                        lihat lebih banyak
+                        <img src="assets/icon/more.png" alt="View More" class="button__icon-img" />
+                    </span>
+
+                    <!-- Modal deskripsi layanan -->
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <h4 class="services__modal-title">AI & App <br> Developer</h4>
+                            <i class="uil uil-times services__modal-close"></i>
+
+                            <ul class="services__modal-services grid">
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Membangun chatbot AI interaktif dan asisten virtual berbasis web dengan animasi
+                                        dinamis dan kepribadian unik.</p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Mengembangkan aplikasi mobile multiplatform menggunakan Flutter dengan performa
+                                        tinggi dan UI premium.</p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Integrasi API Artificial Intelligence (AI), termasuk NLP, Vision, dan Voice
+                                        Recognition.</p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Mendesain antarmuka aplikasi yang adaptif, elegan, dan optimal untuk berbagai
+                                        ukuran layar.</p>
+                                </li>
+                                <li><i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Menangani deployment aplikasi ke server, Firebase, atau rilis resmi ke Google
+                                        Play Store dengan konfigurasi terbaik.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--================= PORTFOLIO ===================-->
+        <section class="portfolio section" id="portfolio">
+            <h2 class="section__title">Portfolio</h2>
+            <span class="section__subtitle">Karya terbaru</span>
+
+            <!-- Container Swiper.js -->
+            <div data-aos="fade-up" class="portfolio__container container swiper-container">
+                <div class="swiper-wrapper">
+
+                    <!-- === PORTFOLIO 1 === -->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/portfolio1.jpg" alt="Modern Website" class="portfolio__img" />
+
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Modern Website</h3>
+                            <p class="portfolio__description">
+                                Situs yang dirancang dengan mengutamakan pengalaman pengguna, estetika, dan
+                                fungsionalitas terkini.
+                            </p>
+                            <a href="#" class="button button--flex button--small portfolio_-button"> Demo
+                                <img src="assets/icon/demo.png" alt="Demo" class="button__icon-img" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- === PORTFOLIO 2 === -->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/portfolio2.jpg" alt="Brand Design" class="portfolio__img" />
+
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Brand Design</h3>
+                            <p class="portfolio__description">
+                                Mempertegas kredibilitas usaha, membuat promosi semakin efektif, dan sebagai media
+                                visual interaksi dengan pelanggan.
+                            </p>
+                            <a href="#" class="button button--flex button--small portfolio_-button"> Demo
+                                <img src="assets/icon/demo.png" alt="Demo" class="button__icon-img" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- === PORTFOLIO 3 === -->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/portfolio3.jpg" alt="Online Store" class="portfolio__img" />
+
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Online Store</h3>
+                            <p class="portfolio__description">
+                                Situs web atau platform digital yang dirancang khusus untuk menjual barang atau jasa
+                                melalui internet.
+                            </p>
+                            <a href="#" class="button button--flex button--small portfolio_-button"> Demo
+                                <img src="assets/icon/demo.png" alt="Demo" class="button__icon-img" />
                             </a>
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <!--================== SKILLS =====================-->
-            <!-- Bagian kemampuan teknis dan profesional -->
-            <section class="skills section" id="skills">
-                <h2 class="section__title">Skills</h2>
-                <span class="section__subtitle">Kemampuan Saya</span>
-
-                <!-- === Frontend Developer === -->
-                <div class="skill-category" data-aos="fade-up">
-                    <h3 class="skill-title">Frontend Developer</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-aos="fade-up">
-                            <img src="assets/img/html.png" alt="HTML" />
-                            <p>HTML</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
-                            <img src="assets/img/css.png" alt="CSS" />
-                            <p>CSS</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
-                            <img src="assets/img/js.png" alt="JavaScript" />
-                            <p>JavaScript</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
-                            <img src="assets/img/react.png" alt="React" />
-                            <p>React</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
-                            <img src="assets/img/Tailwind.png" alt="Tailwind" />
-                            <p>Tailwind</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
-                            <img src="assets/img/flutter.png" alt="Flutter" />
-                            <p>Flutter</p>
-                        </div>
-                    </div>
+                <div class="swiper-button-next">
+                    <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
                 </div>
-
-                <!-- === Backend Developer === -->
-                <div class="skill-category" data-aos="fade-up">
-                    <h3 class="skill-title">Backend Developer</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-aos="fade-up">
-                            <img src="assets/img/php.png" alt="PHP" />
-                            <p>PHP</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
-                            <img src="assets/img/laravel.png" alt="Laravel" />
-                            <p>Laravel</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
-                            <img src="assets/img/nodejs.png" alt="Node Js" />
-                            <p>Node Js</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
-                            <img src="assets/img/python.png" alt="Python" />
-                            <p>Python</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
-                            <img src="assets/img/springboot.png" alt="Spring Boot" />
-                            <p>Spring Boot</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
-                            <img src="assets/img/java.png" alt="Java" />
-                            <p>Java</p>
-                        </div>
-                    </div>
+                <div class="swiper-button-prev">
+                    <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
                 </div>
+                <div class="swiper-pagination"></div>
 
-                <!-- === Designer Tools === -->
-                <div class="skill-category" data-aos="fade-up">
-                    <h3 class="skill-title">Designer</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-aos="fade-up">
-                            <img src="assets/img/blender.png" alt="Blender" />
-                            <p>Blender</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
-                            <img src="assets/img/ps.png" alt="Adobe Photoshop" />
-                            <p>Adobe Photoshop</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
-                            <img src="assets/img/illustrator.png" alt="Adobe Illustrator" />
-                            <p>Adobe Illustrator</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
-                            <img src="assets/img/Figma.png" alt="Figma" />
-                            <p>Figma</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
-                            <img src="assets/img/Canva.png" alt="Canva" />
-                            <p>Canva</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
-                            <img src="assets/img/Pixlr.png" alt="Pixlr" />
-                            <p>Pixlr</p>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </section>
 
-                <!-- === Working Officer === -->
-                <div class="skill-category" data-aos="fade-up">
-                    <h3 class="skill-title">Working Officer</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-aos="fade-up">
-                            <img src="assets/img/driver.png" alt="Driver" />
-                            <p>Driver</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
-                            <img src="assets/img/ms.png" alt="Microsoft Office" />
-                            <p>Microsoft Office</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
-                            <img src="assets/img/sales.png" alt="Marketing" />
-                            <p>Marketing</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
-                            <img src="assets/img/teknisi.png" alt="Teknisi Maintanance" />
-                            <p>Maintanance</p>
-                        </div>
-                        <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
-                            <img src="assets/img/gudang.png" alt="Ware House" />
-                            <p>Ware House</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <!--================ 💡 PROJECT IN MIND ==============-->
+        <section class="project section">
+            <div class="project__bg-glass" data-aos="zoom-in">
+                <div class="project__container container grid">
 
-
-            <!--==================== MY BLOG ====================-->
-            <section class="blog section" id="blog">  
-                <h2 class="section__title" data-aos="fade-up">My Blog</h2>  
-                <span class="section__subtitle" data-aos="fade-up" data-aos-delay="100">Artikel & Tips Terbaru</span>  
-
-                <!-- Container Swiper seperti Portfolio -->  
-                <div class="blog__container container swiper-container" data-aos="fade-up" data-aos-delay="200">  
-                    <div class="swiper-wrapper">  
-
-                        <!-- BLOG 1 -->  
-                        <div class="swiper-slide blog__card-ios" data-aos="zoom-in" data-aos-delay="100">
-                            <h3>🎮 Walkthrough Game</h3>  
-                            <p>Panduan menyelesaikan level tersulit dengan strategi ringan dan cerdas.</p>  
-                            <a href="https://yourbloggerlink.com/walkthrough" target="_blank" class="blog__btn-ios">  
-                                Baca Sekarang <img src="assets/icon/blog.png" alt="Icon" class="button__icon-img" />  
-                            </a>  
-                        </div>  
-
-                        <!-- BLOG 2 -->  
-                        <div class="swiper-slide blog__card-ios" data-aos="zoom-in" data-aos-delay="200">
-                            <h3>🧠 Tips & Trik</h3>  
-                            <p>Kumpulan tips ringan seputar game logic, front-end, dan AI sederhana.</p>  
-                            <a href="https://yourbloggerlink.com/tips" target="_blank" class="blog__btn-ios">  
-                                Lihat Tips <img src="assets/icon/blog.png" alt="Icon" class="button__icon-img" />  
-                            </a>  
-                        </div>  
-
-                        <!-- BLOG 3 -->  
-                        <div class="swiper-slide blog__card-ios" data-aos="zoom-in" data-aos-delay="300">
-                            <h3>💡 Inspirasi Coding</h3>  
-                            <p>Cerita dan insight menarik dari dunia pengembangan software dan UI modern.</p>  
-                            <a href="https://yourbloggerlink.com/coding" target="_blank" class="blog__btn-ios">  
-                                Lihat Artikel <img src="assets/icon/blog.png" alt="Icon" class="button__icon-img" />  
-                            </a>  
-                        </div>  
-
-                        <!-- BLOG 4 -->  
-                        <div class="swiper-slide blog__card-ios" data-aos="zoom-in" data-aos-delay="400">
-                            <h3>📚 Belajar Mandiri</h3>  
-                            <p>Catatan dan tips belajar otodidak buat kamu yang ingin mandiri di dunia IT.</p>  
-                            <a href="https://yourbloggerlink.com/selflearn" target="_blank" class="blog__btn-ios">  
-                                Baca Blog <img src="assets/icon/blog.png" alt="Icon" class="button__icon-img" />  
-                            </a>  
-                        </div>  
-
-                        <!-- BLOG 5 -->  
-                        <div class="swiper-slide blog__card-ios" data-aos="zoom-in" data-aos-delay="500">
-                            <h3>🎨 Desain UI UX</h3>  
-                            <p>Inspirasi desain antarmuka modern, elegan, dan user-friendly seperti iOS Pro.</p>  
-                            <a href="https://yourbloggerlink.com/uiux" target="_blank" class="blog__btn-ios">  
-                                Lihat Desain <img src="assets/icon/blog.png" alt="Icon" class="button__icon-img" />  
-                            </a>  
-                        </div>  
-                    </div>  
-
-                    <!-- Navigasi panah -->  
-                    <div class="swiper-button-next">  
-                        <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>  
-                    </div>  
-                    <div class="swiper-button-prev">  
-                        <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>  
-                    </div>  
-
-                    <!-- Navigasi bulatan -->  
-                    <div class="swiper-pagination"></div>  
-                </div>  
-            </section>
-
-            
-            <!--================= SERVICES ====================-->
-            <!-- Bagian layanan jasa yang ditawarkan -->
-            <section class="services section" id="services">
-                <h2 class="section__title">Services</h2>
-                <span class="section__subtitle">Apa yang saya tawarkan</span>
-
-                <div data-aos="fade-up" class="services__container container grid">
-
-                    <!-- === Service 1: UI/UX Designer === -->
-                    <div class="services__content">
-                        <div>
-                            <i class="fas fa-sliders-h services__icon"></i>
-                            <h3 class="services__title">Ui/Ux <br> Designer</h3>
-                        </div>
-
-                        <span class="button button--flex button--small button--link services__button">
-                            lihat lebih banyak
-                            <img src="assets/icon/more.png" alt="View More" class="button__icon-img" />
-                        </span>
-
-                        <!-- Modal deskripsi layanan -->
-                        <div class="services__modal">
-                            <div class="services__modal-content">
-                                <h4 class="services__modal-title">Ui/Ux <br> Designer</h4>
-                                <i class="uil uil-times services__modal-close"></i>
-
-                                <ul class="services__modal-services grid">
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Mendesain antarmuka pengguna (UI) modern yang estetis dan intuitif untuk meningkatkan user experience.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Mengembangkan wireframe, mockup, dan prototype interaktif menggunakan tools profesional seperti Figma & Adobe XD.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Menerapkan prinsip desain visual dan aksesibilitas global dalam setiap elemen UI.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Mengadaptasi desain berdasarkan riset pengguna, tren terbaru, dan hasil pengujian usability.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Membangun identitas visual brand yang kuat dan konsisten melalui desain digital yang berdampak.</p></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- === Service 2: Frontend Developer === -->
-                    <div class="services__content">
-                        <div>
-                            <i class="fas fa-code services__icon"></i>
-                            <h3 class="services__title">Frontend <br> Developer</h3>
-                        </div>
-
-                        <span class="button button--flex button--small button--link services__button">
-                            lihat lebih banyak
-                            <img src="assets/icon/more.png" alt="View More" class="button__icon-img" />
-                        </span>
-
-                        <!-- Modal deskripsi layanan -->
-                        <div class="services__modal">
-                            <div class="services__modal-content">
-                                <h4 class="services__modal-title">Frontend <br> Developer</h4>
-                                <i class="uil uil-times services__modal-close"></i>
-
-                                <ul class="services__modal-services grid">
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Menerjemahkan desain UI/UX menjadi antarmuka web yang interaktif dan responsif.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Membangun komponen front-end modern dengan performa tinggi dan efisiensi kode.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Mengintegrasikan animasi dinamis untuk meningkatkan pengalaman pengguna.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Melakukan optimalisasi SEO teknis, kecepatan, dan aksesibilitas web lintas perangkat.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Menjaga kualitas kode melalui testing otomatis dan dokumentasi yang rapi.</p></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- === Service 3: Branding Designer === -->
-                    <div class="services__content">
-                        <div>
-                            <i class="fas fa-pencil-alt services__icon"></i>
-                            <h3 class="services__title">Branding <br> Designer</h3>
-                        </div>
-
-                        <span class="button button--flex button--small button--link services__button">
-                            lihat lebih banyak
-                            <img src="assets/icon/more.png" alt="View More" class="button__icon-img" />
-                        </span>
-
-                        <!-- Modal deskripsi layanan -->
-                        <div class="services__modal">
-                            <div class="services__modal-content">
-                                <h4 class="services__modal-title">Branding <br> Designer</h4>
-                                <i class="uil uil-times services__modal-close"></i>
-
-                                <ul class="services__modal-services grid">
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Membangun identitas visual merek yang kuat dan konsisten.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Mendesain materi promosi elegan untuk media digital & cetak.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Mengembangkan strategi branding berbasis tren & psikologi warna.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Kolaborasi aktif dengan klien untuk menjaga keaslian dan nilai merek.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Memvisualisasikan konsep kreatif melalui tools profesional seperti Adobe & Blender.</p></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- === Service 4: AI & App Developer === -->
-                    <div class="services__content">
-                        <div>
-                            <i class="fas fa-robot services__icon"></i>
-                            <h3 class="services__title">AI & App <br> Developer</h3>
-                        </div>
-
-                        <span class="button button--flex button--small button--link services__button">
-                            lihat lebih banyak
-                            <img src="assets/icon/more.png" alt="View More" class="button__icon-img" />
-                        </span>
-
-                        <!-- Modal deskripsi layanan -->
-                        <div class="services__modal">
-                            <div class="services__modal-content">
-                                <h4 class="services__modal-title">AI & App <br> Developer</h4>
-                                <i class="uil uil-times services__modal-close"></i>
-
-                                <ul class="services__modal-services grid">
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Membangun chatbot AI interaktif dan asisten virtual berbasis web dengan animasi dinamis dan kepribadian unik.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Mengembangkan aplikasi mobile multiplatform menggunakan Flutter dengan performa tinggi dan UI premium.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Integrasi API Artificial Intelligence (AI), termasuk NLP, Vision, dan Voice Recognition.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Mendesain antarmuka aplikasi yang adaptif, elegan, dan optimal untuk berbagai ukuran layar.</p></li>
-                                    <li><i class="uil uil-check-circle services__modal-icon"></i><p>Menangani deployment aplikasi ke server, Firebase, atau rilis resmi ke Google Play Store dengan konfigurasi terbaik.</p></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!--================= PORTFOLIO ===================-->
-            <!-- Bagian menampilkan karya-karya terbaru -->
-            <section class="portfolio section" id="portfolio">
-                <h2 class="section__title">Portfolio</h2>
-                <span class="section__subtitle">Karya terbaru</span>
-
-                <!-- Container Swiper.js -->
-                <div data-aos="fade-up" class="portfolio__container container swiper-container">
-                    <div class="swiper-wrapper">
-
-                        <!-- === PORTFOLIO 1 === -->
-                        <div class="portfolio__content grid swiper-slide">
-                            <img src="assets/img/portfolio1.jpg" alt="Modern Website" class="portfolio__img" />
-
-                            <div class="portfolio__data">
-                                <h3 class="portfolio__title">Modern Website</h3>
-                                <p class="portfolio__description">
-                                    Situs yang dirancang dengan mengutamakan pengalaman pengguna, estetika, dan fungsionalitas terkini.
-                                </p>
-                                <a href="#" class="button button--flex button--small portfolio_-button"> Demo
-                                    <img src="assets/icon/demo.png" alt="Demo" class="button__icon-img" />
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- === PORTFOLIO 2 === -->
-                        <div class="portfolio__content grid swiper-slide">
-                            <img src="assets/img/portfolio2.jpg" alt="Brand Design" class="portfolio__img" />
-
-                            <div class="portfolio__data">
-                                <h3 class="portfolio__title">Brand Design</h3>
-                                <p class="portfolio__description">
-                                    Mempertegas kredibilitas usaha, membuat promosi semakin efektif, dan sebagai media visual interaksi dengan pelanggan.
-                                </p>
-                                <a href="#" class="button button--flex button--small portfolio_-button"> Demo
-                                    <img src="assets/icon/demo.png" alt="Demo" class="button__icon-img" />
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- === PORTFOLIO 3 === -->
-                        <div class="portfolio__content grid swiper-slide">
-                            <img src="assets/img/portfolio3.jpg" alt="Online Store" class="portfolio__img" />
-
-                            <div class="portfolio__data">
-                                <h3 class="portfolio__title">Online Store</h3>
-                                <p class="portfolio__description">
-                                    Situs web atau platform digital yang dirancang khusus untuk menjual barang atau jasa melalui internet.
-                                </p>
-                                <a href="#" class="button button--flex button--small portfolio_-button"> Demo
-                                    <img src="assets/icon/demo.png" alt="Demo" class="button__icon-img" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Navigasi panah -->
-                    <div class="swiper-button-next">
-                        <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
-                    </div>
-                    <div class="swiper-button-prev">
-                        <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
-                    </div>
-                    <!-- Navigasi bulatan -->
-                    <div class="swiper-pagination"></div>
-
-                </div>
-            </section>
-
-
-            <!--================ PROJECT IN MIND ==============-->
-            <section class="project section">
-                <div class="project__bg-glass" data-aos="zoom-in">
-                    <div class="project__container container grid">
-                    
-                    <!-- 📝 Konten Teks -->
                     <div class="project__data">
                         <h2 class="project__title">🚀 Siap untuk Proyek Baru?</h2>
                         <p class="project__description">
@@ -782,391 +816,384 @@
                         </a>
                     </div>
 
-                    <!-- 🖼️ Gambar Proyek -->
                     <img src="assets/img/project.png" alt="Ilustrasi Proyek" class="project__img" />
-                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- ✅ Tambahkan audio element -->
-            <audio id="project-sound" src="assets/audio/hub.mp3" preload="auto"></audio>
+        <audio id="project-sound" src="assets/audio/hub.mp3" preload="auto"></audio>
 
+        <!--================ TESTIMONIAL ==================-->
+        <section class="testimonial section" id="testimonial">
+            <h2 class="section__title" data-aos="fade-up">Testimonial</h2>
+            <span class="section__subtitle" data-aos="fade-up" data-aos-delay="100">Kata klien saya</span>
 
-            <!--================ TESTIMONIAL ==================-->
-            <section class="testimonial section" id="testimonial">
-                <h2 class="section__title" data-aos="fade-up">Testimonial</h2>
-                <span class="section__subtitle" data-aos="fade-up" data-aos-delay="100">Kata klien saya</span>
+            <!-- Swiper Container -->
+            <div class="testimonial__container container swiper-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper">
 
-                <!-- Swiper Container -->
-                <div class="testimonial__container container swiper-container" data-aos="fade-up" data-aos-delay="200">
-                    <div class="swiper-wrapper">
-
-                        <!-- === TESTI 1 === -->
-                        <div class="testimonial__card swiper-slide">
-                            <div class="testimonial__header">
+                    <!-- === TESTI 1 === -->
+                    <div class="testimonial__card swiper-slide">
+                        <div class="testimonial__header">
                             <img src="assets/img/rara.jpg" alt="Deby Clara Monita" class="testimonial__avatar" />
                             <div>
                                 <h3 class="testimonial__name">Deby Clara Monita</h3>
                                 <span class="testimonial__client">Client • 2 Mei 2025</span>
                                 <div class="testimonial__stars">⭐⭐⭐⭐⭐</div>
                             </div>
-                            </div>
-                            <p class="testimonial__desc">
-                            “Saya mendapatkan kesan yang baik. Proyek saya dilaksanakan dengan kualitas tinggi dan dukungan 24 jam.”
-                            </p>
                         </div>
+                        <p class="testimonial__desc">
+                            “Saya mendapatkan kesan yang baik. Proyek saya dilaksanakan dengan kualitas tinggi dan
+                            dukungan 24 jam.”
+                        </p>
+                    </div>
 
-                        <!-- === TESTI 2 === -->
-                        <div class="testimonial__card swiper-slide">
-                            <div class="testimonial__header">
+                    <!-- === TESTI 2 === -->
+                    <div class="testimonial__card swiper-slide">
+                        <div class="testimonial__header">
                             <img src="assets/img/testi2.jpg" alt="Ferel Ardian" class="testimonial__avatar" />
                             <div>
                                 <h3 class="testimonial__name">Ferel Ardian</h3>
                                 <span class="testimonial__client">Client • 15 April 2025</span>
                                 <div class="testimonial__stars">⭐⭐⭐⭐</div>
                             </div>
-                            </div>
-                            <p class="testimonial__desc">
-                            “Selalu menyenangkan bekerja dengan Latif. Dia menyelesaikan proyek saat paling dibutuhkan.”
-                            </p>
                         </div>
+                        <p class="testimonial__desc">
+                            “Selalu menyenangkan bekerja dengan Latif. Dia menyelesaikan proyek saat paling dibutuhkan.”
+                        </p>
+                    </div>
 
-                        <!-- === TESTI 3 === -->
-                        <div class="testimonial__card swiper-slide">
-                            <div class="testimonial__header">
+                    <!-- === TESTI 3 === -->
+                    <div class="testimonial__card swiper-slide">
+                        <div class="testimonial__header">
                             <img src="assets/img/firga.jpg" alt="Firga Wahyu Putra" class="testimonial__avatar" />
                             <div>
                                 <h3 class="testimonial__name">Firga Wahyu Putra</h3>
                                 <span class="testimonial__client">Client • 4 Maret 2025</span>
                                 <div class="testimonial__stars">⭐⭐⭐⭐⭐</div>
                             </div>
-                            </div>
-                            <p class="testimonial__desc">
-                            “Programmer yang baik. Proyek saya diselesaikan dengan semua kualitas yang mungkin.”
-                            </p>
                         </div>
+                        <p class="testimonial__desc">
+                            “Programmer yang baik. Proyek saya diselesaikan dengan semua kualitas yang mungkin.”
+                        </p>
+                    </div>
 
-                        <!-- === TESTI 4 === -->
-                        <div class="testimonial__card swiper-slide">
-                            <div class="testimonial__header">
+                    <!-- === TESTI 4 === -->
+                    <div class="testimonial__card swiper-slide">
+                        <div class="testimonial__header">
                             <img src="assets/img/amek.jpg" alt="Rahmat Hidayat" class="testimonial__avatar" />
                             <div>
                                 <h3 class="testimonial__name">Rahmat Hidayat</h3>
                                 <span class="testimonial__client">Client • 21 Februari 2025</span>
                                 <div class="testimonial__stars">⭐⭐⭐⭐⭐</div>
                             </div>
-                            </div>
-                            <p class="testimonial__desc">
-                            “Web developer yang luar biasa, punya pemahaman mendalam dan hasil kerjanya sangat memuaskan.”
-                            </p>
                         </div>
+                        <p class="testimonial__desc">
+                            “Web developer yang luar biasa, punya pemahaman mendalam dan hasil kerjanya sangat
+                            memuaskan.”
+                        </p>
                     </div>
-                    <div class="swiper-pagination swiper-pagination-testimonial"></div>
                 </div>
-            </section>
+                <div class="swiper-pagination swiper-pagination-testimonial"></div>
+            </div>
+        </section>
 
 
-            <!--================== CONTACT ====================-->
-            <!-- Bagian formulir dan informasi kontak -->
-            <section class="contact section" id="contact">
-                <h2 class="section__title">Contact Me</h2>
-                <span class="section__subtitle">Hubungi saya kapan saja</span>
+        <!--================== 📬 CONTACT ====================-->
+        <section class="contact section" id="contact">
+            <h2 class="section__title">Contact Me</h2>
+            <span class="section__subtitle">Hubungi saya kapan saja</span>
 
-                <div data-aos="fade-up" class="contact__container container grid">
+            <div data-aos="fade-up" class="contact__container container grid">
 
-                    <!-- 📱 Informasi Kontak Langsung -->
-                    <div class="contact__info-glass">
+                <!-- 📱 Informasi Kontak Langsung -->
+                <div class="contact__info-glass">
 
-                        <!-- ✉️ Email -->
-                        <div class="contact__information">
-                            <i class="fas fa-envelope contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title">Email</h3>
-                                <a href="mailto:latifrusdi15@gmail.com" class="contact__subtitle link-hover">
-                                    latifrusdi15@gmail.com
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 🐙 GitHub -->
-                        <div class="contact__information">
-                            <i class="fab fa-github contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title">GitHub</h3>
-                                <a href="https://github.com/Larusdi" target="_blank" class="contact__subtitle link-hover">
-                                    github.com/Larusdi
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- ❌ X (Twitter) -->
-                        <div class="contact__information">
-                            <i class="fab fa-x-twitter contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title">X</h3>
-                                <a href="https://x.com/29_Larusdi" target="_blank" class="contact__subtitle link-hover">
-                                    x.com/29_Larusdi
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 🎵 TikTok -->
-                        <div class="contact__information">
-                            <i class="fab fa-tiktok contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title">TikTok</h3>
-                                <a href="https://www.tiktok.com/@29_latif" target="_blank" class="contact__subtitle link-hover">
-                                    @29_latif
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 📸 Instagram -->
-                        <div class="contact__information">
-                            <i class="fab fa-instagram contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title">Instagram</h3>
-                                <a href="https://www.instagram.com/29_larusdi" target="_blank" class="contact__subtitle link-hover">
-                                    @29_larusdi
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 🔗 LinkedIn -->
-                        <div class="contact__information">
-                            <i class="fab fa-linkedin-in contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title">LinkedIn</h3>
-                                <a href="https://www.linkedin.com/in/latifrusdi" target="_blank" class="contact__subtitle link-hover">
-                                    linkedin.com/in/latifrusdi
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 📝 Formulir Kirim Pesan -->
-                    <form action="https://formsubmit.co/3291f4338dc27f344cdc564a1df42f85" method="POST" class="contact__form grid contact__form-glass">
-
-                        <!-- 👤 Nama & Email -->
-                        <div class="contact__inputs grid">
-                            <div class="contact__content">
-                                <input type="text" name="Nama" class="contact__input" required placeholder=" " />
-                                <label class="floating-label">Nama</label>
-                            </div>
-                            <div class="contact__content">
-                                <input type="email" name="Email" class="contact__input" required placeholder=" " />
-                                <label class="floating-label">Email</label>
-                            </div>
-                        </div>
-
-                        <!-- 💼 Project -->
-                        <div class="contact__content">
-                            <input type="text" name="Project" class="contact__input" required placeholder=" " />
-                            <label class="floating-label">Judul Project</label>
-                        </div>
-
-                        <!-- 💬 Pesan -->
-                        <div class="contact__content">
-                            <textarea name="message" rows="5" class="contact__input" required placeholder=" "></textarea>
-                            <label class="floating-label">Pesan</label>
-                        </div>
-
-                        <!-- 🚀 Tombol Kirim -->
+                    <!-- ✉️ Email -->
+                    <div class="contact__information">
+                        <i class="fas fa-envelope contact__icon"></i>
                         <div>
-                            <button type="submit" class="button button--flex">
-                                Kirim Pesan
-                                <img src="assets/icon/pesan.png" alt="Kirim" class="button__icon-img" />
-                            </button>
+                            <h3 class="contact__title">Email</h3>
+                            <a href="mailto:latifrusdi15@gmail.com" class="contact__subtitle link-hover">
+                                latifrusdi15@gmail.com
+                            </a>
                         </div>
-                    </form>
-                </div>
-            </section>
-        </main>
+                    </div>
 
-        <!-- ======================= FOOTER ====================== -->
-        <footer class="footer">
-            <div class="footer__bg">
-                <div class="footer__container container grid">
+                    <!-- 🐙 GitHub -->
+                    <div class="contact__information">
+                        <i class="fab fa-github contact__icon"></i>
+                        <div>
+                            <h3 class="contact__title">GitHub</h3>
+                            <a href="https://github.com/Larusdi" target="_blank" class="contact__subtitle link-hover">
+                                github.com/Larusdi
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- ❌ X (Twitter) -->
+                    <div class="contact__information">
+                        <i class="fab fa-x-twitter contact__icon"></i>
+                        <div>
+                            <h3 class="contact__title">X</h3>
+                            <a href="https://x.com/29_Larusdi" target="_blank" class="contact__subtitle link-hover">
+                                x.com/29_Larusdi
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 🎵 TikTok -->
+                    <div class="contact__information">
+                        <i class="fab fa-tiktok contact__icon"></i>
+                        <div>
+                            <h3 class="contact__title">TikTok</h3>
+                            <a href="https://www.tiktok.com/@29_latif" target="_blank"
+                                class="contact__subtitle link-hover">
+                                @29_latif
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 📸 Instagram -->
+                    <div class="contact__information">
+                        <i class="fab fa-instagram contact__icon"></i>
+                        <div>
+                            <h3 class="contact__title">Instagram</h3>
+                            <a href="https://www.instagram.com/29_larusdi" target="_blank"
+                                class="contact__subtitle link-hover">
+                                @29_larusdi
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 🔗 LinkedIn -->
+                    <div class="contact__information">
+                        <i class="fab fa-linkedin-in contact__icon"></i>
+                        <div>
+                            <h3 class="contact__title">LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/latifrusdi" target="_blank"
+                                class="contact__subtitle link-hover">
+                                linkedin.com/in/latifrusdi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 📝 Formulir Kirim Pesan -->
+                <form action="https://formsubmit.co/3291f4338dc27f344cdc564a1df42f85" method="POST"
+                    class="contact__form grid contact__form-glass">
+
+                    <!-- 👤 Nama & Email -->
+                    <div class="contact__inputs grid">
+                        <div class="contact__content">
+                            <input type="text" name="Nama" class="contact__input" required placeholder=" " />
+                            <label class="floating-label">Nama</label>
+                        </div>
+                        <div class="contact__content">
+                            <input type="email" name="Email" class="contact__input" required placeholder=" " />
+                            <label class="floating-label">Email</label>
+                        </div>
+                    </div>
+
+                    <!-- 💼 Project -->
+                    <div class="contact__content">
+                        <input type="text" name="Project" class="contact__input" required placeholder=" " />
+                        <label class="floating-label">Judul Project</label>
+                    </div>
+
+                    <!-- 💬 Pesan -->
+                    <div class="contact__content">
+                        <textarea name="message" rows="5" class="contact__input" required placeholder=" "></textarea>
+                        <label class="floating-label">Pesan</label>
+                    </div>
+
+                    <!-- 🚀 Tombol Kirim -->
                     <div>
-                        <h1 class="footer__title">Larusdi</h1>
-                        <span class="footer__subtitle">Frontend Developer</span>
+                        <button type="submit" class="button button--flex">
+                            Kirim Pesan
+                            <img src="assets/icon/pesan.png" alt="Kirim" class="button__icon-img" />
+                        </button>
                     </div>
+                </form>
+            </div>
+        </section>
 
-                    <ul class="footer__links">
-                        <li>
-                        <a href="#services" class="footer__link">Services</a>
-                        </li>
-                        <li>
-                        <a href="#portfolio" class="footer__link">Portfolio</a>
-                        </li>
-                        <li>
-                        <a href="#contact" class="footer__link">Contactme</a>
-                        </li>
-                    </ul>
+        <audio id="theme-sound" src="assets/audio/theme.mp3" preload="auto"></audio>
 
-                    <div class="footer__socials">
-                        <a href="https://www.instagram.com/29_larusdi" target="_blank" class="footer__social">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+        <!-- 🔔 Toast -->
+        <div id="theme-toast" class="theme-toast" role="status" aria-live="polite"></div>
+    </main>
 
-                        <a href="https://github.com/Larusdi" target="_blank" class="footer__social">
-                            <i class="fab fa-github"></i>
-                        </a>
-
-                        <a href="https://www.tiktok.com/@29_latif?_t=ZS-8xXxgEXfBaS&_r=1" target="_blank" class="footer__social">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-
-                        <a href="https://x.com/29_Larusdi" target="_blank" class="footer__social">
-                            <i class="fab fa-x-twitter"></i>
-                        </a>
-
-                        <a href="https://wa.me/6282389160273" target="_blank" class="footer__social">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
+    <!-- ======================= FOOTER ====================== -->
+    <footer class="footer">
+        <div class="footer__bg">
+            <div class="footer__container container grid">
+                <div>
+                    <h1 class="footer__title">Larusdi</h1>
+                    <span class="footer__subtitle">Frontend Developer</span>
                 </div>
-                <p class="footer__copy">&copy; 2025 Latif Rusdi | All Rights Reserved</p>
-                <p class="footer__love">Made with <span>❤️</span> by Latif Rusdi</p>
+
+                <ul class="footer__links">
+                    <li>
+                        <a href="#services" class="footer__link">Services</a>
+                    </li>
+                    <li>
+                        <a href="#portfolio" class="footer__link">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="footer__link">Contactme</a>
+                    </li>
+                </ul>
+
+                <div class="footer__socials">
+                    <a href="https://www.instagram.com/29_larusdi" target="_blank" class="footer__social">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="https://github.com/Larusdi" target="_blank" class="footer__social">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="https://www.tiktok.com/@29_latif?_t=ZS-8xXxgEXfBaS&_r=1" target="_blank"
+                        class="footer__social">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+
+                    <a href="https://x.com/29_Larusdi" target="_blank" class="footer__social">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+
+                    <a href="https://wa.me/6282389160273" target="_blank" class="footer__social">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
             </div>
-        </footer>
-
-
-        <!-- ====================== SCROLL TOP =================== -->
-        <div>
-            <a href="#" class="scroll-up" id="scroll-up">
-                <img src="assets/icon/up-arrow.png" alt="Scroll Up" class="scrollup__icon" />
-            </a>
-            <!-- 🎵 Suara Scroll -->
-            <audio id="scroll-sound" src="assets/audio/up.mp3" preload="auto"></audio>
+            <p class="footer__copy">&copy; 2025 Latif Rusdi | All Rights Reserved</p>
+            <p class="footer__love">Made with <span>❤️</span> by Latif Rusdi</p>
         </div>
+    </footer>
+
+    <!-- ====================== SCROLL TOP =================== -->
+    <div>
+        <a href="#" class="scroll-up" id="scroll-up" aria-label="Scroll to top">
+            <img src="assets/icon/up-arrow.png" alt="Scroll Up" class="scrollup__icon" />
+        </a>
+        <audio id="scroll-sound" src="assets/audio/up.mp3" preload="auto"></audio>
+    </div>
 
 
-        <!--==================== POPUP IKLAN ====================-->
-        <div id="popup-ad" class="popup-ad" role="dialog" aria-labelledby="popup-heading" aria-modal="true">
-            <div class="popup-ad-content">
-                <span class="popup-close" onclick="closePopupAd()" aria-label="Tutup Iklan" role="button">&times;</span>
-                    <h2 class="popup-heading" id="popup-heading">
-                    <span class="firework-wrapper">
-                        <span class="emoji-firework">🎉</span>
-                        <span class="firework-star">★</span>
-                        <span class="firework-star">★</span>
-                        <span class="firework-star">★</span>
-                        <span class="firework-star">★</span>
-                        <span class="firework-star">★</span>
-                    </span>
+
+    <!--==================== POPUP IKLAN ====================-->
+    <div id="popup-ad" class="popup-ad" role="dialog" aria-labelledby="popup-heading" aria-modal="true">
+        <div class="popup-ad-content">
+            <span class="popup-close" onclick="closePopupAd()" aria-label="Tutup Iklan" role="button">&times;</span>
+            <h2 class="popup-heading" id="popup-heading">
+                <span class="firework-wrapper">
+                    <span class="emoji-firework">🎉</span>
+                    <span class="firework-star">★</span>
+                    <span class="firework-star">★</span>
+                    <span class="firework-star">★</span>
+                    <span class="firework-star">★</span>
+                    <span class="firework-star">★</span>
+                </span>
                 <span class="popup-title-text animate-text">Website Profesional<br>Mulai 500rb!</span>
-                </h2>
-                <p>Mau website keren seperti ini? Hanya Rp500.000 saja!</p>
-                <button onclick="openPaymentModal()" class="button button--flex option-btn glow">Pesan Sekarang</button>
-            </div>
+            </h2>
+            <p>Mau website keren seperti ini? Hanya Rp500.000 saja!</p>
+            <button onclick="openPaymentModal()" class="button button--flex option-btn glow">Pesan Sekarang</button>
         </div>
+    </div>
 
 
-        <!--================== MODAL KONFIRMASI =================-->
-        <div id="payment-modal" class="popup-ad hidden">
-            <div class="popup-ad-content">
-                <span class="popup-close" onclick="closePaymentModal()">&times;</span>
-                <h2 class="popup-heading"><span class="emoji-firework">🚀</span> Siap Buat Website Impianmu?</h2>
-                <p>Klik lanjut jika kamu setuju dan ingin melanjutkan ke halaman pembayaran.</p>
-                <label style="display: block; margin: 1rem 0;">
-                    <input type="checkbox" id="agreeTerms"> Saya setuju untuk lanjut ke pembayaran.
-                </label>
-                <button id="btnToPayment" class="button button--flex" disabled>Lanjut ke Pembayaran</button>
-            </div>
+    <div id="payment-modal" class="popup-ad hidden">
+        <div class="popup-ad-content">
+            <span class="popup-close" onclick="closePaymentModal()">&times;</span>
+            <h2 class="popup-heading"><span class="emoji-firework">🚀</span> Siap Buat Website Impianmu?</h2>
+            <p>Klik lanjut jika kamu setuju dan ingin melanjutkan ke halaman pembayaran.</p>
+            <label style="display: block; margin: 1rem 0;">
+                <input type="checkbox" id="agreeTerms"> Saya setuju untuk lanjut ke pembayaran.
+            </label>
+            <button id="btnToPayment" class="button button--flex" disabled>Lanjut ke Pembayaran</button>
         </div>
+    </div>
 
 
-        <!--==================== AI CHATBOT =====================-->
-        <div class="ai-assistant-toggle" id="toggleChat" style="display: none;">
-            <img src="assets/icon/badut.png" alt="AI Clown">
-            <div class="chat-indicator" id="chatNotif">1</div>
-            <div class="eye"></div>
-            <div class="ai-tooltip">Hai, saya Badut AI 🤡</div>
-        </div>
+    <!--==================== AI CHATBOT =====================-->
+    <div class="ai-assistant-toggle" id="toggleChat" style="display: none;">
+        <img src="assets/icon/badut.png" alt="AI Clown">
+        <div class="chat-indicator" id="chatNotif">1</div>
+        <div class="eye"></div>
+        <div class="ai-tooltip">Hai, saya Badut AI 🤡</div>
+    </div>
 
-        <!-- Chatbox AI Assistant -->
-        <div class="ai-chatbox" id="chatBox">
-            <!-- Header Chat -->
-            <div class="chat-header">
-                <span>Badut AI 🤡</span>
-                <div class="chat-actions">
-                <button id="toggleFullscreen" title="Perbesar Chat"><i class="fas fa-expand"></i></button>
+    <!-- Chatbox AI Assistant -->
+    <div class="ai-chatbox" id="chatBox">
+        <div class="chat-header">
+            <span>Badut AI 🤡</span>
+            <div class="chat-actions">
+                <button id="toggleFullscreen" title="Perbesar Chat" class="d-none d-md-inline-flex">
+                    <i class="fas fa-expand"></i>
+                </button>
                 <button id="resetChat" title="Reset Chat"><i class="fas fa-rotate-left"></i></button>
                 <button id="soundToggle" title="Aktif/Nonaktifkan Suara"><i class="fas fa-volume-up"></i></button>
                 <button id="closeChat" title="Tutup Chat"><i class="fas fa-times"></i></button>
-                </div>
             </div>
+        </div>
 
-            <!-- Area Pesan -->
-            <div class="chat-messages" id="chatMessages"></div>
+        <!-- Area Pesan -->
+        <div class="chat-messages" id="chatMessages"></div>
 
-            <!-- Area Input -->
-            <div class="chat-input-area">
-            <!-- Tombol fitur lainnya -->
+        <div class="chat-input-area">
             <button class="chat-icon-btn" id="toggleExtra" title="Fitur Lain"><i class="fas fa-plus"></i></button>
-            <!-- Panel Vertikal Fitur Tambahan -->
             <div id="extraPanel" class="extra-panel-vertical">
-            
-            <!-- Kirim File -->
-            <label class="extra-btn" for="uploadFile" title="Upload File">
-                <img src="assets/icon/upload.png" alt="Upload" />
-                <span>Kirim File</span>
-                <input type="file" id="uploadFile" hidden />
-            </label>
 
-            <!-- Ambil Foto -->
-            <label class="extra-btn" title="Ambil Foto">
-                <img src="assets/icon/camera.png" alt="Camera" />
-                <span>Ambil Foto</span>
-                <input type="file" id="ambilFoto" accept="image/*" capture="environment" hidden />
-            </label>
+                <!-- Kirim File -->
+                <label class="extra-btn" for="uploadFile" title="Upload File">
+                    <img src="assets/icon/upload.png" alt="Upload" />
+                    <span>Kirim File</span>
+                    <input type="file" id="uploadFile" hidden />
+                </label>
 
-            <!-- Riwayat -->
-            <button class="extra-btn" id="riwayatBtn" title="Riwayat Pesan">
-                <img src="assets/icon/history.png" alt="Riwayat" />
-                <span>Riwayat Pesan</span>
-            </button>
+                <label class="extra-btn" title="Ambil Foto">
+                    <img src="assets/icon/camera.png" alt="Camera" />
+                    <span>Ambil Foto</span>
+                    <input type="file" id="ambilFoto" accept="image/*" capture="environment" hidden />
+                </label>
 
-            <!-- Pengaturan (belum aktif) -->
-            <button class="extra-btn" disabled title="Pengaturan">
-                <img src="assets/icon/setting.png" alt="Pengaturan" />
-                <span>Pengaturan</span>
-            </button>
+                <button class="extra-btn" id="riwayatBtn" title="Riwayat Pesan">
+                    <img src="assets/icon/history.png" alt="Riwayat" />
+                    <span>Riwayat Pesan</span>
+                </button>
 
-            <!-- Ganti Tema (belum aktif) -->
-            <button class="extra-btn" disabled title="Ganti Tema">
-                <img src="assets/icon/theme.png" alt="Tema" />
-                <span>Pilih Tema</span>
-            </button>
+                <button class="extra-btn" disabled title="Pengaturan">
+                    <img src="assets/icon/setting.png" alt="Pengaturan" />
+                    <span>Pengaturan</span>
+                </button>
+
+                <button class="extra-btn" disabled title="Ganti Tema">
+                    <img src="assets/icon/theme.png" alt="Tema" />
+                    <span>Pilih Tema</span>
+                </button>
             </div>
 
-            <!-- ✅ Tombol Emoji -->
             <div class="emoji-container">
                 <button id="emojiToggle" class="chat-icon-btn" title="Emoji">
                     <i class="far fa-smile"></i>
                 </button>
 
-                <!-- Emoji Picker modern -->
                 <emoji-picker id="emojiPicker" class="emoji-picker"></emoji-picker>
             </div>
 
-            <!-- Textarea -->
             <textarea id="chatInput" rows="1" placeholder="Tanyakan sesuatu..." oninput="autoResize(this)"></textarea>
 
-            <!-- Mic & Send -->
             <button class="chat-icon-btn" title="Mic"><i class="fas fa-microphone"></i></button>
             <button class="send-button" id="sendButton" title="Kirim Pesan"><i class="fas fa-paper-plane"></i></button>
         </div>
 
 
 
-        <!--==================== SWIPER JS ====================-->
         <!-- Untuk fitur slider/karusel seperti testimoni dan portfolio -->
         <script src="https://unpkg.com/swiper@6.5.8/swiper-bundle.min.js"></script>
 
-        <!--==================== MAIN JS ====================-->
-        <!-- File JavaScript utama untuk mengatur semua interaksi dan animasi -->
         <script src="assets/js/main.js"></script>
         <script src="assets/js/badut.js"></script>
         <script src="assets/js/popup.js"></script>
@@ -1174,18 +1201,16 @@
         <script src="assets/js/music.js"></script>
         <script src="assets/js/sound.js"></script>
 
-        <!--==================== TEXT ANIMASI (Typed.js) ====================-->
-        <!-- Untuk animasi teks "auto-input" seperti mengetik -->
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
         <script>
             var typed = new Typed(".auto-input", {
-                strings:[
-                "a Web Developer",
-                "a Tech Innovator",
-                "a UI/UX Designer",
-                "an App Creator",
-                "a Full-Stack Engineer",
-                "a Digital Visionary"
+                strings: [
+                    "a Web Developer",
+                    "a Tech Innovator",
+                    "a UI/UX Designer",
+                    "an App Creator",
+                    "a Full-Stack Engineer",
+                    "a Digital Visionary"
                 ],
                 typeSpeed: 90,
                 backSpeed: 70,
@@ -1195,21 +1220,79 @@
             });
         </script>
 
-        <!--==================== AOS (Animate On Scroll) ====================-->
-        <!-- Untuk efek animasi ketika elemen muncul saat di-scroll -->
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>
-            // Inisialisasi animasi scroll dengan AOS
             AOS.init({
-                offset: 300,       // Jarak scroll sebelum animasi mulai
-                duration: 2000     // Durasi animasi (dalam milidetik)
+                offset: 300,
+                duration: 2000
             });
 
-            // Optional: ulangi animasi setiap kali elemen muncul lagi
             AOS.init({
-                duration: 2000,    // Durasi animasi tetap
-                once: false        // Animasi akan terjadi berulang (bukan sekali saja)
+                duration: 2000,
+                once: false
             });
         </script>
-    </body>
+
+        <script>
+            (() => {
+                const CONTACT_URL = '#contact';
+
+                const qs = (sel, ctx = document) => ctx.querySelector(sel);
+
+                /* ========== POPUP ========== */
+                function showPopup() {
+                    const popup = qs('#popup-ad');
+                    if (popup) popup.classList.add('show');
+                }
+                function hidePopup() {
+                    const popup = qs('#popup-ad');
+                    if (popup) popup.classList.remove('show');
+                }
+                function scheduleAutoPopup() {
+                    const popup = qs('#popup-ad');
+                    if (!popup) return;
+                    const delay = Number(popup.dataset.delay || 20000);
+                    setTimeout(showPopup, delay);
+                }
+
+                function focusFirstField() {
+                    const first = document.querySelector('#contact input, #contact textarea, #contact button');
+                    if (first) first.focus({ preventScroll: true });
+                }
+
+                function scrollToContact() {
+                    const section = document.getElementById('contact');
+                    if (!section) {
+                        window.location.href = CONTACT_URL;
+                        return;
+                    }
+                    const sticky = document.querySelector('header.sticky, .header.sticky, [data-sticky="true"]');
+                    const offset = sticky ? sticky.offsetHeight : 0;
+                    const top = section.getBoundingClientRect().top + window.pageYOffset - offset - 8;
+
+                    window.scrollTo({ top, behavior: 'smooth' });
+
+                    section.classList.add('contact--highlight');
+                    setTimeout(() => section.classList.remove('contact--highlight'), 1600);
+
+                    setTimeout(focusFirstField, 600);
+                }
+
+                function openPaymentModal() {
+                    hidePopup();
+                    scrollToContact();
+                }
+
+                function ready() {
+                    scheduleAutoPopup();
+                    window.openPaymentModal = openPaymentModal;
+                    window.closePopupAd = hidePopup;
+                }
+
+                document.addEventListener('DOMContentLoaded', ready);
+            })();
+        </script>
+
+</body>
+
 </html>
