@@ -252,7 +252,6 @@
     --text-color: #c7cfd6;
   }
   .popup-ad {
-    /* border glow lebih terlihat di dark */
     background:
       linear-gradient(var(--popup-bg), var(--popup-bg)) padding-box,
       linear-gradient(135deg,
@@ -400,10 +399,8 @@
 
 
 /* ========= FIX POPUP: ikuti toggle situs, bukan prefers-color-scheme ========= */
-/* Mode TERANG (tanpa transparansi agar tidak “ketarik” background gelap di belakang) */
 :root:not(.dark-theme) .popup-ad,
 html:not(.dark-theme) .popup-ad {
-  /* kartu putih opak */
   background: #ffffff !important;
   color: #111827 !important;
   border: 1px solid rgba(17,24,39,0.08) !important;
@@ -417,7 +414,6 @@ html:not(.dark-theme) .popup-ad {
 :root:not(.dark-theme) .popup-ad .popup-heading { color: #0f172a !important; }
 :root:not(.dark-theme) .popup-ad p { color: #111827 !important; }
 
-/* Mode GELAP (boleh pakai glass supaya “mengangkat” di atas hero gelap) */
 :root.dark-theme .popup-ad,
 html.dark-theme .popup-ad {
   background: linear-gradient(180deg, rgba(30,41,59,0.92), rgba(15,23,42,0.88)) !important;
@@ -431,7 +427,6 @@ html.dark-theme .popup-ad {
 :root.dark-theme .popup-ad .popup-heading { color: #e5e7eb !important; }
 :root.dark-theme .popup-ad p { color: #c7cfd6 !important; }
 
-/* Matikan pengaruh OS pada komponen ini supaya tidak menimpa lagi */
 @media (prefers-color-scheme: dark) {
   .popup-ad {
     background: inherit !important;
