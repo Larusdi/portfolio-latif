@@ -1,7 +1,7 @@
 // 🎵 Daftar lagu lengkap (judul, artis, lirik)
 const songs = [
   {
-  file: "assets/music/music1.mp3",
+  file: "https://dqyenorycxhffqjvcoqf.supabase.co/storage/v1/object/public/Music/music1.mp3",
   title: "Bila Rasaku Ini Rasamu",
   artist: "Kerispatih",
   lyrics: `
@@ -41,7 +41,7 @@ const songs = [
   [04:27.00]`
   },
   {
-  file: "assets/music/music2.mp3",
+  file: "https://dqyenorycxhffqjvcoqf.supabase.co/storage/v1/object/public/Music/music2.mp3",
   title: "Kaulah Segalanya",
   artist: "Sammy Simorangkir",
   lyrics: `
@@ -85,7 +85,7 @@ const songs = [
   [04:49.00]`
   },
   {
-  file: "assets/music/music3.mp3",
+  file: "https://dqyenorycxhffqjvcoqf.supabase.co/storage/v1/object/public/Music/music3.mp3",
   title: "Mengenangmu",
   artist: "Kerispatih",
   lyrics: `
@@ -129,7 +129,7 @@ const songs = [
   [04:21.00]`
   },
   {
-  file: "assets/music/music4.mp3",
+  file: "https://dqyenorycxhffqjvcoqf.supabase.co/storage/v1/object/public/Music/music4.mp3",
   title: "Kesedihanku",
   artist: "Sammy Simorangkir",
   lyrics: `
@@ -174,7 +174,7 @@ const songs = [
   [04:19.00]`
   },
   {
-  file: "assets/music/music5.mp3",
+  file: "https://dqyenorycxhffqjvcoqf.supabase.co/storage/v1/object/public/Music/music5.mp3",
   title: "Tak Mampu Pergi",
   artist: "Sammy Simorangkir",
   lyrics: `
