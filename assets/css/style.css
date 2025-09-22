@@ -133,10 +133,6 @@ img:hover { transform: scale(1.02); }
   .grid-md { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
 }
 
-/*==================== 🖱️ SCROLLBAR CUSTOM ====================*/
-body::-webkit-scrollbar { width: 0.5rem; }
-body::-webkit-scrollbar-track { background: var(--scroll-bar-color); }
-body::-webkit-scrollbar-thumb { background-color: var(--scroll-thumb-color); border-radius: 1rem; }
 
 @keyframes fadeInBody { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
@@ -195,46 +191,73 @@ noscript style { display: none !important; }
 }
 
 
-/* ==================== 🖱️ CUSTOM SCROLLBAR (Global) ==================== */
+
+/* ====================  SCROLLBAR  ==================== */
 html { scrollbar-gutter: stable both-edges; }
 
-body,
-.scroll-area {
-  scrollbar-width: thin;
-  scrollbar-color: var(--scroll-thumb-color, #c7ccd1) var(--scroll-bar-color, #eef1f5);
+:root{
+  --sb-track: var(--scroll-bar-color, #eef1f5);
+  --sb-thumb: var(--scroll-thumb-color, #c7ccd1);
+  --sb-accent: var(--first-color, #6c5ce7);
+  --sb-ring: color-mix(in srgb, var(--sb-accent) 22%, transparent);
+  --sb-thumb-start: color-mix(in srgb, var(--sb-accent) 55%, #ffffff 0%);
+  --sb-thumb-end:   color-mix(in srgb, var(--sb-accent) 35%, #000000 0%);
 }
 
-::-webkit-scrollbar {
+:is(html.dark-theme, :root.dark-theme, body.dark-theme){
+  --sb-track: hsl(var(--hue-color, 225), 12%, 22%);
+  --sb-thumb: hsl(var(--hue-color, 225), 12%, 38%);
+  --sb-ring:  color-mix(in srgb, var(--sb-accent) 28%, transparent);
+  --sb-thumb-start: color-mix(in srgb, var(--sb-accent) 58%, #0b0b0b 0%);
+  --sb-thumb-end:   color-mix(in srgb, var(--sb-accent) 38%, #000000 0%);
+}
+
+body, .scroll-area{
+  scrollbar-width: thin;
+  scrollbar-color: var(--sb-thumb) var(--sb-track);
+}
+
+::-webkit-scrollbar{
   width: 10px;
   height: 10px;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--scroll-bar-color, #eef1f5);
+::-webkit-scrollbar-track{
+  background: var(--sb-track);
   border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb{
   background:
-    linear-gradient(180deg,
-      color-mix(in srgb, var(--first-color, #6c5ce7) 55%, #ffffff 0%),
-      color-mix(in srgb, var(--first-color, #6c5ce7) 35%, #000000 0%));
+    linear-gradient(180deg, var(--sb-thumb-start), var(--sb-thumb-end));
   border: 3px solid transparent;
   border-radius: 999px;
   background-clip: content-box;
-  transition: background .2s ease, box-shadow .2s ease;
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--first-color, #6c5ce7) 20%, transparent);
+::-webkit-scrollbar-thumb:hover{
+  box-shadow: 0 0 0 3px var(--sb-ring);
+  transform: translateY(-1px);
 }
 
-::-webkit-scrollbar-thumb:active {
+::-webkit-scrollbar-thumb:active{
   background:
     linear-gradient(180deg,
-      color-mix(in srgb, var(--first-color, #6c5ce7) 70%, #ffffff 0%),
-      color-mix(in srgb, var(--first-color, #6c5ce7) 50%, #000000 0%));
+      color-mix(in srgb, var(--sb-accent) 70%, #ffffff 0%),
+      color-mix(in srgb, var(--sb-accent) 50%, #000000 0%));
+  transform: translateY(0);
 }
+
+@media (max-width: 768px){
+  ::-webkit-scrollbar{ width: 8px; height: 8px; }
+  body, .scroll-area{ scrollbar-width: thin; }
+}
+
+.scroll-area{ overflow: auto; }
+.scroll-y   { overflow-y: auto; overflow-x: hidden; }
+.scroll-x   { overflow-x: auto; overflow-y: hidden; }
+
 
 /* ==================== 🌙 Dark Theme Tuning ==================== */
 :root.dark-theme,
@@ -255,19 +278,6 @@ html.dark-theme ::-webkit-scrollbar-thumb {
       color-mix(in srgb, var(--first-color, #6c5ce7) 55%, #0b0b0b 0%),
       color-mix(in srgb, var(--first-color, #6c5ce7) 35%, #000 0%));
 }
-
-/* ==================== 📱 Mobile: lebih ramping ==================== */
-@media (max-width: 768px) {
-  ::-webkit-scrollbar { width: 8px; height: 8px; }
-  body, .scroll-area { scrollbar-width: thin; }
-}
-
-/* ==================== 🎯 Util: area scroll khusus ==================== */
-.scroll-area { overflow: auto; }
-
-/* Arah spesifik jika perlu */
-.scroll-y { overflow-y: auto; overflow-x: hidden; }
-.scroll-x { overflow-x: auto; overflow-y: hidden; }
 
 
 
