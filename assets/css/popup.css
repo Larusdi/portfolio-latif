@@ -1,296 +1,290 @@
-/*==================== 📢 POPUP IKLAN UMUM ====================*/
-/* ➕ Popup kecil di kanan bawah, muncul otomatis atau dipanggil via JavaScript */
+/* =========================  POPUP IKLAN / PAYMENT MODAL ========================= */
+
+/* ==================== 1) THEME TOKENS & UTILITIES ==================== */
+:root {
+  --first-color: #6c5ce7;
+  --container-color: #ffffff;
+  --title-color: #111827;
+  --text-color: #4b5563;
+
+  --accent: var(--first-color);
+  --popup-bg: color-mix(in oklab, var(--container-color) 92%, transparent);
+  --popup-border: color-mix(in oklab, var(--accent) 35%, transparent);
+  --popup-shadow-1: 0 8px 18px -6px rgb(0 0 0 / 28%);
+  --popup-shadow-2: 0 1px 0 rgb(255 255 255 / 60%) inset;
+  --rad: 16px;
+  --pad: 1.2rem;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+
+.hidden { display: none !important; }
+
+
+/* ==================== 2) POPUP BASE (toast iklan umum) ==================== */
 .popup-ad {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  max-width: 320px;
-  width: 90%;
-  background-color: var(--container-color);
-  border: 2px solid var(--first-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border-radius: 1rem;
-  z-index: 9999;
-  display: none;
-  overflow: hidden;
+  max-width: 340px;
+  width: min(92vw, 340px);
+  display: none;           /* default tersembunyi, munculkan dengan .show */
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
+  transform: translateY(30px) scale(.98);
+  transition: opacity .35s var(--ease), transform .55s var(--ease);
+  z-index: 9999;
+  overflow: hidden;
+  border-radius: var(--rad);
+
+  background:
+    linear-gradient(var(--popup-bg), var(--popup-bg)) padding-box,
+    linear-gradient(135deg,
+      color-mix(in oklab, var(--accent) 18%, transparent),
+      transparent 60%) border-box;
+  border: 1px solid transparent;
+  box-shadow: var(--popup-shadow-1), var(--popup-shadow-2);
+
+  backdrop-filter: blur(8px) saturate(1.15);
+  -webkit-backdrop-filter: blur(8px) saturate(1.15);
+
+  will-change: transform, opacity;
 }
 
-/* 🟢 Saat popup aktif */
 .popup-ad.show {
   display: block;
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  animation: fadeInScale .4s var(--ease) both;
 }
 
-/*==================== 💰 MODAL PEMBAYARAN ====================*/
-/* 💳 Modal khusus untuk pembayaran (posisi dan animasi mirip popup biasa) */
+
+/* ==================== 3) PAYMENT MODAL (variasi VIP) ==================== */
 .popup-ad#payment-modal {
-  /* sama seperti .popup-ad, tapi ditinggikan z-index */
   z-index: 10001;
   overflow-y: auto;
+  max-width: 380px;
 }
 
-/* Saat modal pembayaran aktif */
 .popup-ad#payment-modal.show-modal {
   display: block;
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   pointer-events: auto;
 }
 
-/*==================== 📦 ISI POPUP ====================*/
+
+/* ==================== 4) CONTENT & CLOSE BUTTON ==================== */
 .popup-ad-content {
   position: relative;
   text-align: center;
-  padding: 1.5rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
 }
 
-/*==================== ❌ TOMBOL TUTUP ====================*/
 .popup-close {
   position: absolute;
   top: 10px;
   right: 12px;
   font-size: 20px;
-  font-weight: bold;
-  color: var(--first-color);
+  font-weight: 700;
+  color: var(--accent);
   background: transparent;
   border: none;
-  cursor: pointer; /* ubah dari 'none' ke 'pointer' */
+  cursor: pointer;
   line-height: 1;
-  transition: transform 0.3s ease;
+  transition: transform .25s var(--ease), color .25s var(--ease);
   z-index: 10002;
+  padding: .25rem;
+}
+.popup-close:hover { transform: scale(1.15); color: #ef4444; }
+.popup-close:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 8px;
 }
 
-.popup-close:hover {
-  transform: scale(1.2);
-  color: red;
-}
 
-/*==================== 📝 TEKS POPUP ====================*/
+/* ==================== 5) TYPOGRAPHY (heading & paragraph) ==================== */
 .popup-ad h2,
 .popup-ad .popup-heading {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.4vw, 1.15rem);
   color: var(--title-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
   line-height: 1.4;
+  letter-spacing: .1px;
 }
 
 .popup-ad p {
-  font-size: 0.9rem;
+  font-size: .95rem;
   color: var(--text-color);
   margin-bottom: 1rem;
 }
 
-/*==================== 🔘 TOMBOL AKSI ====================*/
+
+/* ==================== 6) PRIMARY BUTTONS ==================== */
 .popup-ad-content .button {
   display: inline-block;
   width: 100%;
-  padding: 0.7rem 1.5rem;
-  font-weight: 600;
-  font-size: 0.95rem;
+  padding: .7rem 1.1rem;
+  font-weight: 700;
+  font-size: .98rem;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  border: 0;
+  background: linear-gradient(90deg,
+              color-mix(in oklab, var(--accent) 88%, #fff 0%),
+              color-mix(in oklab, var(--accent) 72%, #fff 0%));
+  color: #fff;
+  box-shadow: 0 10px 18px -6px color-mix(in oklab, var(--accent) 60%, transparent);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), opacity .25s var(--ease);
+}
+@media (hover:hover) {
+  .popup-ad-content .button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 26px -6px color-mix(in oklab, var(--accent) 70%, transparent);
+  }
+}
+.popup-ad-content .button:active { transform: translateY(0) scale(.98); }
+.popup-ad-content .button:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--accent) 70%, #fff 0%);
+  outline-offset: 3px;
 }
 
-.popup-ad-content .button:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.popup-ad-content .button:active {
-  transform: scale(0.95);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-/*==================== ☑️ CHECKBOX ====================*/
-.popup-ad-content input[type="checkbox"] {
-  transform: scale(1.2);
-  margin-right: 0.5rem;
+#payment-modal #btnToPayment {
+  width: 100%;
+  padding: .75rem 1rem;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .2px;
   cursor: pointer;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
+  box-shadow: 0 10px 18px -6px color-mix(in oklab, var(--accent) 60%, transparent);
+}
+#payment-modal #btnToPayment:hover { transform: translateY(-2px); }
+#payment-modal #btnToPayment:active { transform: translateY(0) scale(.98); }
+#payment-modal #btnToPayment:disabled {
+  background: color-mix(in oklab, var(--accent) 20%, #666 0%);
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: .8;
 }
 
+
+/* ==================== 7) CHECKBOX & LABEL ==================== */
+.popup-ad-content input[type="checkbox"] {
+  transform: scale(1.15);
+  margin-right: .5rem;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
 .popup-ad-content label {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.3rem;
-  font-size: 0.9rem;
+  gap: .45rem;
+  font-size: .92rem;
   color: var(--text-color);
   cursor: pointer;
   user-select: none;
   margin-bottom: 1rem;
 }
 
-/*==================== 🎆 EMOJI PETASAN ====================*/
+
+/* ==================== 8) FIREWORK (emoji & stars) ==================== */
 .firework-wrapper {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-right: 0.4rem;
+  margin-right: .4rem;
 }
-
 .emoji-firework {
-  font-size: 1.8rem;
+  font-size: 1.85rem;
   position: relative;
-  animation: popExplosion 1.5s ease-in-out infinite;
+  animation: popExplosion 1.4s var(--ease) infinite;
 }
 
 .firework-star {
   position: absolute;
-  font-size: 0.7rem;
+  font-size: .75rem;
   opacity: 0;
   color: gold;
   pointer-events: none;
-  animation: starBurst 1.5s ease-out infinite;
+  animation: starBurst 1.4s ease-out infinite;
 }
+.firework-star:nth-of-type(1) { top: -10px; left: -10px; animation-delay: 0s; }
+.firework-star:nth-of-type(2) { top: -10px; left: 50%;  animation-delay: .18s; }
+.firework-star:nth-of-type(3) { top: -10px; right: -10px; animation-delay: .36s; }
+.firework-star:nth-of-type(4) { bottom: -10px; left: -10px; animation-delay: .54s; }
+.firework-star:nth-of-type(5) { bottom: -10px; right: -10px; animation-delay: .72s; }
 
-/* Posisi & delay tiap bintang */
-.firework-star:nth-child(1) { top: -10px; left: -10px; animation-delay: 0s; }
-.firework-star:nth-child(2) { top: -10px; left: 50%; animation-delay: 0.2s; }
-.firework-star:nth-child(3) { top: -10px; right: -10px; animation-delay: 0.4s; }
-.firework-star:nth-child(4) { bottom: -10px; left: -10px; animation-delay: 0.6s; }
-.firework-star:nth-child(5) { bottom: -10px; right: -10px; animation-delay: 0.8s; }
 
-/* 💥 Animasi bintang */
+/* ==================== 9) KEYFRAMES (fade & fireworks) ==================== */
 @keyframes starBurst {
-  0%   { transform: scale(0.2) translate(0, 0); opacity: 0; }
-  30%  { opacity: 1; }
-  100% { transform: scale(1.5) translate(20px, -20px); opacity: 0; }
+  0%   { transform: scale(.2) translate(0, 0); opacity: 0; }
+  28%  { opacity: 1; }
+  100% { transform: scale(1.45) translate(20px, -20px); opacity: 0; }
 }
 
-/* 🎆 Animasi emoji petasan */
 @keyframes popExplosion {
   0%, 100% { transform: scale(1) rotate(0deg); }
-  25%      { transform: scale(1.3) rotate(10deg); }
-  50%      { transform: scale(1.1) rotate(-10deg); }
-  75%      { transform: scale(1.2) rotate(6deg); }
+  25%      { transform: scale(1.28) rotate(8deg); }
+  55%      { transform: scale(1.08) rotate(-8deg); }
+  80%      { transform: scale(1.18) rotate(5deg); }
 }
 
-/*==================== ✨ ANIMASI MASUK ====================*/
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeInScale {
-  from { opacity: 0; transform: scale(0.8); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-/*==================== ✅ FORM PEMBAYARAN ====================*/
-#payment-modal label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  color: var(--text-color);
-}
-
-#payment-modal #btnToPayment {
-  width: 100%;
-  padding: 0.7rem;
-  border: none;
-  border-radius: 0.5rem;
-  background-color: var(--first-color);
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-#payment-modal #btnToPayment:disabled {
-  background: gray;
-  cursor: not-allowed;
+  from { opacity: 0; transform: translateY(20px) scale(.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 
-/*==================== 🧠 CHATBOT - TOMBOL PROMO ====================*/
-/* Tombol berkilau (utama) dan tombol sekunder */
-
-.option-btn.glow {
-  background: linear-gradient(to right, #4facfe, #00f2fe);
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.6rem 1rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  box-shadow: 0 0 10px #00f2feaa;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.option-btn.glow:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #00f2fecc;
-}
-
-.option-btn.secondary {
-  background: #f0f0f0;
-  color: #444;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  padding: 0.6rem 1rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  transition: background 0.3s, transform 0.3s;
-  cursor: pointer;
-}
-
-.option-btn.secondary:hover {
-  background: #e0e0e0;
-  transform: scale(1.02);
-}
-
-.bubble .highlight {
-  color: #0078ff;
-  font-weight: 600;
-}
-
-.option-btn:focus,
-.popup-close:focus {
-  outline: 2px solid var(--first-color);
-  outline-offset: 3px;
-}
-
-.popup-ad.show {
-  animation: fadeInScale 0.4s ease forwards;
-}
-
-.animate-text {
-  animation: fadeInUp 0.6s ease-out forwards;
-  opacity: 0;
-}
-
+/* ==================== 10) DARK MODE ==================== */
 @media (prefers-color-scheme: dark) {
+  :root {
+    --popup-bg: color-mix(in oklab, #0b0f17 90%, transparent);
+    --title-color: #e5e7eb;
+    --text-color: #c7cfd6;
+  }
   .popup-ad {
-    background-color: #222;
-    border-color: #00f2fe;
+    /* border glow lebih terlihat di dark */
+    background:
+      linear-gradient(var(--popup-bg), var(--popup-bg)) padding-box,
+      linear-gradient(135deg,
+        color-mix(in oklab, var(--accent) 35%, transparent),
+        transparent 60%) border-box;
+    border: 1px solid transparent;
+    box-shadow: 0 18px 36px -12px rgb(0 0 0 / 60%);
   }
-
-  .popup-ad h2,
-  .popup-ad p,
-  .popup-title-text {
-    color: #eee;
-  }
-
-  .popup-close {
-    color: #00f2fe;
-  }
-
+  .popup-close { color: color-mix(in oklab, var(--accent) 80%, #fff 0%); }
   .option-btn.secondary {
-    background-color: #333;
-    color: #ccc;
-    border-color: #444;
+    background-color: #2b2f36;
+    color: #d1d5db;
+    border-color: #3b3f46;
   }
 }
 
 
+/* ==================== 11) ACCESSIBILITY ==================== */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+@media (prefers-contrast: more) {
+  .popup-ad,
+  .popup-ad .button,
+  #payment-modal #btnToPayment {
+    outline: 2px solid color-mix(in oklab, var(--accent) 65%, #fff 0%);
+    outline-offset: -2px;
+  }
+}
+
+
+/* ==================== 12) RESPONSIVE ==================== */
 @media screen and (max-width: 480px) {
   .popup-ad {
     right: 10px;
@@ -298,15 +292,107 @@
     width: auto;
     max-width: none;
     bottom: 15px;
+    border-radius: 14px;
+  }
+  .popup-ad-content { padding: 1rem; }
+  .popup-ad-content .button,
+  #payment-modal #btnToPayment {
+    font-size: .92rem;
+    padding: .65rem 1.1rem;
+  }
+
+  .popup-ad {
+    left: 8%;
+    bottom: auto;
+    top: 35%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 320px;
+    border-radius: 1rem;
+    padding: 0;
   }
 
   .popup-ad-content {
     padding: 1.2rem;
+    margin-top: -10px;
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
   }
 
   .popup-ad-content .button,
   #payment-modal #btnToPayment {
     font-size: 0.9rem;
     padding: 0.6rem 1.2rem;
+    display: block;
+    margin: 0.6rem auto 0;
   }
 }
+
+@media screen and (max-width: 360px) {
+  .popup-ad {
+    width: 95%;
+    max-width: 300px;
+    transform: translate(-50%, -50%);
+  }
+
+  .popup-ad-content {
+    padding: 1rem;
+    margin-top: -12px;
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .popup-ad-content .button {
+    font-size: 0.85rem;
+    padding: 0.5rem 1.1rem;
+    display: block;
+    margin: 0.6rem auto 0;
+  }
+}
+
+
+/* ==================== 13) BUTTON VARIANTS (Promo / Secondary) ==================== */
+.option-btn.glow {
+  background: linear-gradient(90deg,
+              color-mix(in oklab, #4facfe 92%, #fff 0%),
+              color-mix(in oklab, #00f2fe 92%, #fff 0%));
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: .6rem 1rem;
+  font-size: .95rem;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgb(0 242 254 / .45);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+  cursor: pointer;
+}
+@media (hover:hover) {
+  .option-btn.glow:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 18px rgb(0 242 254 / .55);
+  }
+}
+
+.option-btn.secondary {
+  background: #f5f7fb;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: .6rem 1rem;
+  font-size: .95rem;
+  font-weight: 600;
+  transition: background .25s var(--ease), transform .25s var(--ease);
+  cursor: pointer;
+}
+.option-btn.secondary:hover {
+  background: #eef2f7;
+  transform: translateY(-1px);
+}
+
+.bubble .highlight { color: #0078ff; font-weight: 600; }
+
+.popup-ad.show .animate-text { animation: fadeInUp .6s ease-out both; }
