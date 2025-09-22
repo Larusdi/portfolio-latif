@@ -1,81 +1,69 @@
-/*==================== 🤡 TOMBOL BADUT AI MELAYANG ====================*/
-/* Tombol utama AI Assistant yang muncul di kiri bawah layar */
+/* =========================  BADUT AI | CHAT BADUT AI | AREA PESAN BADUT AI ========================= */
+
+/* ==================== 1) TOGGLE (avatar mengambang + mata) ==================== */
 .ai-assistant-toggle {
-    position: fixed;
-    left: 40px;
-    bottom: 200px;
-    z-index: 9999;
-    background: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-
-    /* ✨ Animasi masuk lembut saat muncul */
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    pointer-events: none;
+  position: fixed;
+  left: 40px;
+  bottom: 200px;
+  z-index: 9999;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
 }
-
-/* ✅ Saat tombol ditampilkan (misalnya saat load selesai) */
 .ai-assistant-toggle.show {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
-/*==================== GAYA GAMBAR BADUT AI ====================*/
-/* Gambar avatar AI dengan efek glow saat hover */
+/* Gambar avatar AI */
 .ai-assistant-toggle img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 50%;
-    display: block;
-    position: relative;
-    z-index: 1;
-    transition: transform 0.4s ease, filter 0.4s ease;
-    pointer-events: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  pointer-events: none;
 }
-
-/* ✨ Efek glow saat hover di mode terang */
 .ai-assistant-toggle:hover img {
-    transform: scale(1.08);
-    filter:
-        drop-shadow(0 0 6px white)
-        drop-shadow(0 0 12px gold)
-        drop-shadow(0 0 22px gold);
+  transform: scale(1.08);
+  filter:
+    drop-shadow(0 0 6px white)
+    drop-shadow(0 0 12px gold)
+    drop-shadow(0 0 22px gold);
 }
-
-/* 🌙 Efek glow tetap menyala di mode gelap */
 body.dark-theme .ai-assistant-toggle img {
-    filter:
-        drop-shadow(0 0 10px #fff)
-        drop-shadow(0 0 25px #FFD700)
-        drop-shadow(0 0 40px rgba(255, 223, 0, 0.6));
+  filter:
+    drop-shadow(0 0 10px #fff)
+    drop-shadow(0 0 25px #FFD700)
+    drop-shadow(0 0 40px rgba(255, 223, 0, 0.6));
 }
 
-
-/*==================== 👀 MATA BADUT AI DI ATAS GAMBAR ====================*/
-/* Dua mata kecil muncul di atas gambar bulat Badut AI */
+/* Mata di atas avatar */
 .ai-assistant-toggle .eye {
   position: absolute;
-  top: 42px;               /* Posisi vertikal dari atas gambar */
-  left: 50%;               /* Posisi horizontal tengah */
+  top: 42px;
+  left: 50%;
   transform: translateX(-50%);
-  width: 64px;             /* Lebar kontainer mata */
+  width: 64px;
   height: 30px;
-  pointer-events: none;    /* Tidak mengganggu klik ke bawahnya */
-  z-index: 2;              /* Di atas gambar badut */
+  pointer-events: none;
+  z-index: 2;
 }
-
-/* 🎭 Bola mata kiri dan kanan dibuat dengan pseudo-element */
 .eye::before,
 .eye::after {
   content: '';
@@ -83,180 +71,81 @@ body.dark-theme .ai-assistant-toggle img {
   width: 12px;
   height: 10px;
   background: black;
-  border-radius: 50%;      /* Membuat bentuk bola */
+  border-radius: 50%;
   animation: blink 4s infinite ease-in-out;
 }
-
-/* 👁️ Mata kiri */
-.eye::before {
-  left: 14px;   /* Jarak dari sisi kiri kontainer */
-  top: 8px;
-}
-
-/* 👁️ Mata kanan */
-.eye::after {
-  right: 14px;  /* Jarak dari sisi kanan kontainer */
-  top: 8px;
-}
-
-/* ✨ Animasi Berkedip (Blink) */
-@keyframes blink {
-  0%, 92%, 100% {
-    transform: scaleY(1);
-  }
-  96% {
-    transform: scaleY(0.1); /* Kedipan: mata menutup */
-  }
-}
-
-/*==================== 🤪 ANIMASI SHAKE (Gerakan Lucu) ====================*/
-/* Digunakan untuk efek animasi saat avatar AI mengguncang lucu */
-@keyframes funnyShake {
-    0%   { transform: translate(0, 0); }
-    20%  { transform: translate(-2px, 1px); }
-    40%  { transform: translate(2px, -1px); }
-    60%  { transform: translate(-1px, 2px); }
-    80%  { transform: translate(1px, -2px); }
-    100% { transform: translate(0, 0); }
-}
-
-/* 🔁 Kelas bantu untuk memicu animasi shake */
-.animate-shake {
-    animation: funnyShake 0.6s infinite ease-in-out;
-    -webkit-animation: funnyShake 0.6s infinite ease-in-out;
-}
+.eye::before { left: 14px; top: 8px; }
+.eye::after  { right: 14px; top: 8px; }
 
 
-
-/* ==================== 🔔 TOOLTIP & NOTIFIKASI BADUT AI ==================== */
-/*===  Tooltip saat hover tombol BADUT AI + Indikator Notifikasi Chat Baru ===*/
-
-/* 🎈 Tooltip kecil di atas tombol AI */
+/* ==================== 2) TOOLTIP & NOTIFICATION ==================== */
+/* Tooltip di atas tombol AI */
 .ai-tooltip {
-    position: absolute;
-    bottom: 110%; /* Letak tooltip di atas elemen induk */
-    left: 60%; /* Posisi horizontal */
-    transform: translateX(-50%) scale(0.95); /* Posisi awal + efek zoom ringan */
-    background: linear-gradient(135deg, #ffffff, #f9f9f9); /* Latar elegan */
-    color: #222; /* Warna teks gelap */
-    padding: 8px 14px;
-    border-radius: 14px;
-    font-size: 14px;
-    font-weight: 600;
-    font-family: 'Segoe UI', sans-serif;
-    white-space: nowrap;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-    text-shadow: 0 1px 0 #fff;
-    z-index: 9999;
-
-    /* Efek animasi muncul & bouncing */
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    animation: bounceTooltip 2.5s ease-in-out infinite;
-    will-change: transform, opacity;
+  position: absolute;
+  bottom: 110%;
+  left: 60%;
+  transform: translateX(-50%) scale(0.95);
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  color: #222;
+  padding: 8px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Segoe UI', sans-serif;
+  white-space: nowrap;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  text-shadow: 0 1px 0 #fff;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  animation: bounceTooltip 2.5s ease-in-out infinite;
+  will-change: transform, opacity;
 }
-
-/* 🔽 Panah kecil di bawah tooltip */
 .ai-tooltip::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 6px solid transparent;
-    border-top-color: #ffffff; /* Warna mengikuti background */
-    filter: drop-shadow(0 -1px 1px rgba(0, 0, 0, 0.05));
+  content: "";
+  position: absolute;
+  top: 100%; left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #ffffff;
+  filter: drop-shadow(0 -1px 1px rgba(0, 0, 0, 0.05));
 }
+.ai-assistant-toggle:hover .ai-tooltip { opacity: 1; transform: translateX(-50%) scale(1.03); }
+.ai-tooltip.active { opacity: 1; pointer-events: auto; transform: translateX(-50%) scale(1.03); }
+.bounce { animation: bounceTooltip 0.4s ease; }
 
-/* ✨ Tooltip muncul saat hover tombol AI */
-.ai-assistant-toggle:hover .ai-tooltip {
-    opacity: 1;
-    transform: translateX(-50%) scale(1.03); /* Efek zoom halus saat muncul */
-}
-
-/* ✅ Tooltip aktif secara manual (bisa digunakan JS untuk show) */
-.ai-tooltip.active {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(-50%) scale(1.03);
-}
-
-/* 🔁 Kelas bantu untuk memicu bounce manual */
-.bounce {
-    animation: bounceTooltip 0.4s ease;
-}
-
-/* 💫 Animasi bounce halus (tooltip mengayun lembut) */
-@keyframes bounceTooltip {
-    0%, 100% {
-        transform: translateX(-50%) scale(1);
-    }
-    50% {
-        transform: translateX(-50%) scale(1.06);
-    }
-}
-
-/* 💨 Animasi fade naik (digunakan di elemen lain jika perlu) */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(10px) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0) scale(1);
-    }
-}
-
-/* ==================== 🔴 NOTIFIKASI PESAN BARU ==================== */
-/* 🔔 Indikator bulat kecil di pojok avatar Badut AI */
+/* Indikator chat baru */
 .chat-indicator {
-    position: absolute;
-    top: -6px;
-    right: -6px;
-    background: linear-gradient(135deg, #ff6a00, #ffb347); /* Gradasi oranye */
-    color: #1a1a1a; /* Warna teks */
-    font-size: 10px;
-    font-weight: 600;
-    padding: 4px 8px;
-    border-radius: 999px; /* Bentuk bulat penuh */
-    box-shadow:
-        0 4px 8px rgba(0, 0, 0, 0.15),
-        0 0 0 2px rgba(255, 255, 255, 0.4) inset; /* Efek border dalam */
-    backdrop-filter: blur(4px); /* Blur latar */
-    z-index: 10;
-
-    /* Efek animasi berdenyut lembut */
-    animation: pulse 1.4s infinite ease-in-out;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: linear-gradient(135deg, #ff6a00, #ffb347);
+  color: #1a1a1a;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15), 0 0 0 2px rgba(255,255,255,0.4) inset;
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  animation: pulse 1.4s infinite ease-in-out;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* 📥 Kontainer notifikasi (bisa muncul bubble lain, bukan hanya titik) */
+/* Kontainer notifikasi extra */
 #chatNotif {
-    display: none;
-    opacity: 0;
-    transform: scale(0.8) translateY(10px);
-    will-change: transform, opacity;
-
-    /* Transisi masuk lembut */
-    transition:
-        opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: none;
+  opacity: 0;
+  transform: scale(0.8) translateY(10px);
+  will-change: transform, opacity;
+  transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1);
 }
-
-/* ✅ Saat notifikasi aktif */
-#chatNotif.show {
-    display: flex;
-    opacity: 1;
-    transform: scale(1) translateY(0);
-}
+#chatNotif.show { display: flex; opacity: 1; transform: scale(1) translateY(0); }
 
 
-
-/* ==================== 💬 CHATBOX BADUT AI ==================== */
-/* Komponen utama chat AI (kotak obrolan di kiri bawah) */
+/* ==================== 3) CHATBOX ==================== */
 #chatBox {
   position: fixed;
   bottom: 250px;
@@ -267,84 +156,47 @@ body.dark-theme .ai-assistant-toggle img {
   flex-direction: column;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
   overflow: hidden;
   z-index: 9999;
-
-  /* Saat tersembunyi */
   opacity: 0;
   pointer-events: none;
   transform: translateY(30px);
   transition: all 0.4s ease;
 }
+#chatBox.active { opacity: 1; pointer-events: auto; transform: translateY(0); }
+#chatBox.fade-out { opacity: 0; pointer-events: none; transform: translateY(20px); }
 
-/* ✅ Muncul lembut saat aktif */
-#chatBox.active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-/* ❌ Tutup dengan animasi lembut */
-#chatBox.fade-out {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(20px);
-}
-
-
-/* ==================== 📌 HEADER (NAVBAR CHAT) ==================== */
-/* Bagian atas chatbox: judul + tombol aksi */
+/* Header */
 .chat-header {
   position: sticky;
   top: 0;
   background: linear-gradient(135deg, #ff4e4e, #ffcc00, #4e9eff);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
   padding: 14px 16px;
   z-index: 10;
-  border-bottom: 1px solid rgba(12, 10, 10, 0.2);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(12,10,10,0.2);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   color: #030303;
 }
+.chat-header > span { font-weight: 700; font-size: 17px; letter-spacing: 0.3px; }
 
-.chat-header > span {
-  font-weight: 700;
-  font-size: 17px;
-  letter-spacing: 0.3px;
-}
-
-
-/* ==================== ⚙️ TOMBOL AKSI HEADER ==================== */
-.chat-actions {
-  display: flex;
-  gap: 10px;
-}
-
+/* Actions */
+.chat-actions { display: flex; gap: 10px; }
 .chat-actions button {
   font-weight: normal;
   font-size: 18px;
   color: #333;
   background: none;
   border: none;
-  cursor: none; /* opsional: biasanya pakai `pointer` */
+  cursor: none;
   margin-left: 10px;
   transition: transform 0.2s ease, color 0.2s ease;
 }
+.chat-actions button:hover { transform: scale(1.2); color: #000; }
+.chat-actions button:active { transform: scale(0.9); }
 
-.chat-actions button:hover {
-  transform: scale(1.2);
-  color: #000;
-}
-
-.chat-actions button:active {
-  transform: scale(0.9);
-}
-
-
-/* ==================== 📜 AREA PESAN ==================== */
-/* Area scroll pesan AI dan user */
+/* Area pesan */
 .chat-messages {
   flex: 1;
   overflow-y: auto;
@@ -355,18 +207,10 @@ body.dark-theme .ai-assistant-toggle img {
   background: #fff;
   scroll-behavior: smooth;
 }
+.chat-messages::-webkit-scrollbar { width: 6px; }
+.chat-messages::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
 
-/* 🎛️ Scrollbar custom */
-.chat-messages::-webkit-scrollbar {
-  width: 6px;
-}
-.chat-messages::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
-}
-
-
-/* ==================== 🧍 PESAN DARI USER ==================== */
+/* Bubbles */
 .chat-message.user {
   align-self: flex-end;
   background: #e8f0fe;
@@ -376,10 +220,8 @@ body.dark-theme .ai-assistant-toggle img {
   max-width: 80%;
   word-break: break-word;
   font-size: 14px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
-
-/* ==================== 🤖 PESAN DARI AI ==================== */
 .chat-message.ai {
   align-self: flex-start;
   background: #f7f7f8;
@@ -389,22 +231,17 @@ body.dark-theme .ai-assistant-toggle img {
   max-width: 80%;
   word-break: break-word;
   font-size: 14px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 
-/* ==================== 🎯 PILIHAN BANTUAN BADUT AI ==================== */
-/*===  Tombol opsi vertikal yang muncul sebagai saran cepat dari Badut AI ===*/
-
-/* 📦 Kontainer tombol vertikal */
+/* ==================== 4) QUICK OPTIONS (vertical) ==================== */
 .assistant-options.vertical {
   margin-top: 12px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
-/* 🧩 Gaya dasar tombol pilihan */
 .option-btn {
   padding: 10px 14px;
   font-size: 0.9rem;
@@ -415,28 +252,11 @@ body.dark-theme .ai-assistant-toggle img {
   text-align: left;
   transition: background-color 0.3s ease;
 }
-
-/* 🔁 Efek hover tombol */
-.option-btn:hover {
-  background-color: #d8e0e7;
-}
-
-/* 🎬 Animasi muncul satu per satu */
+.option-btn:hover { background-color: #d8e0e7; }
 .assistant-options.vertical .option-btn {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeInBtn 0.4s ease forwards;
+  opacity: 0; transform: translateY(10px); animation: fadeInBtn 0.4s ease forwards;
 }
-
-/* 📐 Tombol dalam balon chat agar tetap penuh dan rata kiri */
-.chat-message .bubble .option-btn {
-  display: block;
-  width: 100%;
-  margin: 6px 0;
-  text-align: left;
-}
-
-/* ⏱️ Delay animasi tombol agar muncul bertahap */
+.chat-message .bubble .option-btn { display: block; width: 100%; margin: 6px 0; text-align: left; }
 .assistant-options.vertical .option-btn:nth-child(1) { animation-delay: 0.1s; }
 .assistant-options.vertical .option-btn:nth-child(2) { animation-delay: 0.2s; }
 .assistant-options.vertical .option-btn:nth-child(3) { animation-delay: 0.3s; }
@@ -446,19 +266,10 @@ body.dark-theme .ai-assistant-toggle img {
 .assistant-options.vertical .option-btn:nth-child(7) { animation-delay: 0.7s; }
 .assistant-options.vertical .option-btn:nth-child(8) { animation-delay: 0.8s; }
 .assistant-options.vertical .option-btn:nth-child(9) { animation-delay: 0.9s; }
-.assistant-options.vertical .option-btn:nth-child(10) { animation-delay: 1s; }
-
-/* 🎞️ Keyframe animasi fade in dari bawah */
-@keyframes fadeInBtn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+.assistant-options.vertical .option-btn:nth-child(10){ animation-delay: 1s; }
 
 
-/* ==================== 🟣 INDIKATOR TYPING ==================== */
-/* Bubble loading ketika AI sedang mengetik */
+/* ==================== 5) TYPING INDICATORS ==================== */
 .bubble.typing {
   background: linear-gradient(135deg, #f2f2f2, #ffffff);
   padding: 10px 16px;
@@ -467,391 +278,283 @@ body.dark-theme .ai-assistant-toggle img {
   align-items: center;
   gap: 6px;
   min-height: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   animation: fadeSlideIn 0.35s ease-in-out;
   transform-origin: left bottom;
 }
-
-/* Dot animasi mengetik */
 .bubble.typing .dot {
-  width: 5px;
-  height: 5px;
-  background-color: #888;
-  border-radius: 50%;
-  animation: dotFadeScale 1.4s infinite ease-in-out;
-  transform-origin: center;
+  width: 5px; height: 5px; background-color: #888; border-radius: 50%;
+  animation: dotFadeScale 1.4s infinite ease-in-out; transform-origin: center;
 }
-
-
-/* 🔁 Keyframe bounce (dot mengetik) */
-.typing-indicator {
-  display: flex;
-  gap: 4px;
-  padding: 8px 12px;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-/* Titik-titik kecil animasi */
+.typing-indicator { display: flex; gap: 4px; padding: 8px 12px; align-items: center; justify-content: flex-start; }
 .typing-indicator span {
-  display: block;
-  width: 6px;
-  height: 6px;
-  background: #aaa;
-  border-radius: 50%;
+  display: block; width: 6px; height: 6px; background: #aaa; border-radius: 50%;
   animation: dotBlink 1s infinite alternate;
 }
-
-/* Delay tiap titik agar bergantian berkedip */
-.bubble.typing .dot:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.bubble.typing .dot:nth-child(3) {
-  animation-delay: 0.4s;
-}
+.bubble.typing .dot:nth-child(2) { animation-delay: 0.2s; }
+.bubble.typing .dot:nth-child(3) { animation-delay: 0.4s; }
 
 
-/* 🔁 Keyframe untuk animasi blink */
-@keyframes dotBlink {
-  0%   { opacity: 0.2; transform: scale(0.9); }
-  100% { opacity: 1;   transform: scale(1.2); }
-}
-
-/* ==================== 🔁 ANIMASI DOT FADE SCALE (iOS-style) ==================== */
-@keyframes dotFadeScale {
-  0% {
-    opacity: 0.2;
-    transform: scale(0.9);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.3);
-  }
-  100% {
-    opacity: 0.2;
-    transform: scale(0.9);
-  }
-}
-
-
-/* ==================== 🔁 ANIMASI FADE IN ==================== */
-@keyframes fadeSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-
-
-/* ==================== 💡 INPUT & TOMBOL CHATBOX BADUT AI ==================== */
-/* 🎯 Area input chat (berisi: textarea + tombol emoji, mic, kirim) */
+/* ==================== 6) INPUT AREA ==================== */
 .chat-input-area {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px;
-  border-top: 1px solid #eee;
-  background: #fff;
-  gap: 10px;
-  position: relative;
-  flex-wrap: nowrap;
+  display: flex; align-items: center; justify-content: center;
+  padding: 14px; border-top: 1px solid #eee; background: #fff; gap: 10px; position: relative; flex-wrap: nowrap;
 }
-
-/* 💬 Textarea tempat mengetik pesan */
 .chat-input-area textarea {
-  flex: 1;
-  font-size: 14px;
-  padding: 10px 14px;
-  border: none;
-  border-radius: 8px;
-  background: #f3f3f3;
-  resize: none;
-  overflow-y: auto;
-  min-height: 38px;
-  max-height: 100px;
-  font-family: inherit;
-  line-height: 1.4;
-  color: #111;
-  outline: none;
-  width: 100%;
-  margin: 0 auto;
-  max-width: 600px; /* ✅ Batasi hanya di layar besar */
+  flex: 1; font-size: 14px; padding: 10px 14px; border: none; border-radius: 8px;
+  background: #f3f3f3; resize: none; overflow-y: auto; min-height: 38px; max-height: 100px;
+  font-family: inherit; line-height: 1.4; color: #111; outline: none; width: 100%; margin: 0 auto; max-width: 600px;
 }
-
-/* 🎙️ Mikrofon, 😊 Emoji, 📨 Kirim — tombol samping input */
 .chat-icon-btn,
 .send-button {
-  width: 38px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  color: #444;
-  transition: transform 0.2s ease, color 0.2s ease;
-  flex-shrink: 0;
+  width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
+  background: none; border: none; font-size: 18px; cursor: pointer; color: #444;
+  transition: transform 0.2s ease, color 0.2s ease; flex-shrink: 0;
 }
-
-/* ✨ Hover efek tombol */
-.chat-icon-btn:hover,
-.send-button:hover {
-  transform: scale(1.3);
-  color: #000;
-}
-
-/* 👇 Efek saat tombol ditekan */
-.chat-icon-btn:active,
-.send-button:active {
-  transform: scale(0.9);
-}
+.chat-icon-btn:hover, .send-button:hover { transform: scale(1.3); color: #000; }
+.chat-icon-btn:active, .send-button:active { transform: scale(0.9); }
 
 
-
-
-/* ==================== 🧰 PANEL FITUR LAIN (TOMBOL +) ==================== */
-/* Panel vertikal berisi tombol ekstra (misalnya: Info, Bantuan, dsb) */
+/* ==================== 7) EXTRA PANEL (+) ==================== */
 .extra-panel-vertical {
-  position: absolute;
-  bottom: 55px;
-  left: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 8px;
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  z-index: 10;
-  opacity: 0;
-  transform: translateY(10px);
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  min-width: 140px; /* ✅ Supaya teks tidak kepotong */
+  position: absolute; bottom: 55px; left: 10px;
+  display: flex; flex-direction: column; gap: 6px; padding: 8px;
+  border-radius: 10px; background: #fff;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  z-index: 10; opacity: 0; transform: translateY(10px); pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease; min-width: 140px;
 }
-
-/* ✅ Tampilkan panel jika aktif */
-.extra-panel-vertical.show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* Tombol dalam panel ekstra */
+.extra-panel-vertical.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .extra-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  border: none;
-  background: none;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 100%;
-  transition: background 0.2s ease, transform 0.2s ease;
+  display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: none; background: none;
+  border-radius: 8px; cursor: pointer; width: 100%; transition: background 0.2s ease, transform 0.2s ease;
 }
+.extra-btn:hover { background: #f3f3f3; transform: scale(1.02); }
+.extra-btn img { width: 20px; height: 20px; object-fit: contain; filter: grayscale(0.2); transition: transform 0.2s ease, filter 0.2s ease; }
+.extra-btn:hover img { transform: scale(1.1); filter: brightness(1.1); }
+.extra-btn span { font-size: 13px; color: #333; white-space: nowrap; flex-grow: 1; }
 
-/* Hover efek tombol ekstra */
-.extra-btn:hover {
-  background: #f3f3f3;
-  transform: scale(1.02);
-}
 
-/* Ikon dalam tombol ekstra */
-.extra-btn img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-  filter: grayscale(0.2);
-  transition: transform 0.2s ease, filter 0.2s ease;
-}
-
-.extra-btn:hover img {
-  transform: scale(1.1);
-  filter: brightness(1.1);
-}
-
-/* Teks dalam tombol ekstra */
-.extra-btn span {
-  font-size: 13px;
-  color: #333;
-  white-space: nowrap;
-  flex-grow: 1;
-}
-
-/* ==================== 😊 EMOJI PICKER BADUT AI ==================== */
-/* Kontainer pembungkus emoji */
-.emoji-container {
-  position: relative;
-}
-
-/* Gaya emoji-picker modern */
+/* ==================== 8) EMOJI PICKER ==================== */
+.emoji-container { position: relative; }
 emoji-picker.emoji-picker {
-  position: absolute;
-  bottom: 56px;
-  left: 0;
-  width: 320px;
-  max-height: 360px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  z-index: 9999;
-  display: none;
-  animation: fadeInEmoji 0.3s ease;
+  position: absolute; bottom: 56px; left: 0; width: 245px; max-height: 300px;
+  border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  background: #fff; z-index: 9999; display: none; animation: fadeInEmoji 0.3s ease;
 }
-
-/* ✅ Tampilkan saat class 'show' aktif */
-emoji-picker.show {
-  display: block;
-}
-
-/* ✨ Animasi masuk lembut */
-@keyframes fadeInEmoji {
-  from {
-    opacity: 0;
-    transform: translateY(10px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
+emoji-picker.show { display: block; }
 
 
-/*==================== 👻 BADUT AI ====================*/
-.icon-badut-img {
-  width: 22px;
-  height: 22px;
-  filter: drop-shadow(0 0 2px gold);
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.home__social-icon:hover .icon-badut-img {
-  transform: scale(1.2) rotate(10deg);
-  filter: drop-shadow(0 0 4px #ffd700);
-}
+/* ==================== 9) ICONS / BADUT FLOAT ==================== */
+.icon-badut-img { width: 22px; height: 22px; filter: drop-shadow(0 0 2px gold); transition: transform 0.3s ease, filter 0.3s ease; }
+.home__social-icon:hover .icon-badut-img { transform: scale(1.2) rotate(10deg); filter: drop-shadow(0 0 4px #ffd700); }
 
 .badut-ai {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  background: var(--body-color);
-  border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-  animation: fadeInUp 0.4s ease;
-  z-index: 9999;
-}
-
-/*==================== SEMBUNYI DAN MUNCUL ====================*/
-
-.ai-assistant-toggle.hidden {
-  animation: badutFadeOut 0.4s ease forwards;
-  pointer-events: none;
-}
-
-.ai-assistant-toggle.visible {
-  animation: badutFadeIn 0.5s ease forwards;
-  pointer-events: auto;
-}
-
-/* 🔥 Glow + lompatan masuk */
-@keyframes badutFadeIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.9) translateY(20px);
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  }
-  60% {
-    transform: scale(1.05) translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+  position: fixed; bottom: 90px; right: 20px; background: var(--body-color);
+  border-radius: 1rem; padding: 1rem; box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  animation: fadeInUp 0.4s ease; z-index: 9999;
 }
 
 
-/* ==================== 📱 RESPONSIVE ==================== */
-/* Ukuran avatar/tombol AI dikecilkan di perangkat kecil */
-@media screen and (max-width: 500px) {
-  .ai-assistant-toggle img {
-    width: 70px;
-    height: 70px;
-  }
-
-  #chatBox {
-    width: 94vw;
-    left: 3vw;
-    bottom: 100px;
-    max-height: 80vh;
-  }
-
-  .chat-messages {
-    padding: 14px;
-  }
-
-  .chat-input-area {
-    padding: 12px;
-    gap: 8px;
-  }
-
-  .chat-header > span {
-    font-size: 15px;
-  }
-
-  .chat-actions button {
-    font-size: 16px;
-  }
-
-  .chat-icon-btn,
-  .send-button {
-    width: 34px;
-    height: 34px;
-    font-size: 16px;
-  }
-
-  .chat-input-area textarea {
-    font-size: 13px;
-    padding: 8px 10px;
-  }
-}
+/* ==================== 10) VISIBILITY STATES ==================== */
+.ai-assistant-toggle.hidden { animation: badutFadeOut 0.4s ease forwards; pointer-events: none; }
+.ai-assistant-toggle.visible { animation: badutFadeIn 0.5s ease forwards; pointer-events: auto; }
+.animate-shake { animation: funnyShake 0.6s infinite ease-in-out; -webkit-animation: funnyShake 0.6s infinite ease-in-out; }
 
 
-
-/* ==================== 🖥️ MODE FULLSCREEN CHATBOX ==================== */
-/* Aktif saat body memiliki class 'fullscreen-mode' */
+/* ==================== 11) FULLSCREEN MODE ==================== */
 body.fullscreen-mode #chatBox {
-  position: fixed;
-  top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90vw;
-  height: 85vh;
-  max-width: 1000px;
-  max-height: 700px;
-  border-radius: 14px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-  resize: none;
-  z-index: 99999;
+  position: fixed; top: 5%; left: 50%; transform: translateX(-50%);
+  width: 90vw; height: 85vh; max-width: 1000px; max-height: 700px;
+  border-radius: 14px; box-shadow: 0 0 40px rgba(0,0,0,0.3); resize: none; z-index: 99999;
+}
+body.fullscreen-mode .chat-messages { padding: 20px; overflow-y: auto; }
+body.fullscreen-mode .chat-input-area { padding: 18px; border-top: 1px solid #ddd; }
+
+
+/* ==================== 12) CONTENT BLOCKS (CV/Brand/Game/Store/Contact/Ads) ==================== */
+/* — CV — */
+.chat-message.ai .bubble { border-radius: 1rem; box-shadow: var(--shadow-1); }
+.cv-plans { display: grid; gap: .75rem; margin: .75rem 0 1rem; }
+.cv-plan { padding: .75rem .9rem; border: 1px solid var(--scroll-bar-color); border-radius: .75rem; background: var(--container-color); }
+.cv-plan__title { font-size: var(--h3-font-size); margin: 0 0 .35rem; display: flex; gap: .5rem; align-items: baseline; }
+.cv-plan__price { font-weight: 700; color: var(--first-color); }
+.cv-plan__features { margin: 0; padding-left: 0; color: var(--text-color); line-height: 1.6; }
+.cv-note { color: var(--text-color-light); margin: .5rem 0 1rem; }
+.button--primary { display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.1rem; border-radius: .75rem; background: var(--first-color); color: #fff; }
+.typing .typing-dots { display: inline-block; letter-spacing: .2em; opacity: .8; animation: dots 1.2s infinite steps(4, end); }
+
+/* — Brand/Desain — */
+.list-clean { margin:.25rem 0 1rem; padding:0; display:grid; gap:.25rem; color:var(--text-color); }
+.brand-plans { display:grid; gap:.75rem; margin:.5rem 0 1rem; }
+.brand-plan { padding:.75rem .9rem; border:1px solid var(--scroll-bar-color); border-radius:.75rem; background:var(--container-color); }
+.brand-plan__title { margin:0 0 .35rem; font-size:var(--h3-font-size); display:flex; gap:.5rem; align-items:baseline; }
+.brand-plan__price { font-weight:700; color:var(--first-color); }
+.section-subtitle { margin:.75rem 0 .35rem; color:var(--title-color); }
+.brand-note { color:var(--text-color-light); margin:.25rem 0 1rem; }
+.button.button--primary { display:inline-flex; align-items:center; gap:.5rem; padding:.7rem 1.1rem; border-radius:.75rem; background:var(--first-color); color:#fff; }
+
+/* — Game — */
+.game-list { display: grid; gap: .75rem; margin: .5rem 0 1rem; padding: 0; }
+.game-card { list-style: none; }
+.game-link {
+  display: grid; gap: .4rem; padding: .9rem 1rem;
+  border: 1px solid var(--scroll-bar-color); border-radius: .9rem;
+  background: var(--container-color); box-shadow: var(--shadow-1);
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.game-link:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-2);
+  border-color: color-mix(in srgb, var(--first-color) 25%, var(--scroll-bar-color));
+}
+.game-card__header { display: flex; align-items: center; gap: .6rem; }
+.game-emoji { font-size: 1.25rem; }
+.game-title { margin: 0; font-size: var(--h3-font-size); color: var(--title-color); }
+.game-desc { margin: 0; color: var(--text-color); line-height: 1.5; }
+.game-tags { display: flex; gap: .35rem; flex-wrap: wrap; }
+.tag { font-size: var(--smaller-font-size); padding: .15rem .5rem; border-radius: 999px; background: var(--input-color); color: var(--text-color); }
+.game-cta { margin-top: .2rem; font-weight: 600; color: var(--first-color); font-size: var(--small-font-size); }
+.hint { color: var(--text-color-light); margin-top: .5rem; }
+.hint .btn-random-game { color: var(--first-color); text-decoration: underline; }
+.badge { display: inline-flex; align-items: center; font-size: var(--smaller-font-size); line-height: 1; padding: .2rem .5rem; border-radius: 999px; margin-left: .4rem; border: 1px solid transparent; white-space: nowrap; }
+.badge--soon { color: #b98000; background: color-mix(in srgb, #b98000 14%, var(--input-color)); border-color: color-mix(in srgb, #b98000 30%, transparent); }
+.game-card.is-soon .game-link { border: 1px dashed color-mix(in srgb, var(--scroll-bar-color) 70%, var(--text-color-light)); background: color-mix(in oklab, var(--container-color) 92%, #000 8%); cursor: default; }
+.game-card.is-soon .game-cta { color: var(--text-color); opacity: .85; }
+
+/* — Store / Ads — */
+.btn-group { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .25rem; }
+.option-btn {
+  appearance: none; border: 1px solid var(--scroll-bar-color);
+  background: var(--container-color); color: var(--title-color);
+  padding: .6rem 1rem; border-radius: .75rem; font-weight: 600; cursor: pointer;
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background-color .2s ease;
+}
+.option-btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-2); border-color: color-mix(in srgb, var(--first-color) 25%, var(--scroll-bar-color)); }
+.option-btn:focus-visible { outline: 2px solid var(--first-color); outline-offset: 2px; }
+.option-btn.secondary { background: var(--input-color); color: var(--text-color); }
+.option-btn.glow { background: var(--first-color); border-color: transparent; color: #fff; }
+
+/* — Toko / Plan — */
+.plan-grid { display: grid; gap: .9rem; margin:.5rem 0 1rem; padding:0; }
+.plan-card { list-style: none; border: 1px solid var(--scroll-bar-color); border-radius: .9rem; background: var(--container-color); box-shadow: var(--shadow-1, 0 1px 2px rgba(0,0,0,.04)); padding: .9rem 1rem; }
+.plan-head { display:grid; gap:.25rem; margin-bottom:.35rem; }
+.plan-title { margin:0; font-size: var(--h3-font-size); color: var(--title-color); }
+.plan-price { font-weight: 700; color: var(--first-color); }
+.plan-sub { font-size: var(--small-font-size); color: var(--text-color); }
+.plan-list { margin:.25rem 0 0; padding-left:0; display:grid; gap:.25rem; }
+.plan-list li { list-style: none; color: var(--text-color); }
+.cta-row { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.5rem; }
+.button.button--primary { display:inline-flex; align-items:center; gap:.5rem; padding:.7rem 1.1rem; border-radius:.75rem; background:var(--first-color); color:#fff; border:none; }
+.button.button--ghost { display:inline-flex; align-items:center; gap:.5rem; padding:.7rem 1.1rem; border-radius:.75rem; background:var(--container-color); color:var(--title-color); border:1px solid var(--scroll-bar-color); }
+.muted { color: var(--text-color-light); font-size: var(--small-font-size); }
+
+/* — Contact snippet — */
+.chat-message.ai .bubble .contact-block{border:1px solid var(--scroll-bar-color,#e6e9ef);border-radius:.9rem;background:var(--container-color,#fff);padding:.75rem 1rem;margin:.6rem 0;box-shadow:var(--shadow-1,0 1px 2px rgba(0,0,0,.04))}
+.chat-message.ai .bubble .contact-row{display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+.chat-message.ai .bubble .contact-label{color:var(--text-color,#374151);font-weight:600}
+.chat-message.ai .bubble .contact-link{color:var(--title-color,#111);text-decoration:underline;text-underline-offset:2px}
+.chat-message.ai .bubble .contact-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
+.chat-message.ai .bubble .btn{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem .9rem;border-radius:.75rem;border:1px solid var(--scroll-bar-color,#e6e9ef);background:var(--container-color,#fff);color:var(--title-color,#111);font-weight:600;cursor:pointer;transition:transform .15s ease,border-color .2s ease,box-shadow .2s ease}
+.chat-message.ai .bubble .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-2,0 4px 12px rgba(0,0,0,.06));border-color:color-mix(in srgb,var(--first-color,#2563eb) 25%, var(--scroll-bar-color,#e6e9ef))}
+.chat-message.ai .bubble .btn:focus-visible{outline:2px solid var(--first-color,#2563eb);outline-offset:2px}
+.chat-message.ai .bubble .btn--primary{background:var(--first-color,#2563eb);border-color:transparent;color:#fff}
+.chat-message.ai .bubble .btn--ghost{background:var(--container-color,#fff)}
+.chat-message.ai .bubble .badge{display:inline-flex;align-items:center;gap:.35rem;font-size:var(--smaller-font-size,.8rem);line-height:1;padding:.25rem .5rem;border-radius:999px;border:1px solid transparent;margin-left:.35rem;white-space:nowrap}
+.chat-message.ai .bubble .badge--open{color:#0a7b34;background:color-mix(in srgb,#0a7b34 12%, #e6ffe6);border-color:color-mix(in srgb,#0a7b34 28%, transparent)}
+.chat-message.ai .bubble .badge--closed{color:#b33a3a;background:color-mix(in srgb,#b33a3a 12%, #ffecec);border-color:color-mix(in srgb,#b33a3a 28%, transparent)}
+.chat-message.ai .bubble .list-clean{margin:.35rem 0 .2rem;padding:0;display:grid;gap:.2rem;color:var(--text-color,#374151)}
+.chat-message.ai .bubble .list-clean li{list-style:none}
+.chat-message.ai .bubble .tips details{margin-top:.25rem}
+
+
+/* ==================== 13) TOAST ==================== */
+#toast-root {
+  position: fixed; right: 1rem; bottom: 1rem; display: grid; gap: .5rem; z-index: 9999; pointer-events: none;
+}
+.toast {
+  pointer-events: auto; background: var(--container-color); color: var(--title-color);
+  border: 1px solid var(--scroll-bar-color); box-shadow: var(--shadow-2);
+  padding: .7rem 1rem; border-radius: .75rem; transform: translateY(12px); opacity: 0;
+  transition: transform .25s ease, opacity .25s ease; max-width: min(92vw, 360px);
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
+
+
+/* ==================== 14) RESPONSIVE ==================== */
+/* Header actions hide on small */
+@media (max-width: 767.98px) { #toggleFullscreen { display: none !important; } }
+
+/* Avatar eyes @768 */
+@media screen and (max-width: 768px) {
+  .ai-assistant-toggle .eye { top: 45px; width: 52px; height: 24px; }
+  .eye::before, .eye::after { width: 10px; height: 9px; }
+  .eye::before { left: 10px; top: 6px; }
+  .eye::after  { right: 10px; top: 6px; }
 }
 
-/* Penyesuaian padding & scroll area pesan */
-body.fullscreen-mode .chat-messages {
-  padding: 20px;
-  overflow-y: auto;
+/* Emoji picker tablet (≤768) */
+@media screen and (max-width: 768px) {
+  emoji-picker.emoji-picker {
+    width: 230px; max-height: 300px; left: 10px; right: auto; bottom: 70px;
+  }
 }
 
-/* Penyesuaian area input saat fullscreen */
-body.fullscreen-mode .chat-input-area {
-  padding: 18px;
-  border-top: 1px solid #ddd;
+/* Emoji picker ≤480 / ≤360 */
+@media screen and (max-width: 480px) {
+  emoji-picker.emoji-picker { width: 230px; max-height: 300px; right: 10px; bottom: 60px; }
 }
+@media screen and (max-width: 360px) {
+  emoji-picker.emoji-picker { width: 230px; max-height: 300px; right: 10px; bottom: 58px; }
+}
+
+/* Posisi toggle di sisi kiri tengah untuk ≤768 */
+@media screen and (max-width: 480px) {
+  .ai-assistant-toggle {
+    position: fixed; top: 50%; left: 20px; transform: translateY(-50%);
+    width: 100px; height: 100px; z-index: 9999; transition: all 0.4s ease;
+  }
+  .ai-assistant-toggle img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; transition: transform 0.4s ease, filter 0.4s ease; }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .ai-assistant-toggle {
+    position: fixed; top: 50%; left: 20px; transform: translateY(-50%);
+    width: 100px; height: 100px; z-index: 9999; transition: all 0.4s ease;
+  }
+  .ai-assistant-toggle img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
+}
+
+/* Compact chat untuk ≤500 */
+@media screen and (max-width: 500px) {
+  .ai-assistant-toggle img { width: 70px; height: 70px; }
+  #chatBox { width: 94vw; left: 3vw; bottom: 100px; max-height: 80vh; }
+  .chat-messages { padding: 14px; }
+  .chat-input-area { padding: 12px; gap: 8px; }
+  .chat-header > span { font-size: 15px; }
+  .chat-actions button { font-size: 16px; }
+  .chat-icon-btn, .send-button { width: 34px; height: 34px; font-size: 16px; }
+  .chat-input-area textarea { font-size: 13px; padding: 8px 10px; }
+}
+
+/* Plan grid di tablet+ */
+@media (min-width: 768px) { .plan-grid { grid-template-columns: repeat(3, 1fr); } }
+
+
+/* ==================== 15) KEYFRAMES ==================== */
+@keyframes blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  96% { transform: scaleY(0.1); }
+}
+@keyframes funnyShake {
+  0%{transform:translate(0,0)}20%{transform:translate(-2px,1px)}40%{transform:translate(2px,-1px)}
+  60%{transform:translate(-1px,2px)}80%{transform:translate(1px,-2px)}100%{transform:translate(0,0)}
+}
+@keyframes fadeInBtn { to { opacity: 1; transform: translateY(0); } }
+@keyframes dotBlink { 0%{opacity:.2;transform:scale(.9)}100%{opacity:1;transform:scale(1.2)} }
+@keyframes dotFadeScale { 0%{opacity:.2;transform:scale(.9)}50%{opacity:1;transform:scale(1.3)}100%{opacity:.2;transform:scale(.9)} }
+@keyframes fadeSlideIn { from{opacity:0;transform:translateY(10px) scale(.98)} to{opacity:1;transform:translateY(0) scale(1)} }
+@keyframes fadeInEmoji { from{opacity:0;transform:translateY(10px) scale(.98)} to{opacity:1;transform:translateY(0) scale(1)} }
+@keyframes bounceTooltip { 0%,100%{transform:translateX(-50%) scale(1)} 50%{transform:translateX(-50%) scale(1.06)} }
+@keyframes pulse { 0%{transform:scale(1)} 50%{transform:scale(1.15)} 100%{transform:scale(1)} }
+@keyframes badutFadeIn { 0%{opacity:0;transform:scale(.9) translateY(20px);box-shadow:0 0 0 rgba(0,0,0,0)} 60%{transform:scale(1.05) translateY(-10px)} 100%{opacity:1;transform:scale(1) translateY(0)} }
