@@ -147,112 +147,87 @@ function scrollActive() {
 window.addEventListener("scroll", scrollActive);
 
 
-/*==================== 🎨 HEADER & TOMBOL SCROLL-UP ====================*/
-// Tambah background pada header saat discroll ke bawah
-function scrollHeader() {
-  const header = document.getElementById("header");
-  if (!header) return;
+/*==================== SCROLL-UP ====================*/
+  (function(){
+    const btn = document.getElementById('scroll-up');
+    const sound = document.getElementById('scroll-sound');
 
-  window.scrollY >= 80
-    ? header.classList.add("scroll-header")
-    : header.classList.remove("scroll-header");
-}
-window.addEventListener("scroll", scrollHeader);
+    function onScroll(){
+      if (window.scrollY > 200){
+        btn.classList.add('show-scroll');
+      } else {
+        btn.classList.remove('show-scroll');
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
-// Tampilkan tombol scroll ke atas setelah melewati 560px
-function scrollUp() {
-  const scrollUpBtn = document.getElementById("scroll-up");
-  if (!scrollUpBtn) return;
-
-  window.scrollY >= 560
-    ? scrollUpBtn.classList.add("show-scroll")
-    : scrollUpBtn.classList.remove("show-scroll");
-}
-window.addEventListener("scroll", scrollUp);
-const toggle = document.querySelector(".ai-assistant-toggle");
-  if (window.innerWidth <= 768) {
-    toggle.style.bottom = "20px"; // atau sesuai media query
-  }
+    btn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      try{ sound && sound.play && sound.play().catch(()=>{}); }catch{}
+    });
+  })();
 
 
 /*==================== 🌗 DARK / LIGHT MODE PRO ====================*/
-const themeToggle = document.getElementById("theme-toggle");
-const darkClass = "dark-theme";
-const transitionClass = "theme-transition";
-const savedTheme = localStorage.getItem("selected-theme");
+const themeToggle     = document.getElementById("theme-toggle");
+const darkClass       = "dark-theme";        // kamu sudah pakai ini di root
+const transitionClass = "theme-transition";  // opsional bila mau transisi cepat
+const savedTheme      = localStorage.getItem("selected-theme");
 
-// 🔔 Fungsi toast
-function showThemeToast(message) {
+// 🔔 Toast (tetap punyamu)
+function showThemeToast(message, opts = {}) {
+  const { duration = 4000 } = opts;
   const toast = document.getElementById("theme-toast");
   if (!toast) return;
 
-  // Reset animasi jika sedang aktif
-  toast.classList.remove("show");
-  void toast.offsetWidth; // force reflow
-
-  // Set isi pesan
   toast.innerHTML = `<span class="toast-message">${message}</span>`;
+  toast.classList.remove("show"); void toast.offsetWidth; toast.classList.add("show");
 
-  // Tampilkan toast dengan animasi
-  toast.classList.add("show");
+  const au = document.getElementById("theme-sound");
+  try { au && au.play && au.play().catch(()=>{}); } catch {}
 
-  // Hilangkan toast setelah 4 detik
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 4000);
+  clearTimeout(showThemeToast.__t);
+  showThemeToast.__t = setTimeout(() => toast.classList.remove("show"), duration);
+  if (navigator.vibrate) navigator.vibrate(8);
 }
 
-
-// 🌈 Transisi halus
-function addThemeTransition() {
-  document.documentElement.classList.add(transitionClass);
-  setTimeout(() => {
-    document.documentElement.classList.remove(transitionClass);
-  }, 500);
-}
-
-// 🌓 Terapkan tema awal
+// Terapkan tema awal (sekali)
 function applyInitialTheme() {
   if (savedTheme === "dark") {
     document.documentElement.classList.add(darkClass);
-    if (themeToggle) themeToggle.checked = true;
+    themeToggle && (themeToggle.checked = true);
   } else if (!savedTheme) {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     if (prefersDark) {
       document.documentElement.classList.add(darkClass);
-      if (themeToggle) themeToggle.checked = true;
+      themeToggle && (themeToggle.checked = true);
     }
   }
 }
 
-// 🌘 Toggle tema oleh user
+// Toggle instan tanpa delay
 function handleThemeToggle() {
-  addThemeTransition();
-  document.documentElement.classList.toggle(darkClass);
+  // Matikan semua transition sesaat agar benar-benar kilat
+  document.documentElement.classList.add("no-anim");
+  document.body.classList.add("no-anim");
 
+  document.documentElement.classList.toggle(darkClass);
   const isDark = document.documentElement.classList.contains(darkClass);
   localStorage.setItem("selected-theme", isDark ? "dark" : "light");
 
-  showThemeToast(
-    isDark
-      ? '<span style="font-size:1.2em;">🌙</span> Mode Gelap Diaktifkan'
-      : '<span style="font-size:1.2em;">☀️</span> Mode Terang Diaktifkan'
-  );
+  // Lepas killer class di frame berikutnya
+  requestAnimationFrame(() => {
+    document.documentElement.classList.remove("no-anim");
+    document.body.classList.remove("no-anim");
+  });
+
+  showThemeToast(isDark ? "🌙 Mode Gelap Diaktifkan" : "☀️ Mode Terang Diaktifkan");
 }
 
-// 🚀 Jalankan saat halaman dimuat
+// Init sekali, tanpa duplikat
 applyInitialTheme();
-
-// 🔁 Tambahkan event listener toggle
-if (themeToggle) {
-  themeToggle.addEventListener("change", handleThemeToggle);
-}
-
-
-// 🚀 Jalankan saat halaman dimuat
-applyInitialTheme();
-
-// 📌 Pasang event
 if (themeToggle) {
   themeToggle.addEventListener("change", handleThemeToggle);
 }
