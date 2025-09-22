@@ -757,52 +757,7 @@ html[data-theme="dark"] .about__info-name {
 }
 
 
-/* ==================== 5) ABOUT CTA BUTTONS ==================== */
-.about__buttons {
-  margin-top: var(--mb-2);
-  display: flex;
-  justify-content: center;
-  animation: fadeUp 1s ease-in-out both;
-}
-
-.about__buttons .button {
-  background: linear-gradient(135deg, var(--first-color), #ff8c00);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.35);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-}
-
-.about__buttons .button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.6);
-  background: linear-gradient(135deg, #ff8c00, var(--first-color));
-}
-
-.button__icon-img {
-  width: 20px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: drop-shadow(0 0 4px white);
-}
-
-.button:hover .button__icon-img {
-  transform: rotate(-15deg) scale(1.05);
-}
-
-html[data-theme="dark"] .about__buttons .button {
-  background: linear-gradient(135deg, #ffa500, #ff5722);
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(255, 87, 34, 0.35);
-}
-
-
-/* ==================== 6) ANIMATIONS ==================== */
+/* ==================== 5) ANIMATIONS ==================== */
 @keyframes glowPulse {
   0%, 100% { opacity: 0.3; }
   50%      { opacity: 0.6; }
@@ -824,7 +779,7 @@ html[data-theme="dark"] .about__buttons .button {
 }
 
 
-/* ==================== 7) BREAKPOINTS ==================== */
+/* ==================== 6) BREAKPOINTS ==================== */
 @media screen and (min-width: 568px) {
   .about__container { grid-template-columns: repeat(2, 1fr); }
 }
@@ -2270,107 +2225,117 @@ html[data-bs-theme="light"] .theme-toast {
 }
 
 
-
-/* =========================  TOMBOL / BUTTON ========================= */
-/* ==================== 1) BASE ==================== */
-.button {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem 2.2rem;
-  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(145deg, #f9d423, #ff4e50);
-  border-radius: 1.25rem;
-  box-shadow:
-    0 0 0 0 rgba(255, 255, 255, 0),
-    0 8px 22px rgba(255, 78, 80, 0.35),
-    inset 0 1px 1px rgba(255, 255, 255, 0.15);
-  transition: all 0.45s ease;
-  overflow: hidden;
-  z-index: 0;
-}
-
-
-/* ==================== 2) DECORATION ==================== */
-.button::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.25), rgba(255,255,255,0) 70%);
-  transform: rotate(0deg);
-  transition: opacity 0.4s ease, transform 1.5s ease;
-  opacity: 0;
-  z-index: 1;
-}
-
-
-/* ==================== 3) HOVER/ACTIVE ==================== */
-.button:hover::before {
-  opacity: 1;
-  transform: rotate(15deg) scale(1.1);
-}
-
-.button:hover {
-  transform: translateY(-2px) scale(1.035);
-  box-shadow:
-    0 0 0 3px rgba(255, 78, 80, 0.15),
-    0 12px 32px rgba(249, 212, 35, 0.4),
-    inset 0 1px 1px rgba(255, 255, 255, 0.25);
-}
-
-
-/* ==================== 4) ICON SIZES ==================== */
-.button__icon-img {
-  width: 1.6rem;
-  height: 1.6rem;
-  margin-left: 0.5rem;
-  object-fit: contain;
-  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.2));
-}
-
-/* jika ada elemen .button__icon (SVG/ikon non-img) */
-.button:hover .button__icon {
-  transform: translateX(6px) scale(1.25);
-}
-
-
-/* ==================== 5) FLEX HELPER ==================== */
-.button--flex {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  position: relative;
-  z-index: 2;
-}
-
-
-/* ==================== 6) DARK THEME ==================== */
-body.dark-theme .button {
-  background: linear-gradient(145deg, #f9d423, #ff4e50);
-  box-shadow:
-    0 0 0 0 rgba(255, 255, 255, 0),
-    0 8px 20px rgba(255, 78, 80, 0.3),
-    inset 0 1px 1px rgba(255, 255, 255, 0.05);
-}
-
-body.dark-theme .button:hover {
-  box-shadow:
-    0 0 0 3px rgba(255, 78, 80, 0.15),
-    0 12px 28px rgba(249, 212, 35, 0.4),
-    inset 0 1px 1px rgba(255, 255, 255, 0.1);
-}
-
-
 /* ==================== 7) SWIPER NAV (DESKTOP) ==================== */
 @media screen and (min-width: 1024px) {
   .swiper-button-prev { left: -3.5rem; }
   .swiper-button-next { right: -3.5rem; }
+}
+
+
+
+/* =========================  TOMBOL / BUTTON ========================= */
+.btn-premium{
+  --btn-bg-1:#0b0f14;
+  --btn-bg-2:#121821;
+  --btn-fg:#ffffff;
+  --btn-border:rgba(255,255,255,.08);
+  --btn-glow:rgba(255,255,255,.06);
+  --btn-elev:0 10px 24px rgba(0,0,0,.28);
+
+  position:relative;
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:.5rem;
+  padding:1rem 2.2rem;
+  border-radius:14px;
+  border:1px solid var(--btn-border);
+  background:linear-gradient(180deg,var(--btn-bg-1),var(--btn-bg-2));
+  color:var(--btn-fg);
+  font-weight:600; letter-spacing:.2px;
+  font-size:clamp(.95rem,1.2vw,1.05rem);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    inset 0 -1px 0 rgba(0,0,0,.35),
+    var(--btn-elev);
+  transition:transform .22s ease, box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+  -webkit-tap-highlight-color:transparent;
+  text-decoration:none; cursor:pointer; overflow:hidden; z-index:0;
+}
+
+.btn-premium::before{
+  content:"";
+  position:absolute; inset:-42% -30% auto -30%;
+  height:150%;
+  background:radial-gradient(60% 60% at 50% 0%,rgba(255,255,255,.10),transparent 62%);
+  opacity:.9; pointer-events:none; z-index:0;
+  transform:translateY(0);
+  transition:transform .9s cubic-bezier(.2,.8,.2,1), opacity .35s ease;
+}
+
+.btn-premium:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 0 0 3px var(--btn-glow),
+    inset 0 1px 0 rgba(255,255,255,.08),
+    inset 0 -1px 0 rgba(0,0,0,.40),
+    0 16px 34px rgba(0,0,0,.32);
+}
+.btn-premium:hover::before{ transform:translateY(-6%); }
+.btn-premium:active{ transform:translateY(0) scale(.985); }
+.btn-premium:focus-visible{
+  outline:none;
+  box-shadow:
+    0 0 0 4px rgba(255,255,255,.14),
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 18px 36px rgba(0,0,0,.34);
+}
+
+.btn-premium__icon{
+  width:1.6rem; height:1.6rem; object-fit:contain;
+  filter:brightness(0) invert(1);
+  transition:transform .22s ease, filter .25s ease, opacity .25s ease;
+  will-change:transform;
+}
+.btn-premium:hover .btn-premium__icon{ transform:translateX(6px) scale(1.08); }
+
+
+body.dark-theme .btn-premium{
+  --btn-bg-1:#ffffff;
+  --btn-bg-2:#f6f8fc;
+  --btn-fg:#0b1220;
+  --btn-border:rgba(17,24,39,.12);
+  --btn-glow:rgba(17,24,39,.10);
+  --btn-elev:0 10px 22px rgba(17,24,39,.16);
+
+  background:linear-gradient(180deg,var(--btn-bg-1),var(--btn-bg-2));
+  color:var(--btn-fg);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    inset 0 -1px 0 rgba(17,24,39,.06),
+    var(--btn-elev);
+}
+body.dark-theme .btn-premium:hover{
+  box-shadow:
+    0 0 0 4px var(--btn-glow),
+    inset 0 1px 0 #fff,
+    inset 0 -1px 0 rgba(17,24,39,.08),
+    0 16px 30px rgba(17,24,39,.18);
+}
+body.dark-theme .btn-premium:focus-visible{
+  box-shadow:
+    0 0 0 5px rgba(17,24,39,.15),
+    inset 0 1px 0 #fff,
+    0 18px 34px rgba(17,24,39,.22);
+}
+
+body.dark-theme .btn-premium__icon{ filter:none; }
+
+.btn-premium.is-sm{ padding:.7rem 1.2rem; border-radius:12px; font-size:.92rem; }
+.btn-premium.is-link{
+  background:transparent; color:inherit;
+  border:1px dashed var(--btn-border); box-shadow:none;
+}
+.btn-premium.is-link:hover{ box-shadow:0 0 0 2px var(--btn-glow); }
+
+@media (prefers-reduced-motion: reduce){
+  .btn-premium, .btn-premium::before, .btn-premium__icon{ transition:none !important; }
 }
