@@ -396,3 +396,50 @@
 .bubble .highlight { color: #0078ff; font-weight: 600; }
 
 .popup-ad.show .animate-text { animation: fadeInUp .6s ease-out both; }
+
+
+
+/* ====== LOCK POPUP THEME TO SITE TOGGLE (bukan prefers-color-scheme) ====== */
+/* Mode TERANG (default) */
+:root:not(.dark-theme) .popup-ad,
+html:not(.dark-theme) .popup-ad {
+  /* terang */
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(240,240,245,0.92)) !important;
+  color: #111827 !important;
+  border: 1px solid rgba(17,24,39,0.08) !important;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.10),
+    0 0 6px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255,255,255,0.6) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+:root:not(.dark-theme) .popup-ad h2,
+:root:not(.dark-theme) .popup-ad .popup-heading { color: #0f172a !important; } /* title */
+:root:not(.dark-theme) .popup-ad p { color: #111827 !important; }              /* body */
+
+/* Mode GELAP (saat toggle kamu aktif) */
+:root.dark-theme .popup-ad,
+html.dark-theme .popup-ad {
+  background: linear-gradient(180deg, rgba(30,41,59,0.92), rgba(15,23,42,0.88)) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.06) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+:root.dark-theme .popup-ad h2,
+:root.dark-theme .popup-ad .popup-heading { color: #e5e7eb !important; }
+:root.dark-theme .popup-ad p { color: #c7cfd6 !important; }
+
+/* (Penting) MATIKAN pengaruh OS level di komponen popup */
+@media (prefers-color-scheme: dark) {
+  .popup-ad { /* jangan auto gelap hanya karena OS gelap */
+    background: inherit !important;
+    color: inherit !important;
+    border-color: inherit !important;
+    box-shadow: inherit !important;
+  }
+}
