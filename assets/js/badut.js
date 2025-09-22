@@ -1162,205 +1162,226 @@ async function handleOption(type) {
 
 
   case 'game': {
-    const userText = "Saya ingin bermain game seru di sini!";
+  const userText = "Saya ingin bermain game seru di sini!";
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const wait = (ms) => new Promise(r => setTimeout(r, prefersReducedMotion ? Math.min(ms, 140) : ms));
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wait = (ms) => new Promise(r => setTimeout(r, prefersReducedMotion ? Math.min(ms, 140) : ms));
 
-    const smartScrollBottom = () => {
-      chatMessages.scroll({
-        top: chatMessages.scrollHeight,
-        behavior: prefersReducedMotion ? 'auto' : 'smooth'
-      });
-    };
+  const smartScrollBottom = () => {
+    chatMessages.scroll({
+      top: chatMessages.scrollHeight,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
+    });
+  };
 
-    if (!window.__gameHandlersAttached) {
-      document.addEventListener('click', (e) => {
-        const link = e.target.closest('.game-link');
-        if (link) {
+  // ==============================
+  // Data game
+  // ==============================
+  const games = [
+    {
+      id: 'brain',
+      title: 'Brain Test',
+      emoji: '🧠',
+      href: 'brain.html',
+      desc: 'Uji logika dengan pilihan ganda & teka-teki cerdas.',
+      tags: ['Logika', 'Kuis']
+    },
+    {
+      id: 'tebak-gambar',
+      title: 'Tebak Gambar',
+      emoji: '🖼️',
+      href: 'game-tebak-gambar.html',
+      desc: 'Tantangan visual—tebak objek dari potongan gambar.',
+      tags: ['Visual', 'Tebakan']
+    },
+    {
+      id: 'puzzle',
+      title: 'Puzzle Logika',
+      emoji: '🧩',
+      href: 'game-puzzle.html',
+      desc: 'Susun pola, pecahkan potongan, latih fokus & kesabaran.',
+      tags: ['Puzzle', 'Fokus']
+    }
+  ];
+
+  // Semua game dibuat "belum rilis" (sesuai permintaan)
+  const SOON_IDS = new Set(['brain', 'tebak-gambar', 'puzzle']);
+  const hasAvailable = games.some(g => !SOON_IDS.has(g.id));
+
+  // ==============================
+  // Delegasi klik (1x attach)
+  // ==============================
+  if (!window.__gameHandlersAttached) {
+    document.addEventListener('click', (e) => {
+      // Click pada kartu/link game:
+      const link = e.target.closest('.game-link');
+      if (link) {
+        // Untuk yang tersedia, buka tab baru (yang 'soon' ditangani di handler lain)
+        if (!link.hasAttribute('data-state')) {
           link.setAttribute('target', '_blank');
           link.setAttribute('rel', 'noopener');
           try { playSound?.('tap'); } catch {}
         }
-        const rnd = e.target.closest('.btn-random-game');
-        if (rnd) {
-          e.preventDefault();
-          const links = [...document.querySelectorAll('.game-link')];
-          if (links.length) {
-            const pick = links[Math.floor(Math.random() * links.length)];
-            try { playSound?.('tap'); } catch {}
-            window.open(pick.href, '_blank', 'noopener');
-          }
-        }
-      });
-      window.__gameHandlersAttached = true;
-    }
-
-    const games = [
-      {
-        id: 'brain',
-        title: 'Brain Test',
-        emoji: '🧠',
-        href: 'brain.html',
-        desc: 'Uji logika dengan pilihan ganda & teka-teki cerdas.',
-        tags: ['Logika', 'Kuis']
-      },
-      {
-        id: 'tebak-gambar',
-        title: 'Tebak Gambar',
-        emoji: '🖼️',
-        href: 'game-tebak-gambar.html',
-        desc: 'Tantangan visual—tebak objek dari potongan gambar.',
-        tags: ['Visual', 'Tebakan']
-      },
-      {
-        id: 'puzzle',
-        title: 'Puzzle Logika',
-        emoji: '🧩',
-        href: 'game-puzzle.html',
-        desc: 'Susun pola, pecahkan potongan, latih fokus & kesabaran.',
-        tags: ['Puzzle', 'Fokus']
       }
-    ];
 
-    const SOON_IDS = new Set(['tebak-gambar', 'puzzle']);
-
-    const gameCardsHTML = games.map(g => {
-      const tags = g.tags.map(t => `<span class="tag">${t}</span>`).join('');
-      const isSoon = SOON_IDS.has(g.id);
-
-      const badge = isSoon
-        ? `<span class="badge badge--soon" aria-label="Coming Soon">Coming&nbsp;Soon</span>`
-        : '';
-
-      const ctaLabel = isSoon ? 'Coming Soon' : 'Mainkan';
-      const anchorAttrs = isSoon
-        ? `href="#"
-            role="link"
-            aria-disabled="true"
-            tabindex="-1"
-            data-state="soon"`
-        : `href="${g.href}" target="_blank" rel="noopener"`;
-
-      return `
-        <li class="game-card ${isSoon ? 'is-soon' : ''}" data-id="${g.id}">
-          <a class="game-link" ${anchorAttrs} aria-label="${ctaLabel} ${g.title}">
-            <div class="game-card__header">
-              <span class="game-emoji" aria-hidden="true">${g.emoji}</span>
-              <h4 class="game-title">${g.title}</h4>
-              ${badge}
-            </div>
-            <p class="game-desc">${g.desc}</p>
-            <div class="game-tags">${tags}</div>
-            <div class="game-cta">${ctaLabel}</div>
-          </a>
-        </li>
-      `;
-    }).join('');
-
-    if (!window.__gameSoonHandlersAttached) {
-      document.addEventListener('click', (e) => {
-        // Coming Soon → tampilkan toast
-        const soonLink = e.target.closest('.game-link[data-state="soon"]');
-        if (soonLink) {
-          e.preventDefault();
-          const id = soonLink.closest('.game-card')?.dataset?.id || '';
-          const title = soonLink.querySelector('.game-title')?.textContent?.trim() || 'Game';
-          showToast(`${title} sedang dalam pengembangan. Nantikan rilisnya!`);
+      // Tombol "Mainkan Acak"
+      const rnd = e.target.closest('.btn-random-game');
+      if (rnd) {
+        e.preventDefault();
+        const available = [...document.querySelectorAll('.game-link:not([data-state="soon"])')];
+        if (available.length) {
+          const pick = available[Math.floor(Math.random() * available.length)];
           try { playSound?.('tap'); } catch {}
-          return;
+          window.open(pick.href, '_blank', 'noopener');
+        } else {
+          showToast('Belum ada game yang tersedia untuk dimainkan.');
         }
+      }
+    });
 
-        const rnd = e.target.closest('.btn-random-game');
-        if (rnd) {
-          e.preventDefault();
-          const available = [...document.querySelectorAll('.game-link:not([data-state="soon"])')];
-          if (available.length) {
-            const pick = available[Math.floor(Math.random() * available.length)];
-            try { playSound?.('tap'); } catch {}
-            window.open(pick.href, '_blank', 'noopener');
-          } else {
-            showToast('Belum ada game yang tersedia untuk dimainkan.');
-          }
-        }
-      });
-
-      window.showToast = function showToast(message, opts = {}) {
-        const duration = opts.duration ?? 2400;
-        let root = document.getElementById('toast-root');
-        if (!root) {
-          root = document.createElement('div');
-          root.id = 'toast-root';
-          root.setAttribute('aria-live', 'polite');
-          root.setAttribute('aria-atomic', 'true');
-          document.body.appendChild(root);
-        }
-        const el = document.createElement('div');
-        el.className = 'toast';
-        el.textContent = message;
-        root.appendChild(el);
-        requestAnimationFrame(() => el.classList.add('show'));
-        setTimeout(() => {
-          el.classList.remove('show');
-          el.addEventListener('transitionend', () => el.remove(), { once: true });
-        }, duration);
-      };
-
-      window.__gameSoonHandlersAttached = true;
-    }
-
-    const frag = document.createDocumentFragment();
-
-    const userBubble = document.createElement('div');
-    userBubble.className = 'chat-message user';
-    userBubble.textContent = userText;
-    frag.appendChild(userBubble);
-    saveChatToLocal?.('user', userText);
-
-    const typing = document.createElement('div');
-    typing.className = 'chat-message ai typing';
-    typing.setAttribute('aria-live', 'polite');
-    typing.innerHTML = `
-      <div class="icon-circle"></div>
-      <div class="bubble" aria-label="AI sedang mengetik">
-        <span class="typing-dots" aria-hidden="true">●●●</span>
-      </div>
-    `;
-    frag.appendChild(typing);
-
-    chatMessages.appendChild(frag);
-    smartScrollBottom();
-
-    await wait(1000);
-
-    const replyHTML = `
-      <div class="icon-circle" aria-hidden="true"></div>
-      <div class="bubble" role="group" aria-label="Daftar mini game">
-        <p>
-          Mantap! Aku punya beberapa <strong>mini game eksklusif</strong>—ringan, seru, sekaligus melatih fokus & logika 🧠🎮
-        </p>
-
-        <ul class="game-list" role="list">
-          ${gameCardsHTML}
-        </ul>
-
-        <div class="hint">
-          Ingin rekomendasi cepat? <a href="brain.html" class="btn-random-game">Mainkan Acak</a> ·
-          Atau ketik <strong>game lainnya</strong> untuk opsi lain (kuis, memori, matematika ringan, dll).
-        </div>
-      </div>
-    `;
-
-    typing.classList.remove('typing');
-    typing.classList.add('ai');
-    typing.innerHTML = replyHTML;
-
-    try { playSound?.('message'); } catch {}
-    saveChatToLocal?.('ai', typing.textContent?.trim() || 'Game list sent');
-    smartScrollBottom();
-
-    return;
+    window.__gameHandlersAttached = true;
   }
+
+  // ==============================
+  // Handler khusus "Coming Soon" (1x attach)
+  // ==============================
+  if (!window.__gameSoonHandlersAttached) {
+    document.addEventListener('click', (e) => {
+      // Coming Soon → tampilkan toast + cegah navigasi
+      const soonLink = e.target.closest('.game-link[data-state="soon"]');
+      if (soonLink) {
+        e.preventDefault();
+        const title = soonLink.querySelector('.game-title')?.textContent?.trim() || 'Game';
+        showToast(`${title} sedang dalam pengembangan. Nantikan rilisnya!`);
+        try { playSound?.('tap'); } catch {}
+        return;
+      }
+    });
+
+    // Utilitas toast ringan
+    window.showToast = function showToast(message, opts = {}) {
+      const duration = opts.duration ?? 2400;
+      let root = document.getElementById('toast-root');
+      if (!root) {
+        root = document.createElement('div');
+        root.id = 'toast-root';
+        root.setAttribute('aria-live', 'polite');
+        root.setAttribute('aria-atomic', 'true');
+        document.body.appendChild(root);
+      }
+      const el = document.createElement('div');
+      el.className = 'toast';
+      el.textContent = message;
+      root.appendChild(el);
+      requestAnimationFrame(() => el.classList.add('show'));
+      setTimeout(() => {
+        el.classList.remove('show');
+        el.addEventListener('transitionend', () => el.remove(), { once: true });
+      }, duration);
+    };
+
+    window.__gameSoonHandlersAttached = true;
+  }
+
+  // ==============================
+  // Render daftar game
+  // ==============================
+  const gameCardsHTML = games.map(g => {
+    const tags = g.tags.map(t => `<span class="tag">${t}</span>`).join('');
+    const isSoon = SOON_IDS.has(g.id);
+
+    const badge = isSoon
+      ? `<span class="badge badge--soon" aria-label="Segera Hadir">Segera&nbsp;Hadir</span>`
+      : '';
+
+    const ctaLabel = isSoon ? 'Segera Hadir' : 'Mainkan';
+    const anchorAttrs = isSoon
+      ? `href="#"
+          role="link"
+          aria-disabled="true"
+          tabindex="-1"
+          data-state="soon"`
+      : `href="${g.href}" target="_blank" rel="noopener"`;
+
+    return `
+      <li class="game-card ${isSoon ? 'is-soon' : ''}" data-id="${g.id}">
+        <a class="game-link" ${anchorAttrs} aria-label="${ctaLabel} ${g.title}">
+          <div class="game-card__header">
+            <span class="game-emoji" aria-hidden="true">${g.emoji}</span>
+            <h4 class="game-title">${g.title}</h4>
+            ${badge}
+          </div>
+          <p class="game-desc">${g.desc}</p>
+          <div class="game-tags">${tags}</div>
+          <div class="game-cta">${ctaLabel}</div>
+        </a>
+      </li>
+    `;
+  }).join('');
+
+  // ==============================
+  // Sisipkan ke chat UI
+  // ==============================
+  const frag = document.createDocumentFragment();
+
+  const userBubble = document.createElement('div');
+  userBubble.className = 'chat-message user';
+  userBubble.textContent = userText;
+  frag.appendChild(userBubble);
+  saveChatToLocal?.('user', userText);
+
+  const typing = document.createElement('div');
+  typing.className = 'chat-message ai typing';
+  typing.setAttribute('aria-live', 'polite');
+  typing.innerHTML = `
+    <div class="icon-circle"></div>
+    <div class="bubble" aria-label="AI sedang mengetik">
+      <span class="typing-dots" aria-hidden="true">●●●</span>
+    </div>
+  `;
+  frag.appendChild(typing);
+
+  chatMessages.appendChild(frag);
+  smartScrollBottom();
+
+  await wait(1000);
+
+  const hintHTML = hasAvailable
+    ? `
+      Ingin rekomendasi cepat? <a href="brain.html" class="btn-random-game">Mainkan Acak</a> ·
+      Atau ketik <strong>game lainnya</strong> untuk opsi lain (kuis, memori, matematika ringan, dll).
+    `
+    : `
+      Saat ini semua game sedang dalam pengembangan. Aktifkan notifikasi atau cek kembali nanti ya!
+    `;
+
+  const replyHTML = `
+    <div class="icon-circle" aria-hidden="true"></div>
+    <div class="bubble" role="group" aria-label="Daftar mini game">
+      <p>
+        Mantap! Aku punya beberapa <strong>mini game eksklusif</strong>—ringan, seru, sekaligus melatih fokus & logika 🧠🎮
+      </p>
+
+      <ul class="game-list" role="list">
+        ${gameCardsHTML}
+      </ul>
+
+      <div class="hint">
+        ${hintHTML}
+      </div>
+    </div>
+  `;
+
+  typing.classList.remove('typing');
+  typing.classList.add('ai');
+  typing.innerHTML = replyHTML;
+
+  try { playSound?.('message'); } catch {}
+  saveChatToLocal?.('ai', typing.textContent?.trim() || 'Game list sent');
+  smartScrollBottom();
+
+  return;
+}
 
 
 case 'desain': {
