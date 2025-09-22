@@ -315,8 +315,7 @@ html:not(.dark-theme) {
 .services__title,
 .portfolio__title,
 .project__title,
-.testimonial__name,
-.footer__title {
+.testimonial__name {
   color: var(--title-color) !important;
 }
 
