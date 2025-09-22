@@ -283,3 +283,55 @@ html.dark-theme ::-webkit-scrollbar-thumb {
 /* Arah spesifik jika perlu */
 .scroll-y { overflow-y: auto; overflow-x: hidden; }
 .scroll-x { overflow-x: auto; overflow-y: hidden; }
+
+
+
+/* ==================== 🔧 FIX LIGHT MODE: KONTRAS TEKS ==================== */
+/* Paksa warna teks & judul lebih gelap ketika TIDAK dark-theme */
+:root:not(.dark-theme),
+html:not(.dark-theme) {
+  --title-color: #0f172a;        /* slate-900 */
+  --text-color: #111827;         /* gray-900 (jadi hitam pekat) */
+  --text-color-light: #374151;   /* gray-700 untuk secondary */
+}
+
+/* Pastikan elemen utama pakai token di atas (tanpa opacity abu-abu) */
+.section,
+.home,
+.about,
+.skills,
+.services,
+.portfolio,
+.project,
+.contact,
+.footer__bg {
+  color: var(--text-color);
+}
+
+/* Judul & heading terang di light mode */
+.section__title,
+.home__title,
+.skill-title,
+.services__title,
+.portfolio__title,
+.project__title,
+.testimonial__name,
+.footer__title {
+  color: var(--title-color) !important;
+}
+
+/* Nav & item kecil jangan transparan */
+.nav__logo,
+.nav__link,
+.skill-item p,
+.about__info-name,
+.contact__subtitle {
+  color: var(--title-color) !important;
+  opacity: 1 !important;
+}
+
+/* Jika ada label yang memang “light”, tetap naikkan sedikit kontras */
+html:not(.dark-theme) .home__subtitle,
+html:not(.dark-theme) .section__subtitle {
+  color: var(--text-color-light) !important;
+}
