@@ -283,3 +283,50 @@ html.dark-theme ::-webkit-scrollbar-thumb {
 /* Arah spesifik jika perlu */
 .scroll-y { overflow-y: auto; overflow-x: hidden; }
 .scroll-x { overflow-x: auto; overflow-y: hidden; }
+
+
+
+/* ==================== 1) LIGHT MODE: KONTRAS TINGGI ==================== */
+:root:not(.dark-theme),
+html:not(.dark-theme) {
+  --title-color: #0f172a;      /* slate-900 */
+  --text-color: #111827;       /* gray-900 */
+  --text-color-light: #374151; /* gray-700 */
+}
+
+/* Pastikan komponen pakai token di atas */
+.section,
+.home, .about, .skills, .services, .portfolio, .project, .contact,
+.footer__bg,
+.nav__logo, .nav__link,
+.skill-item p,
+.about__info-name,
+.contact__subtitle,
+.section__title,
+.section__subtitle {
+  color: inherit; /* ambil dari var di root */
+}
+
+/* ==================== 2) SCROLLBAR: HILANGKAN DUPLIKAT ==================== */
+/* (Kamu sudah punya blok ::-webkit-scrollbar global yg lengkap)
+   Hapus 3 baris lama ini kalau masih ada di atas:
+   body::-webkit-scrollbar {...}
+   body::-webkit-scrollbar-track {...}
+   body::-webkit-scrollbar-thumb {...}
+*/
+
+/* ==================== 3) TRANSISI THEME BIAR CEPAT ==================== */
+/* Kurangi durasi supaya toggle terasa instan */
+html, body {
+  transition: background-color .18s ease, color .18s ease;
+}
+h1, h2, h3, h4 {
+  transition: color .18s ease;
+}
+
+/* Jika masih terasa delay, bisa nonaktifkan transisi total saat toggle:
+   tambahkan class .no-theme-transition di <html> tepat sebelum toggle,
+   lalu cabut lagi setelah ~120ms via JS. */
+html.no-theme-transition, html.no-theme-transition * {
+  transition: none !important;
+}
