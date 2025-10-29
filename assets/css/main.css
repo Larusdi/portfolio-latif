@@ -1059,18 +1059,7 @@ html[data-bs-theme="dark"] .blog__card-ios {
 }
 
 
-/* ==================== 3) CTA ("View More") ==================== */
-.services__button {
-  cursor: none;
-  font-size: var(--small-font-size);
-}
-
-.services__button:hover .button__icon {
-  transform: translateX(0.25rem);
-}
-
-
-/* ==================== 4) MODAL (overlay + content) ==================== */
+/* ==================== 3) MODAL (overlay + content) ==================== */
 .services__modal {
   position: fixed;
   inset: 0;
@@ -1150,14 +1139,14 @@ html[data-bs-theme="dark"] .blog__card-ios {
 }
 
 
-/* ==================== 5) THEME (Dark) ==================== */
+/* ==================== 4) THEME (Dark) ==================== */
 html[data-theme="dark"] .services__modal-content {
   background: rgba(20, 20, 20, 0.8);
   box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
 }
 
 
-/* ==================== 6) BREAKPOINTS ==================== */
+/* ==================== 5) BREAKPOINTS ==================== */
 @media screen and (max-width: 350px) {
   .services__container {
     grid-template-columns: max-content;
@@ -2332,5 +2321,6 @@ body.dark-theme .btn-premium__icon{ filter:none; }
 @media (prefers-reduced-motion: reduce){
   .btn-premium, .btn-premium::before, .btn-premium__icon{ transition:none !important; }
 }
+
 
 
