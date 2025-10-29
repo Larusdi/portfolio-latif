@@ -635,6 +635,43 @@ html.theme-transition, body.theme-transition{
 }
 
 
+/* ====== Efek interaktif pada blob image ====== */
+.home__img {
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.home__img.spin {
+  animation: blob-spin 1.2s cubic-bezier(0.25, 1, 0.3, 1);
+}
+
+@keyframes blob-spin {
+  0% {
+    transform: rotateY(0deg) scale(1);
+  }
+  40% {
+    transform: rotateY(180deg) scale(1.05);
+  }
+  100% {
+    transform: rotateY(360deg) scale(1);
+  }
+}
+
+.home__img,
+.home__img:focus,
+.home__img:active {
+  outline: none;
+  box-shadow: none;
+  filter: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-focus-ring-color: transparent;
+  user-select: none;
+  appearance: none;
+}
+
+
 
 /* =========================  ABOUT (MAIN) ========================= */
 /* ==================== 1) ABOUT CONTAINER & LAYOUT ==================== */
@@ -2321,6 +2358,7 @@ body.dark-theme .btn-premium__icon{ filter:none; }
 @media (prefers-reduced-motion: reduce){
   .btn-premium, .btn-premium::before, .btn-premium__icon{ transition:none !important; }
 }
+
 
 
 
