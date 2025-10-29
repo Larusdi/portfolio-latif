@@ -550,8 +550,7 @@ html.theme-transition, body.theme-transition{
   transform: translateY(0.25rem);
 }
 
-.home__scroll-mouse,
-.home__scroll-arrow {
+.home__scroll-mouse {
   width: 1.4rem;
   height: 1.4rem;
   object-fit: contain;
@@ -1242,6 +1241,8 @@ html[data-theme="dark"] .services__modal-content {
 
 
 
+
+
 /* =========================  PORTFOLIO (MAIN) ========================= */
 /* ==================== 1) CONTAINER & CONTENT ==================== */
 .portfolio__container {
@@ -1435,7 +1436,8 @@ body.light-mode { --desc-color: #000000; }
 
 
 /* =========================  TESTIMONIAL (MAIN) ========================= */
-/* ==================== 1) LAYOUT & ITEM ==================== */
+
+/* 1) LAYOUT & ITEM ==================== */
 .testimonial__data,
 .testimonial__header {
   display: flex;
@@ -1447,7 +1449,7 @@ body.light-mode { --desc-color: #000000; }
 }
 
 
-/* ==================== 2) CARD & CONTENT ==================== */
+/* 2) CARD & CONTENT ==================== */
 .testimonial__card {
   background: var(--container-color);
   padding: 1.5rem;
@@ -1469,7 +1471,7 @@ body.light-mode { --desc-color: #000000; }
 }
 
 
-/* ==================== 3) AVATAR, NAME, META, STARS, TEXT ==================== */
+/* 3) AVATAR, NAME, META, STARS, TEXT ==================== */
 .testimonial__img {
   width: 60px;
   height: 60px;
@@ -1521,7 +1523,7 @@ body.light-mode { --desc-color: #000000; }
 }
 
 
-/* ==================== 4) BREAKPOINTS ==================== */
+/* 4) BREAKPOINTS ==================== */
 @media screen and (max-width: 350px) {
   .testimonial__data,
   .testimonial__header {
@@ -1542,13 +1544,14 @@ body.light-mode { --desc-color: #000000; }
 
 
 /* =========================  CONTACT ( </MAIN> ) ========================= */
-/* ==================== 1) GRID & LAYOUT ==================== */
+
+/* 1) GRID & LAYOUT ==================== */
 .contact__container {
   row-gap: 3rem;
 }
 
 
-/* ==================== 2) CONTACT INFO (items & icons) ==================== */
+/* 2) CONTACT INFO (items & icons) ==================== */
 .contact__information {
   display: flex;
   margin-bottom: var(--mb-2);
@@ -1571,7 +1574,7 @@ body.light-mode { --desc-color: #000000; }
 }
 
 
-/* ==================== 3) FORM (inputs + base styles) ==================== */
+/* 3) FORM (inputs + base styles) ==================== */
 .contact__content {
   background-color: var(--input-color);
   border-radius: 0.5rem;
@@ -1595,7 +1598,7 @@ body.light-mode { --desc-color: #000000; }
 }
 
 
-/* ==================== 4) GLASS CARDS (info & form) ==================== */
+/* 4) GLASS CARDS (info & form) ==================== */
 .contact__info-glass,
 .contact__form-glass {
   background: rgba(255, 255, 255, 0.08);
@@ -1628,7 +1631,7 @@ html[data-theme="dark"] .contact__form-glass:hover {
 }
 
 
-/* ==================== 5) LINKS (hover) ==================== */
+/* 5) LINKS (hover) ==================== */
 .link-hover {
   color: var(--first-color);
   text-decoration: none;
@@ -1643,7 +1646,7 @@ html[data-theme="dark"] .contact__form-glass:hover {
 }
 
 
-/* ==================== 6) SOCIAL ICONS (per-network + animations) ==================== */
+/* 6) SOCIAL ICONS (per-network + animations) ==================== */
 .contact__icon {
   font-size: 1.5rem;
   transition: transform 0.3s ease, filter 0.3s ease, color 0.3s ease;
@@ -2358,8 +2361,3 @@ body.dark-theme .btn-premium__icon{ filter:none; }
 @media (prefers-reduced-motion: reduce){
   .btn-premium, .btn-premium::before, .btn-premium__icon{ transition:none !important; }
 }
-
-
-
-
-
