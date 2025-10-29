@@ -1889,11 +1889,12 @@ html[data-theme="dark"] .contact__information i.fa-linkedin-in { color: #33aaff;
 /* =========================  FOOTER ========================= */
 /* ==================== 1) BASE ==================== */
 .footer__bg {
-  background: linear-gradient(135deg, #000000);
+  background: linear-gradient(135deg, #000000, #111111);
   position: relative;
   overflow: hidden;
   padding: 2.5rem 1rem;
   text-align: center;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
 .footer__container {
@@ -1908,12 +1909,14 @@ html[data-theme="dark"] .contact__information i.fa-linkedin-in { color: #33aaff;
   font-size: 1.6rem;
   font-weight: 700;
   color: #ffffff;
+  transition: color 0.5s ease;
 }
 
 .footer__subtitle {
   font-size: 0.9rem;
   color: #ffffff;
   margin-top: 0.2rem;
+  transition: color 0.5s ease;
 }
 
 .footer__links,
@@ -1939,7 +1942,6 @@ html[data-theme="dark"] .contact__information i.fa-linkedin-in { color: #33aaff;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-
 /* ==================== 2) INTERACTIONS ==================== */
 .footer__link:hover {
   color: #ffd700;
@@ -1956,7 +1958,6 @@ html[data-theme="dark"] .contact__information i.fa-linkedin-in { color: #33aaff;
   background: linear-gradient(90deg, #ffcc00, #ff9900, #ff6600);
   transition: width 0.3s ease;
 }
-
 .footer__link:hover::after { width: 100%; }
 
 .footer__social:hover { transform: scale(1.2); }
@@ -1964,33 +1965,23 @@ html[data-theme="dark"] .contact__information i.fa-linkedin-in { color: #33aaff;
 .footer__social:hover i.fa-instagram {
   color: #e1306c;
   text-shadow: 0 0 4px #e1306c, 0 0 6px #ff99aa;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
 .footer__social:hover i.fa-github {
   color: #eaeaea;
   text-shadow: 0 0 2px #ccc, 0 0 4px #777;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
 .footer__social:hover i.fa-tiktok {
   color: #25f4ee;
   text-shadow: 0 0 6px #25f4ee, 0 0 10px #f00095;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
 .footer__social:hover i.fa-x-twitter {
   color: #121212;
   text-shadow: 0 0 4px #ffffff, 0 0 10px #121212;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
 .footer__social:hover i.fa-whatsapp {
   color: #25D366;
   text-shadow: 0 0 4px #25D366, 0 0 8px #128C7E;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
 
 /* ==================== 3) META ==================== */
 .footer__copy,
@@ -2000,6 +1991,7 @@ html[data-theme="dark"] .contact__information i.fa-linkedin-in { color: #33aaff;
   color: #ffffff;
   z-index: 2;
   position: relative;
+  transition: color 0.5s ease;
 }
 
 .footer__love span {
@@ -2013,7 +2005,6 @@ html[data-theme="dark"] .contact__information i.fa-linkedin-in { color: #33aaff;
   100% { transform: scale(1); }
 }
 
-
 /* ==================== 4) DEFAULT SOCIAL ICON COLORS ==================== */
 .footer__social i.fa-instagram { color: #e1306c; }
 .footer__social i.fa-github    { color: #ffffff; }
@@ -2021,19 +2012,32 @@ html[data-theme="dark"] .contact__information i.fa-linkedin-in { color: #33aaff;
 .footer__social i.fa-x-twitter { color: #ffffff; }
 .footer__social i.fa-whatsapp  { color: #25d366; }
 
-
-/* ==================== 5) CUSTOM SCROLLBAR ==================== */
-::-webkit-scrollbar {
-  width: 0.6rem;
-  background-color: var(--scroll-bar-color);
-  border-radius: 0.5rem;
+/* ==================== 5) THEME ADAPTIVE COLORS ==================== */
+/* Mode terang → footer hitam, teks putih */
+html[data-theme="light"] .footer__bg {
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  color: #ffffff;
 }
-::-webkit-scrollbar-thumb {
-  background-color: var(--scroll-thumb-color);
-  border-radius: 0.5rem;
+html[data-theme="light"] .footer__title,
+html[data-theme="light"] .footer__subtitle,
+html[data-theme="light"] .footer__link,
+html[data-theme="light"] .footer__copy,
+html[data-theme="light"] .footer__love {
+  color: #ffffff;
 }
-::-webkit-scrollbar-thumb:hover { background-color: var(--text-color-light); }
 
+/* Mode gelap → footer putih, teks hitam */
+html[data-theme="dark"] .footer__bg {
+  background: linear-gradient(135deg, #ffffff, #f7f7f7);
+  color: #000000;
+}
+html[data-theme="dark"] .footer__title,
+html[data-theme="dark"] .footer__subtitle,
+html[data-theme="dark"] .footer__link,
+html[data-theme="dark"] .footer__copy,
+html[data-theme="dark"] .footer__love {
+  color: #000000;
+}
 
 /* ==================== 6) BREAKPOINTS ==================== */
 @media screen and (max-width: 767px) {
@@ -2361,3 +2365,4 @@ body.dark-theme .btn-premium__icon{ filter:none; }
 @media (prefers-reduced-motion: reduce){
   .btn-premium, .btn-premium::before, .btn-premium__icon{ transition:none !important; }
 }
+
