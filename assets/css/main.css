@@ -1495,13 +1495,7 @@ body.light-mode { --desc-color: #000000; }
 }
 
 
-/* ==================== 4) SWIPER PAGINATION ==================== */
-.swiper-container .swiper-pagination-testimonial {
-  bottom: 0;
-}
-
-
-/* ==================== 5) BREAKPOINTS ==================== */
+/* ==================== 4) BREAKPOINTS ==================== */
 @media screen and (max-width: 350px) {
   .testimonial__data,
   .testimonial__header {
@@ -2339,3 +2333,4 @@ body.dark-theme .btn-premium__icon{ filter:none; }
 @media (prefers-reduced-motion: reduce){
   .btn-premium, .btn-premium::before, .btn-premium__icon{ transition:none !important; }
 }
+
