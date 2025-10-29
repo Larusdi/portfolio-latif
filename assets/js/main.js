@@ -281,3 +281,15 @@ let swiperBlog = new Swiper(".blog__container", {
     },
   },
 });
+
+/*==================== Profile Berputar ====================*/
+const blobImg = document.querySelector(".home__img");
+
+blobImg.addEventListener("click", () => {
+  blobImg.classList.add("spin");
+  blobImg.addEventListener(
+    "animationend",
+    () => blobImg.classList.remove("spin"),
+    { once: true }
+  );
+});
