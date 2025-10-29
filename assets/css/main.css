@@ -1860,8 +1860,7 @@ html[data-theme="dark"] .contact__information i.fa-linkedin-in { color: #33aaff;
 /* =========================  FOOTER ========================= */
 /* ==================== 1) BASE ==================== */
 .footer__bg {
-  background: linear-gradient(135deg, #1a1a1a, #3b2d00, #3b2d00);
-  color: #fff;
+  background: linear-gradient(135deg, #000000);
   position: relative;
   overflow: hidden;
   padding: 2.5rem 1rem;
@@ -1879,12 +1878,12 @@ html[data-theme="dark"] .contact__information i.fa-linkedin-in { color: #33aaff;
 .footer__title {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #ffd700;
+  color: #ffffff;
 }
 
 .footer__subtitle {
   font-size: 0.9rem;
-  color: #ddd;
+  color: #ffffff;
   margin-top: 0.2rem;
 }
 
@@ -1900,7 +1899,7 @@ html[data-theme="dark"] .contact__information i.fa-linkedin-in { color: #33aaff;
 .footer__link {
   position: relative;
   font-size: 0.9rem;
-  color: #fff;
+  color: #ffffff;
   font-weight: 500;
   transition: all 0.3s ease-in-out;
 }
@@ -1969,7 +1968,7 @@ html[data-theme="dark"] .contact__information i.fa-linkedin-in { color: #33aaff;
 .footer__love {
   font-size: 0.75rem;
   margin-top: 0.5rem;
-  color: #f0f0f0;
+  color: #ffffff;
   z-index: 2;
   position: relative;
 }
@@ -1990,7 +1989,7 @@ html[data-theme="dark"] .contact__information i.fa-linkedin-in { color: #33aaff;
 .footer__social i.fa-instagram { color: #e1306c; }
 .footer__social i.fa-github    { color: #ffffff; }
 .footer__social i.fa-tiktok    { color: #25f4ee; text-shadow: 0 0 3px #f00095; }
-.footer__social i.fa-x-twitter { color: #121212; }
+.footer__social i.fa-x-twitter { color: #ffffff; }
 .footer__social i.fa-whatsapp  { color: #25d366; }
 
 
@@ -2333,4 +2332,5 @@ body.dark-theme .btn-premium__icon{ filter:none; }
 @media (prefers-reduced-motion: reduce){
   .btn-premium, .btn-premium::before, .btn-premium__icon{ transition:none !important; }
 }
+
 
